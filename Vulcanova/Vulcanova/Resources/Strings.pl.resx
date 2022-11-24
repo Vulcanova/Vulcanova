@@ -234,4 +234,10 @@
     <data name="CommonCancel" xml:space="preserve">
         <value>Anuluj</value>
     </data>
+    <data name="NotesTabTitle" xml:space="preserve">
+        <value>Osiągnięcia i uwagi</value>
+    </data>
+    <data name="NoNotesLabel" xml:space="preserve">
+        <value>Brak uwag</value>
+    </data>
 </root>

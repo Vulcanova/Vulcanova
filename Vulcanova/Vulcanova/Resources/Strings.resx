@@ -234,4 +234,10 @@
     <data name="CommonCancel" xml:space="preserve">
         <value>Cancel</value>
     </data>
+    <data name="NotesTabTitle" xml:space="preserve">
+        <value>Notes</value>
+    </data>
+    <data name="NoNotesLabel" xml:space="preserve">
+        <value>No notes</value>
+    </data>
 </root>
