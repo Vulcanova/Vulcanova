@@ -50,7 +50,7 @@ public class NotesService : UonetResourceProvider, INotesService
             {
                 var onlineEntities = await FetchNotes(account, accountId);
 
-                await _notesRepository.UpdateNoteEntriesAsync(onlineEntities, account.Id);
+                await _notesRepository.UpdateNoteEntriesAsync(onlineEntities, account.Id, account.Pupil.Id);
 
                 SetJustSynced(resourceKey);
 

@@ -43,26 +43,34 @@ public class NotesViewModel : ViewModelBase
 
         GetNotesEntries.ToPropertyEx(this, vm => vm.Entries);
 
-        this.WhenAnyValue(vm => vm.PeriodInfo)
-            .WhereNotNull()
-            .Subscribe(_ => { CurrentPeriodEntries = SortNotesByPeriod(); });
+        // this.WhenAnyValue(vm => vm.PeriodInfo)
+        //     .WhereNotNull()
+        //     .Subscribe(_ => { CurrentPeriodEntries = SortNotesByPeriod(); });
 
         this.WhenAnyValue(vm => vm.Entries)
             .Subscribe(entries =>
             {
-                if (Entries == null) GetNotesEntries.Execute(false).SubscribeAndIgnoreErrors();
+                if (Entries == null)
+                {
+                    GetNotesEntries.Execute(false).SubscribeAndIgnoreErrors();
+                    return;
+                }
+
+                CurrentPeriodEntries = SortNotesByPeriod();
             });
 
         NextSemester = ReactiveCommand.CreateFromTask(async () =>
         {
             PeriodInfo =
                 await periodService.ChangePeriodAsync(accountContext.Account.Id, PeriodChangeDirection.Next);
+            CurrentPeriodEntries = SortNotesByPeriod();
         });
 
         PreviousSemester = ReactiveCommand.CreateFromTask(async () =>
         {
             PeriodInfo =
                 await periodService.ChangePeriodAsync(accountContext.Account.Id, PeriodChangeDirection.Previous);
+            CurrentPeriodEntries = SortNotesByPeriod();
         });
     }
 
