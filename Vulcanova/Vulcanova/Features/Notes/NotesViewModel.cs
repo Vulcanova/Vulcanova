@@ -51,7 +51,6 @@ public class NotesViewModel : ViewModelBase
             .Subscribe(entries =>
             {
                 if (Entries == null) GetNotesEntries.Execute(false).SubscribeAndIgnoreErrors();
-                ;
             });
 
         NextSemester = ReactiveCommand.CreateFromTask(async () =>
@@ -71,11 +70,11 @@ public class NotesViewModel : ViewModelBase
     public ReactiveCommand<Unit, Unit> NextSemester { get; }
     public ReactiveCommand<Unit, Unit> PreviousSemester { get; }
 
-    [ObservableAsProperty] public IReadOnlyCollection<Note> Entries { get; }
+    [ObservableAsProperty] private IReadOnlyCollection<Note> Entries { get; }
 
     [Reactive] public IReadOnlyCollection<Note> CurrentPeriodEntries { get; private set; }
     [Reactive] public PeriodResult PeriodInfo { get; private set; }
-    [Reactive] public AccountAwarePageTitleViewModel AccountViewModel { get; }
+    [Reactive] public AccountAwarePageTitleViewModel AccountViewModel { get; private set; }
 
     private ImmutableList<Note> SortNotesByPeriod()
     {
