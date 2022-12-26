@@ -7,6 +7,8 @@
                           xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
                           xmlns:accountPicker="clr-namespace:Vulcanova.Features.Auth.AccountPicker;assembly=Vulcanova"
                           xmlns:layout="clr-namespace:Vulcanova.Core.Layout;assembly=Vulcanova"
+                          xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                          ios:Page.UseSafeArea="True"
                           Title="{x:Static resx:Strings.NotesTabTitle}"
                           IconImageSource="{OnPlatform iOS=trophy-outline@3x.png, Android=ic_trophy_outline}"
                           x:Class="Vulcanova.Features.Notes.NotesView">
