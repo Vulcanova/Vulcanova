@@ -88,7 +88,7 @@ public class NotesViewModel : ViewModelBase
 
     [Reactive] public IReadOnlyCollection<Note> CurrentPeriodEntries { get; private set; }
     [Reactive] public PeriodResult PeriodInfo { get; private set; }
-    [Reactive] public AccountAwarePageTitleViewModel AccountViewModel { get; }
+    [Reactive] public AccountAwarePageTitleViewModel AccountViewModel { get; set; }
     [Reactive] public Note SelectedNote { get; set; }
 
     private ImmutableList<Note> SortNotesByPeriod()
