@@ -10,6 +10,7 @@ using ReactiveUI.Fody.Helpers;
 using Vulcanova.Core.Mvvm;
 using Vulcanova.Core.Rx;
 using Vulcanova.Features.Auth.AccountPicker;
+using Vulcanova.Features.Notes.NoteDetails;
 using Vulcanova.Features.Shared;
 
 namespace Vulcanova.Features.Notes;
@@ -43,9 +44,13 @@ public class NotesViewModel : ViewModelBase
 
         GetNotesEntries.ToPropertyEx(this, vm => vm.Entries);
 
-        // this.WhenAnyValue(vm => vm.PeriodInfo)
-        //     .WhereNotNull()
-        //     .Subscribe(_ => { CurrentPeriodEntries = SortNotesByPeriod(); });
+        ShowNoteDetails = ReactiveCommand.Create((int noteId) =>
+        {
+            SelectedNote = Entries?.First(n => n.Id == noteId);
+            navigationService.NavigateAsync(nameof(NoteDetailsView), (nameof(NoteDetailsView.Note), SelectedNote));
+
+            return Unit.Default;
+        });
 
         this.WhenAnyValue(vm => vm.Entries)
             .Subscribe(entries =>
@@ -75,6 +80,7 @@ public class NotesViewModel : ViewModelBase
     }
 
     public ReactiveCommand<bool, IReadOnlyCollection<Note>> GetNotesEntries { get; }
+    public ReactiveCommand<int, Unit> ShowNoteDetails { get; }
     public ReactiveCommand<Unit, Unit> NextSemester { get; }
     public ReactiveCommand<Unit, Unit> PreviousSemester { get; }
 
@@ -82,7 +88,8 @@ public class NotesViewModel : ViewModelBase
 
     [Reactive] public IReadOnlyCollection<Note> CurrentPeriodEntries { get; private set; }
     [Reactive] public PeriodResult PeriodInfo { get; private set; }
-    [Reactive] public AccountAwarePageTitleViewModel AccountViewModel { get; private set; }
+    [Reactive] public AccountAwarePageTitleViewModel AccountViewModel { get; }
+    [Reactive] public Note SelectedNote { get; set; }
 
     private ImmutableList<Note> SortNotesByPeriod()
     {

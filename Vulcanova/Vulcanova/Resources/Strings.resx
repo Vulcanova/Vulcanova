@@ -240,4 +240,19 @@
     <data name="NoNotesLabel" xml:space="preserve">
         <value>No notes</value>
     </data>
+    <data name="NotePositiveLabel" xml:space="preserve">
+        <value>Positive</value>
+    </data>
+    <data name="NotePointsLabel" xml:space="preserve">
+        <value>Points </value>
+    </data>
+    <data name="NoteCreatorLabel" xml:space="preserve">
+        <value>Created by</value>
+    </data>
+    <data name="NoteCreatedOnLabel" xml:space="preserve">
+        <value>Created by</value>
+    </data>
+    <data name="NoteCommentLabel" xml:space="preserve">
+        <value>Comment</value>
+    </data>
 </root>

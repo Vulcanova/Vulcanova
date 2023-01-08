@@ -582,6 +582,51 @@ namespace Vulcanova.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        internal static string NoteCommentLabel {
+            get {
+                return ResourceManager.GetString("NoteCommentLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created by.
+        /// </summary>
+        internal static string NoteCreatedOnLabel {
+            get {
+                return ResourceManager.GetString("NoteCreatedOnLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created by.
+        /// </summary>
+        internal static string NoteCreatorLabel {
+            get {
+                return ResourceManager.GetString("NoteCreatorLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Points .
+        /// </summary>
+        internal static string NotePointsLabel {
+            get {
+                return ResourceManager.GetString("NotePointsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Positive.
+        /// </summary>
+        internal static string NotePositiveLabel {
+            get {
+                return ResourceManager.GetString("NotePositiveLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notes.
         /// </summary>
         internal static string NotesTabTitle {
