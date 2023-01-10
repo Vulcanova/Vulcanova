@@ -3,7 +3,7 @@ using System.Globalization;
 using Vulcanova.Resources;
 using Xamarin.Forms;
 
-namespace Vulcanova.Core.Layout.Converters;
+namespace Vulcanova.Features.Notes.Converters;
 
 public class BooleanToPositiveNegativeConverter : IValueConverter
 {
