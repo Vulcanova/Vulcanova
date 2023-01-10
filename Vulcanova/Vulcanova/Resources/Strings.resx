@@ -255,4 +255,7 @@
     <data name="NoteCommentLabel" xml:space="preserve">
         <value>Comment</value>
     </data>
+    <data name="NoteNegativeLabel" xml:space="preserve">
+        <value>Negative</value>
+    </data>
 </root>

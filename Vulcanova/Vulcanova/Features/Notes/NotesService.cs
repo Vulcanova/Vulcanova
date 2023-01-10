@@ -80,6 +80,6 @@ public class NotesService : UonetResourceProvider, INotesService
 
     private static string GetNotesResourceKey(Account account)
     {
-        return $"Homeworks_{account.Id}_{account.Pupil.Id}";
+        return $"Notes_{account.Id}_{account.Pupil.Id}";
     }
 }

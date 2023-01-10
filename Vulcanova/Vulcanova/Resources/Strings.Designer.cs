@@ -609,6 +609,15 @@ namespace Vulcanova.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Negative.
+        /// </summary>
+        internal static string NoteNegativeLabel {
+            get {
+                return ResourceManager.GetString("NoteNegativeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Points .
         /// </summary>
         internal static string NotePointsLabel {

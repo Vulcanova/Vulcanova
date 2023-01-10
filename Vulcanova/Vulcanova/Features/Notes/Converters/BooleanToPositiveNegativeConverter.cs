@@ -5,11 +5,11 @@ using Xamarin.Forms;
 
 namespace Vulcanova.Core.Layout.Converters;
 
-public class BooleanToYesNoConverter : IValueConverter
+public class BooleanToPositiveNegativeConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        return (bool)value ? Strings.CommonYes : Strings.CommonNo;
+        return (bool)value ? Strings.NotePositiveLabel : Strings.NoteNegativeLabel;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
