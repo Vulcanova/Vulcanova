@@ -31,6 +31,8 @@ public class GradesSummaryViewModel : ViewModelBase
     [Reactive] public SubjectGrades CurrentSubject { get; private set; }
 
     [ObservableAsProperty] private IEnumerable<Grade> RawGrades { get; }
+    [Reactive] public decimal? PartialGradesAverage { get; private set; }
+
 
     public GradesSummaryViewModel(
         INavigationService navigationService,
@@ -38,6 +40,8 @@ public class GradesSummaryViewModel : ViewModelBase
         IGradesService gradesService,
         AppSettings settings) : base(navigationService)
     {
+        PartialGradesAverage = 5;
+        
         GetGrades = ReactiveCommand.CreateFromObservable((bool forceSync) =>
             gradesService
                 .GetPeriodGrades(accountContext.Account.Id, PeriodId!.Value, forceSync));
@@ -77,6 +81,14 @@ public class GradesSummaryViewModel : ViewModelBase
             {
                 var (grades, _) = values;
                 Grades = ToSubjectGrades(grades, settings.Modifiers);
+            });
+        
+        this.WhenAnyValue(vm => vm.RawGrades)
+            .WhereNotNull()
+            .CombineLatest(modifiersObservable)
+            .Subscribe(values =>
+            {
+                PartialGradesAverage = values.First.Average(settings.Modifiers);
             });
     }
 
