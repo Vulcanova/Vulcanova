@@ -39,9 +39,7 @@ public class GradesSummaryViewModel : ViewModelBase
         AccountContext accountContext,
         IGradesService gradesService,
         AppSettings settings) : base(navigationService)
-    {
-        PartialGradesAverage = 5;
-        
+    {       
         GetGrades = ReactiveCommand.CreateFromObservable((bool forceSync) =>
             gradesService
                 .GetPeriodGrades(accountContext.Account.Id, PeriodId!.Value, forceSync));
