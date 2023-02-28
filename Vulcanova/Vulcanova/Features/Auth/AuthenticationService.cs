@@ -6,6 +6,7 @@ using Vulcanova.Core.Uonet;
 using Vulcanova.Features.Auth.Accounts;
 using Vulcanova.Uonet;
 using Vulcanova.Uonet.Api.Auth;
+using Xamarin.Essentials;
 
 namespace Vulcanova.Features.Auth;
 
