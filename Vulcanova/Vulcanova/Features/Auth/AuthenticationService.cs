@@ -28,10 +28,12 @@ public class AuthenticationService : IAuthenticationService
 
         var x509Certificate2 = identity.Certificate;
 
+        var device = $"Vulcanova - {DeviceInfo.Name}";
+
         var request = new RegisterClientRequest
         {
             OS = Constants.AppOs,
-            DeviceModel = Constants.DeviceModel,
+            DeviceModel = device,
             Certificate = Convert.ToBase64String(x509Certificate2.RawData),
             CertificateType = "X509",
             CertificateThumbprint = x509Certificate2.Thumbprint,
