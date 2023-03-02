@@ -29,7 +29,7 @@ public class AuthenticationService : IAuthenticationService
 
         var x509Certificate2 = identity.Certificate;
 
-        var device = $"Vulcanova - {DeviceInfo.Name}";
+        var device = $"Vulcanova – {DeviceInfo.Name}";
 
         var request = new RegisterClientRequest
         {

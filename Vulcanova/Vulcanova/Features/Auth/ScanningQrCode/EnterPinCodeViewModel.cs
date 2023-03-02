@@ -35,7 +35,7 @@ public class EnterPinCodeViewModel : ViewModelBase, INavigatedAware, IValidatabl
             pin => !string.IsNullOrEmpty(pin),
             "PIN code cannot be empty");
 
-        RegisterDevice = ReactiveCommand.CreateFromTask(_ => RegisterDeviceAsync(_token?.ToUpper(), Pin, _instanceUrl),
+        RegisterDevice = ReactiveCommand.CreateFromTask(_ => RegisterDeviceAsync(_token, Pin, _instanceUrl),
             ValidationContext.Valid);
     }
 

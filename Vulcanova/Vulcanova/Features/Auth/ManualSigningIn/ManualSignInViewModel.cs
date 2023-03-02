@@ -54,7 +54,7 @@ public class ManualSignInViewModel : ViewModelBase, IValidatableViewModel
             pin => !string.IsNullOrWhiteSpace(pin),
             "PIN cannot be empty");
 
-        AddDevice = ReactiveCommand.CreateFromTask(_ => AddDeviceAsync(Token?.ToUpper(), Symbol, Pin),
+        AddDevice = ReactiveCommand.CreateFromTask(_ => AddDeviceAsync(Token, Symbol, Pin),
             ValidationContext.Valid);
     }
 
