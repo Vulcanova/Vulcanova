@@ -295,6 +295,6 @@
         <value>Negatywna</value>
     </data>
     <data name="PartialGradesAverage" xml:space="preserve">
-        <value>Średnia ocen szczątkowych</value>
+        <value>Średnia ocen częściowych</value>
     </data>
 </root>
