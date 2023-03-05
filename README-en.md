@@ -5,20 +5,26 @@
 
 An unofficial Vulcan UONET+ mobile cross-platform register client made in Xamarin. Currently, in heavy development.
 
-## What works:
-- lucky number
-- grades
-- timetable
-- attendance
-- exams
-- homework
-- absence justification
-- notes (points)
-- messages
-
-## What's planned:
+## What works?
+- Lucky number
+- Grades
+- Timetable
+- Frequency
+- Exams
+- Homework
+- Excusing absences
+- Notes
+- Messages
 - dashboard
-- …and more :)
+
+
+## What is planned?
+- [ ] History of lucky numbers
+- [ ] Grades simulator
+- [ ] Grades sorting
+- [ ] Attendance as a percentage
+- [ ] Sync appointments with iCloud calendar
+- …and a lot more :)
 
 ## Credits
 * [kapi2289/vulcan-api](https://github.com/kapi2289/vulcan-api/)
