@@ -10,16 +10,16 @@ Nieoficjalny, międzyplatformowy, mobilny klient dziennika Vulcan UONET+ tworzon
 <img src="https://user-images.githubusercontent.com/12448522/184552619-ce6ca5b6-e892-4567-a4f7-fcd9465e9048.png" alt="iOS simulator showing Grades page of the app" width="250">
 
 ## Co działa?
-- [x] Szczęśliwy numerek
-- [x] Oceny
-- [x] Plan lekcji
-- [x] Frekwencja
-- [x] Sprawdziany
-- [x] Zadania domowe
-- [x] Usprawiedliwianie nieobecności
-- [x] Uwagi
-- [x] Wiadomości
-- [x] Dashboard
+- Szczęśliwy numerek
+- Oceny
+- Plan lekcji
+- Frekwencja
+- Sprawdziany
+- Zadania domowe
+- Usprawiedliwianie nieobecności
+- Uwagi
+- Wiadomości
+- Dashboard
 
 
 ## Co jest planowane?
