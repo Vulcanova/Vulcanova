@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Linq;
 using Vulcanova.Core.Layout;
 using Vulcanova.Uonet.Api.Schedule;
 using Xamarin.Forms;
@@ -10,7 +11,20 @@ public class TimetableChangeColorConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        var value = values[0];
+        var value = values.FirstOrDefault();
+        
+        if (value is TimetableListEntry)
+        {
+            var entry = (TimetableListEntry)values.FirstOrDefault();
+            var nowDate = DateTime.Now;
+            var lessonDate = entry.Date;
+            var startDate = entry.Start;
+            var endDate = entry.End;
+            if(nowDate.Date == lessonDate.Date && startDate.TimeOfDay < nowDate.TimeOfDay && nowDate.TimeOfDay < endDate.TimeOfDay)
+                return ThemeUtility.GetThemedColorByResourceKey("PrimaryColor");
+            
+            value = entry.Change;
+        }
 
         if (value is TimetableListEntry.ChangeDetails change)
         {
