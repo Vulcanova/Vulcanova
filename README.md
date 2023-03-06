@@ -21,15 +21,6 @@ Nieoficjalny, międzyplatformowy, mobilny klient dziennika Vulcan UONET+ tworzon
 - Wiadomości
 - Dashboard
 
-
-## Co jest planowane?
-- [ ] Historia szcześliwych numerków
-- [ ] Symulator ocen
-- [ ] Opcje sortowania ocen
-- [ ] Frekwencja w postaci procentowej
-- [ ] Synchronizacja terminów z kalendarzem iCloud
-- …i wiele więcej :)
-
 ## Wykorzystane projekty
 * [kapi2289/vulcan-api](https://github.com/kapi2289/vulcan-api/)
 * [wulkanowy/qr](https://github.com/wulkanowy/qr)
