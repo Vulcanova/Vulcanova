@@ -17,15 +17,6 @@ An unofficial Vulcan UONET+ mobile cross-platform register client made in Xamari
 - Messages
 - dashboard
 
-
-## What is planned?
-- [ ] History of lucky numbers
-- [ ] Grades simulator
-- [ ] Grades sorting
-- [ ] Attendance as a percentage
-- [ ] Sync appointments with iCloud calendar
-- …and a lot more :)
-
 ## Credits
 * [kapi2289/vulcan-api](https://github.com/kapi2289/vulcan-api/)
 * [wulkanowy/qr](https://github.com/wulkanowy/qr)
