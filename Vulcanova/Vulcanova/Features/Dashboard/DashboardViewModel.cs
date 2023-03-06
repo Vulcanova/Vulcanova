@@ -148,7 +148,7 @@ namespace Vulcanova.Features.Dashboard
                     var lastDate = SelectedDay.AddDays(7);
 
                     CurrentWeekHomework = Array.AsReadOnly(entries
-                        .Where(e => e.Deadline >= firstDate && e.Deadline < lastDate)
+                        .Where(e => e.Deadline.Date >= firstDate.Date && lastDate.Date >= e.Deadline.Date)
                         .ToArray());
                 });
             

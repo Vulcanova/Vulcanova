@@ -279,16 +279,16 @@
                                             </Grid.ColumnDefinitions>
                                             
                                             <Label 
-                                                Text="{Binding .Subject.Name, StringFormat='{0},'}"
+                                                Text="{Binding .Subject.Name, StringFormat='{0} –'}"
                                                 Style="{StaticResource SmallLabelStyle}"
                                                 LineBreakMode="TailTruncation"
                                                 VerticalTextAlignment="Center"/>
-                                            <Label Grid.Column="1" 
-                                                Text="{Binding  Content}"
-                                                TextColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}"
-                                                Style="{StaticResource SmallLabelStyle}"
-                                                LineBreakMode="TailTruncation"
-                                                VerticalTextAlignment="Center"/>
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding  Type}"
+                                                   TextColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}"
+                                                   Style="{StaticResource SmallLabelStyle}"
+                                                   LineBreakMode="TailTruncation"
+                                                   VerticalTextAlignment="Center"/>
                                             <StackLayout Grid.Column="2" Spacing="0" VerticalOptions="Center" Orientation="Horizontal">
                                                     <Label 
                                                         Text="{Binding Deadline, StringFormat='{0:dd.MM}'}"
@@ -335,7 +335,7 @@
                                             </Grid.ColumnDefinitions>
                                             
                                             <Label 
-                                                Text="{Binding .Subject.Name, StringFormat='{0},'}"
+                                                Text="{Binding .Subject.Name, StringFormat='{0} –'}"
                                                 Style="{StaticResource SmallLabelStyle}"
                                                 LineBreakMode="TailTruncation"
                                                 VerticalTextAlignment="Center"/>
