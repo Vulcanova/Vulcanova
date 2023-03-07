@@ -1,5 +1,6 @@
 ﻿using System.Reactive.Disposables;
 using ReactiveUI;
+using Vulcanova.Core.Rx;
 using Vulcanova.Resources;
 using Xamarin.Forms.Xaml;
 
@@ -31,6 +32,9 @@ public partial class DashboardView
             this.OneWayBind(ViewModel, vm => vm.CurrentWeekGrades, v => v.GradesCollection.BindingContext)
                 .DisposeWith(disposable);
             this.OneWayBind(ViewModel, vm => vm.AccountViewModel, v => v.TitleView.ViewModel)
+                .DisposeWith(disposable);
+            
+            this.BindForceRefresh(RefreshView, v => v.ViewModel.RefreshData)
                 .DisposeWith(disposable);
         });
     }

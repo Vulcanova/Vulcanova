@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Prism.Navigation;
@@ -21,6 +22,7 @@ namespace Vulcanova.Features.Dashboard
 {
     public class DashboardViewModel : ViewModelBase
     {
+        public ReactiveCommand<bool, Unit> RefreshData { get; }
         public ReactiveCommand<bool, IEnumerable<Grade>> GetGrades { get; }
         public ReactiveCommand<bool, IReadOnlyCollection<Homework.Homework>> GetHomework { get; }
         public ReactiveCommand<bool, ImmutableArray<Exam>> GetExams { get; }
@@ -100,6 +102,15 @@ namespace Vulcanova.Features.Dashboard
             });
 
             GetHomework.ToPropertyEx(this, vm => vm.HomeworkEntries);
+            
+            RefreshData = ReactiveCommand.CreateFromTask(async (bool forceRefresh) =>
+            {
+                await GetLuckyNumber.Execute(accountContext.Account.Id).LastOrDefaultAsync();
+                await GetTimetable.Execute(forceRefresh).LastOrDefaultAsync();
+                await GetExams.Execute(forceRefresh).LastOrDefaultAsync();
+                await GetGrades.Execute(forceRefresh).LastOrDefaultAsync();
+                await GetHomework.Execute(forceRefresh).LastOrDefaultAsync();
+            });
             
             this.WhenAnyValue(vm => vm.SelectedDay)
                 .WhereNotNull()
