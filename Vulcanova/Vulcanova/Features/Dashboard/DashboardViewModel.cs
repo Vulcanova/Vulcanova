@@ -130,10 +130,8 @@ namespace Vulcanova.Features.Dashboard
                 {
                     var (entries, selectedDay) = tuple;
 
-                    var firstDate = SelectedDay;
-                    var lastDate = SelectedDay.AddDays(7);
-
-                    CurrentWeekExams = entries.Where(e => e.Deadline >= firstDate && e.Deadline < lastDate)
+                    CurrentWeekExams = entries
+                        .OrderBy(e => e.Deadline)
                         .ToImmutableList();
                 });
             
@@ -148,7 +146,8 @@ namespace Vulcanova.Features.Dashboard
                     var lastDate = SelectedDay.AddDays(7);
 
                     CurrentWeekHomework = Array.AsReadOnly(entries
-                        .Where(e => e.Deadline.Date >= firstDate.Date && lastDate.Date >= e.Deadline.Date)
+                        .Where(h => h.Deadline.Date >= firstDate.Date && lastDate.Date >= h.Deadline.Date)
+                        .OrderBy(h => h.Deadline)
                         .ToArray());
                 });
             
