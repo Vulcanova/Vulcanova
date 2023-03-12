@@ -22,29 +22,28 @@ namespace Vulcanova.Features.Dashboard
 {
     public class DashboardViewModel : ViewModelBase
     {
-        public ReactiveCommand<bool, Unit> RefreshData { get; }
-        public ReactiveCommand<bool, IEnumerable<Grade>> GetGrades { get; }
-        public ReactiveCommand<bool, IReadOnlyCollection<Homework.Homework>> GetHomework { get; }
-        public ReactiveCommand<bool, ImmutableArray<Exam>> GetExams { get; }
-        public ReactiveCommand<int, LuckyNumber.LuckyNumber> GetLuckyNumber { get; }
-        public ReactiveCommand<bool, IReadOnlyDictionary<DateTime, IEnumerable<TimetableListEntry>>> GetTimetable { get; set; }
+        public ReactiveCommand<bool, Unit> RefreshData { get; private set; }
+        private ReactiveCommand<bool, IEnumerable<Grade>> GetGrades { get; }
+        private ReactiveCommand<bool, IReadOnlyCollection<Homework.Homework>> GetHomework { get; }
+        private ReactiveCommand<bool, ImmutableArray<Exam>> GetExams { get; }
+        private ReactiveCommand<int, LuckyNumber.LuckyNumber> GetLuckyNumber { get; }
+        private ReactiveCommand<bool, IReadOnlyDictionary<DateTime, IEnumerable<TimetableListEntry>>> GetTimetable { get; set; }
         
         private readonly ITimetableService _timetableService;
         private readonly ITimetableChangesService _timetableChangesService;
 
-        [ObservableAsProperty] public LuckyNumber.LuckyNumber LuckyNumber { get; }
-        [ObservableAsProperty] public IReadOnlyDictionary<DateTime, IEnumerable<TimetableListEntry>> TimatableEntries { get; }
-        [ObservableAsProperty] public ImmutableArray<Exam> ExamsEntries { get; }
-        [ObservableAsProperty] public IReadOnlyCollection<Homework.Homework> HomeworkEntries { get; }
+        [ObservableAsProperty] public LuckyNumber.LuckyNumber LuckyNumber { get; private set; }
+        [ObservableAsProperty] private IReadOnlyDictionary<DateTime, IEnumerable<TimetableListEntry>> TimatableEntries { get; }
+        [ObservableAsProperty] private ImmutableArray<Exam> ExamsEntries { get; }
+        [ObservableAsProperty] private IReadOnlyCollection<Homework.Homework> HomeworkEntries { get; }
         [ObservableAsProperty] private IEnumerable<Grade> RawGrades { get; }
 
-        [Reactive] public AccountAwarePageTitleViewModel AccountViewModel { get; private set; }
+        [Reactive] public AccountAwarePageTitleViewModel AccountViewModel { get; set; }
         [Reactive] public IEnumerable<TimetableListEntry> CurrentDayTimetable { get; private set; }
         [Reactive] public IReadOnlyCollection<Exam> CurrentWeekExams { get; private set; }
         [Reactive] public IReadOnlyCollection<Homework.Homework> CurrentWeekHomework { get; private set; }
         [Reactive] public IEnumerable<Grade> CurrentWeekGrades { get; private set; }
-        [Reactive] public DateTime SelectedDay { get; set; } = DateTime.Now;
-        [Reactive] public string SelectedDayLabel { get; set; }
+        [Reactive] public DateTime SelectedDay { get; private set; } = DateTime.Now;
 
         private readonly IExamsService _examsService;
         private readonly ILuckyNumberService _luckyNumberService;
@@ -105,19 +104,12 @@ namespace Vulcanova.Features.Dashboard
             
             RefreshData = ReactiveCommand.CreateFromTask(async (bool forceRefresh) =>
             {
-                await GetLuckyNumber.Execute(accountContext.Account.Id).LastOrDefaultAsync();
-                await GetTimetable.Execute(forceRefresh).LastOrDefaultAsync();
-                await GetExams.Execute(forceRefresh).LastOrDefaultAsync();
-                await GetGrades.Execute(forceRefresh).LastOrDefaultAsync();
-                await GetHomework.Execute(forceRefresh).LastOrDefaultAsync();
+                await GetLuckyNumber.Execute(accountContext.Account.Id);
+                await GetTimetable.Execute(forceRefresh);
+                await GetExams.Execute(forceRefresh);
+                await GetGrades.Execute(forceRefresh);
+                await GetHomework.Execute(forceRefresh);
             });
-            
-            this.WhenAnyValue(vm => vm.SelectedDay)
-                .WhereNotNull()
-                .Subscribe(value =>
-                {
-                    SelectedDayLabel = value.ToString("ddd, dd MMMM");
-                });
 
             this.WhenAnyValue(vm => vm.TimatableEntries)
                 .CombineLatest(this.WhenAnyValue(vm => vm.SelectedDay.Date))
@@ -169,40 +161,17 @@ namespace Vulcanova.Features.Dashboard
                 {
                     var (grades, _) = values;
                     
-                    var currentWeekGrades = 
+                    CurrentWeekGrades = 
                         grades.Where(grade => 
-                            (
-                                (grade.DateCreated > SelectedDay.AddDays(-7) && grade.DateCreated <= SelectedDay) || 
-                                (grade.DateModify > SelectedDay.AddDays(-7) && grade.DateModify <= SelectedDay)
-                            )).ToList();
-
-                    CurrentWeekGrades = currentWeekGrades.OrderByDescending(g => g.DateModify).ToList();
+                            (grade.DateCreated > SelectedDay.AddDays(-7) && grade.DateCreated <= SelectedDay) || 
+                            (grade.DateModify > SelectedDay.AddDays(-7) && grade.DateModify <= SelectedDay))
+                            .OrderByDescending(g => g.DateModify).ToList();
                 });
 
             accountContext.WhenAnyValue(ctx => ctx.Account)
                 .WhereNotNull()
                 .Select(_ => false)
-                .InvokeCommand(GetTimetable);
-            
-            accountContext.WhenAnyValue(ctx => ctx.Account)
-                .WhereNotNull()
-                .Select(_ => false)
-                .InvokeCommand(GetExams);
-            
-            accountContext.WhenAnyValue(ctx => ctx.Account)
-                .WhereNotNull()
-                .Select(_ => false)
-                .InvokeCommand(GetHomework);
-            
-            accountContext.WhenAnyValue(ctx => ctx.Account)
-                .WhereNotNull()
-                .Select(_ => false)
-                .InvokeCommand(GetGrades);
-
-            accountContext.WhenAnyValue(ctx => ctx.Account)
-                .WhereNotNull()
-                .Select(acc => acc.Id)
-                .InvokeCommand(GetLuckyNumber);
+                .InvokeCommand(RefreshData);
         }
         
         private async Task<LuckyNumber.LuckyNumber> GetLuckyNumberAsync(int accountId)

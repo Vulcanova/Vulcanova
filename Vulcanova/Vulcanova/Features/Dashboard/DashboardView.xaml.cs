@@ -21,7 +21,7 @@ public partial class DashboardView
                     l => l?.Number != 0 ? l?.Number.ToString() : Strings.NoLuckyNumberShort)
                 .DisposeWith(disposable);
             
-            this.OneWayBind(ViewModel, vm => vm.SelectedDayLabel, v =>  v.DateAndTime.Text)
+            this.OneWayBind(ViewModel, vm => vm.SelectedDay, v => v.DateAndTime.Text, date => date.ToString("ddd, dd MMMM"))
                 .DisposeWith(disposable);
             this.OneWayBind(ViewModel, vm => vm.CurrentDayTimetable, v => v.TimetableCollection.BindingContext)
                 .DisposeWith(disposable);
