@@ -14,7 +14,7 @@
         <Style TargetType="Label">
             <Setter Property="TextColor">
                 <MultiBinding Converter="{StaticResource ColorConverter}">
-                    <Binding Path="Entry" />
+                    <Binding Path="Entry.Change" />
                     <layout:AppThemeBindingInMultiBinding Light="0" Dark="1" />
                 </MultiBinding>
             </Setter>
