@@ -107,7 +107,7 @@
                                                        VerticalTextAlignment="Center">
                                                     <Label.TextColor>
                                                         <MultiBinding Converter="{StaticResource ColorConverter}">
-                                                            <Binding Path="." />
+                                                            <Binding Path="Change" />
                                                             <layout:AppThemeBindingInMultiBinding Light="0" Dark="1" />
                                                         </MultiBinding>
                                                     </Label.TextColor>
@@ -125,7 +125,7 @@
                                                            VerticalTextAlignment="Center">
                                                         <Label.TextColor>
                                                                 <MultiBinding Converter="{StaticResource ColorConverter}">
-                                                                    <Binding Path="." />
+                                                                    <Binding Path="Change" />
                                                                     <layout:AppThemeBindingInMultiBinding Light="0" Dark="1" />
                                                                 </MultiBinding>
                                                         </Label.TextColor>
@@ -138,7 +138,7 @@
                                                         VerticalTextAlignment="Center">
                                                         <Label.TextColor>
                                                             <MultiBinding Converter="{StaticResource ColorConverter}">
-                                                                <Binding Path="." />
+                                                                <Binding Path="Change" />
                                                                 <layout:AppThemeBindingInMultiBinding Light="0" Dark="1" />
                                                             </MultiBinding>
                                                         </Label.TextColor>
@@ -157,7 +157,7 @@
                                                             VerticalTextAlignment="Center">
                                                             <Label.TextColor>
                                                                 <MultiBinding Converter="{StaticResource ColorConverter}">
-                                                                    <Binding Path="."/>
+                                                                    <Binding Path="Change" />
                                                                     <layout:AppThemeBindingInMultiBinding Light="0" Dark="1" />
                                                                 </MultiBinding>
                                                             </Label.TextColor>
@@ -168,7 +168,7 @@
                                                             VerticalTextAlignment="Center">
                                                             <Label.TextColor>
                                                                 <MultiBinding Converter="{StaticResource ColorConverter}">
-                                                                    <Binding Path="." />
+                                                                    <Binding Path="Change" />
                                                                     <layout:AppThemeBindingInMultiBinding Light="0" Dark="1" />
                                                                 </MultiBinding>
                                                             </Label.TextColor>
@@ -179,7 +179,7 @@
                                                             VerticalTextAlignment="Center">
                                                             <Label.TextColor>
                                                                 <MultiBinding Converter="{StaticResource ColorConverter}">
-                                                                    <Binding Path="." />
+                                                                    <Binding Path="Change" />
                                                                     <layout:AppThemeBindingInMultiBinding Light="0" Dark="1" />
                                                                 </MultiBinding>
                                                             </Label.TextColor>
