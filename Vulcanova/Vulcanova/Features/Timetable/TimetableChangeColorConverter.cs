@@ -11,7 +11,7 @@ public class TimetableChangeColorConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        var value = values.FirstOrDefault();
+        var value = values[0];
 
         if (value is TimetableListEntry.ChangeDetails change)
         {

@@ -104,11 +104,11 @@ namespace Vulcanova.Features.Dashboard
             
             RefreshData = ReactiveCommand.CreateFromTask(async (bool forceRefresh) =>
             {
-                await GetLuckyNumber.Execute(accountContext.Account.Id);
-                await GetTimetable.Execute(forceRefresh);
-                await GetExams.Execute(forceRefresh);
-                await GetGrades.Execute(forceRefresh);
-                await GetHomework.Execute(forceRefresh);
+                GetLuckyNumber.Execute(accountContext.Account.Id).Subscribe();
+                GetTimetable.Execute(forceRefresh).Subscribe();
+                GetExams.Execute(forceRefresh).Subscribe();
+                GetGrades.Execute(forceRefresh).Subscribe();
+                GetHomework.Execute(forceRefresh).Subscribe();
             });
 
             this.WhenAnyValue(vm => vm.TimatableEntries)
