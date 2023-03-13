@@ -5,16 +5,16 @@
 
 An unofficial Vulcan UONET+ mobile cross-platform register client made in Xamarin. Currently, in heavy development.
 
-## What works?
-- Lucky number
-- Grades
-- Timetable
-- Frequency
-- Exams
-- Homework
-- Excusing absences
-- Notes
-- Messages
+## What works:
+- lucky number
+- grades
+- timetable
+- attendance
+- exams
+- homework
+- absence justification
+- notes (points)
+- messages
 - dashboard
 
 ## Credits
