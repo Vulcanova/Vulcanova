@@ -12,16 +12,17 @@
                               xmlns:grades="clr-namespace:Vulcanova.Features.Grades;assembly=Vulcanova"
                               xmlns:layout="clr-namespace:Vulcanova.Core.Layout;assembly=Vulcanova"
                               x:Class="Vulcanova.Features.Dashboard.DashboardView">
-    <ContentView.Resources>
+    <ContentPage.Resources>
         <timetable:TimetableChangeColorConverter x:Key="ColorConverter" />
         <timetable:TimetableChangeTextDecorationsConverter x:Key="TextDecorationsConverter" />
-    </ContentView.Resources>
+    </ContentPage.Resources>
     <NavigationPage.TitleView>
         <accountPicker:AccountAwarePageTitleView x:Name="TitleView" />
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <RefreshView x:Name="RefreshView">
-            <ScrollView>
+            <ScrollView 
+                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkDashboardBackgroundColor}, Light={StaticResource LightDashboardBackgroundColor}}">
                 <StackLayout
                     Padding="10"
                     Spacing="10"

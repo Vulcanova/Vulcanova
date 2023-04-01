@@ -16,24 +16,24 @@ public partial class DashboardView
         this.WhenActivated(disposable =>
         {
             this.OneWayBind(ViewModel, 
-                    vm => vm.LuckyNumber, 
+                    vm => vm.DashboardModel.LuckyNumber, 
                     v => v.LuckyNumberLabel.Text,
                     l => l?.Number != 0 ? l?.Number.ToString() : Strings.NoLuckyNumberShort)
                 .DisposeWith(disposable);
             
             this.OneWayBind(ViewModel, vm => vm.SelectedDay, v => v.DateAndTime.Text, date => date.ToString("ddd, dd MMMM"))
                 .DisposeWith(disposable);
-            this.OneWayBind(ViewModel, vm => vm.CurrentDayTimetable, v => v.TimetableCollection.BindingContext)
+            this.OneWayBind(ViewModel, vm => vm.DashboardModel.Timetable, v => v.TimetableCollection.BindingContext)
                 .DisposeWith(disposable);
-            this.OneWayBind(ViewModel, vm => vm.CurrentWeekExams, v => v.ExamsCollection.BindingContext)
+            this.OneWayBind(ViewModel, vm => vm.DashboardModel.Exams, v => v.ExamsCollection.BindingContext)
                 .DisposeWith(disposable);
-            this.OneWayBind(ViewModel, vm => vm.CurrentWeekHomework, v => v.HomeworkCollection.BindingContext)
+            this.OneWayBind(ViewModel, vm => vm.DashboardModel.Homework, v => v.HomeworkCollection.BindingContext)
                 .DisposeWith(disposable);
-            this.OneWayBind(ViewModel, vm => vm.CurrentWeekGrades, v => v.GradesCollection.BindingContext)
+            this.OneWayBind(ViewModel, vm => vm.DashboardModel.Grades, v => v.GradesCollection.BindingContext)
                 .DisposeWith(disposable);
             this.OneWayBind(ViewModel, vm => vm.AccountViewModel, v => v.TitleView.ViewModel)
                 .DisposeWith(disposable);
-            
+
             this.BindForceRefresh(RefreshView, v => v.ViewModel.RefreshData)
                 .DisposeWith(disposable);
         });
