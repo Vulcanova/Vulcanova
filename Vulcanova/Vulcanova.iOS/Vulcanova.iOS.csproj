@@ -104,6 +104,7 @@
         <Compile Include="SheetPopper.cs"/>
         <Compile Include="SvgTabbedPageRenderer.cs"/>
         <Compile Include="UiHelper.cs"/>
+        <Compile Include="WidgetProxy.cs"/>
         <None Include="Entitlements.plist"/>
         <None Include="Info.plist"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
@@ -199,4 +200,11 @@
         <Content Include=".gitignore"/>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets"/>
+    <ItemGroup>
+        <AdditionalAppExtensions Include="$(MSBuildProjectDirectory)/../../NativeCompanion">
+            <Name>NativeWidgetExtension</Name>
+            <BuildOutput Condition="'$(ComputedPlatform)' == 'iPhone'">DerivedData/NativeCompanion/Build/Products/Debug-iphoneos</BuildOutput>
+            <BuildOutput Condition="'$(ComputedPlatform)' == 'iPhoneSimulator'">DerivedData/NativeCompanion/Build/Products/Debug-iphonesimulator</BuildOutput>
+        </AdditionalAppExtensions>
+    </ItemGroup>
 </Project>

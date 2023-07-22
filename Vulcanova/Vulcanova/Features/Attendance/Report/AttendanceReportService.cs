@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using ReactiveUI;
+using Vulcanova.Core.Native;
 using Vulcanova.Features.Auth;
 using Vulcanova.Features.Shared;
 
@@ -12,15 +13,18 @@ public class AttendanceReportService : IAttendanceReportService
     private readonly ILessonsRepository _lessonsRepository;
     private readonly IAccountRepository _accountRepository;
     private readonly IAttendanceReportRepository _attendanceReportRepository;
+    private readonly INativeWidgetProxy _nativeWidgetProxy;
 
     public AttendanceReportService(
         ILessonsRepository lessonsRepository,
         IAccountRepository accountRepository,
-        IAttendanceReportRepository attendanceReportRepository)
+        IAttendanceReportRepository attendanceReportRepository,
+        INativeWidgetProxy nativeWidgetProxy = null)
     {
         _lessonsRepository = lessonsRepository;
         _accountRepository = accountRepository;
         _attendanceReportRepository = attendanceReportRepository;
+        _nativeWidgetProxy = nativeWidgetProxy;
     }
 
     public async Task InvalidateReportsAsync(int accountId)
@@ -54,6 +58,9 @@ public class AttendanceReportService : IAttendanceReportService
         });
 
         await _attendanceReportRepository.UpdateAttendanceReportsAsync(accountId, reports.ToArray());
+
+        _nativeWidgetProxy?.UpdateWidgetState(INativeWidgetProxy.NativeWidget.AttendanceStats,
+            new { Percentage = reports.FirstOrDefault()?.PresencePercentage ?? 77.77 });
 
         MessageBus.Current.SendMessage(new AttendanceReportUpdatedEvent());
     }
