@@ -1,4 +1,4 @@
-namespace Vulcanova.Core.Native;
+namespace Vulcanova.Core.NativeWidgets;
 
 public interface INativeWidgetProxy
 {

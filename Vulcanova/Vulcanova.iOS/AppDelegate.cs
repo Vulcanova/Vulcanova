@@ -7,7 +7,7 @@ using Prism;
 using Prism.Ioc;
 using UIKit;
 using Vulcanova.Core.Layout;
-using Vulcanova.Core.Native;
+using Vulcanova.Core.NativeWidgets;
 
 namespace Vulcanova.iOS
 {

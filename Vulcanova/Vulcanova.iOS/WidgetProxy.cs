@@ -1,10 +1,9 @@
 using System;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Text.Json;
 using Binding;
 using Foundation;
-using Vulcanova.Core.Native;
+using Vulcanova.Core.NativeWidgets;
 
 namespace Vulcanova.iOS
 {
