@@ -181,6 +181,9 @@
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
+        <ProjectReference Include="..\..\WidgetKitProxy\WidgetKitProxy\WidgetKitProxy.csproj" />
+    </ItemGroup>
+    <ItemGroup>
         <BundleResource Include="GoogleService-Info.plist"/>
         <BundleResource Include="Resources\home-outline@3x.png"/>
         <BundleResource Include="Resources\icon-splash@1x.png"/>

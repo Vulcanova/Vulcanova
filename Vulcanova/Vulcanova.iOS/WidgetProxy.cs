@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.Json;
+using Binding;
 using Foundation;
 using Vulcanova.Core.Native;
 
@@ -9,6 +10,7 @@ namespace Vulcanova.iOS
 {
     public sealed class NativeWidgetProxy : INativeWidgetProxy
     {
+        private static readonly WidgetKitProxy WidgetKitProxy = new WidgetKitProxy();
 
         public void UpdateWidgetState<T>(INativeWidgetProxy.NativeWidget widget, T data)
         {
@@ -24,8 +26,7 @@ namespace Vulcanova.iOS
                 JsonSerializer.Serialize(data,
                     new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }));
 
-            // TODO: Bind Swift WidgetKit API to reload widgets here
-            // ReloadWidgets();
+            WidgetKitProxy.ReloadAllTimelines();
         }
     }
 }
