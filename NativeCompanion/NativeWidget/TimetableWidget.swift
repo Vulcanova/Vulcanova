@@ -22,13 +22,24 @@ struct TimetableDataLesson: Codable {
 
 typealias TimetableData = [TimetableDataElement]
 
+let timetableSampleEntry = TimetableEntry(date: Date(),
+                                         previousLesson: TimetableEntry.TimetableEntryLesson(no: 1, name: "Przyroda", classRoom: "21", start: "8:00", end: "8:45"),
+                                         currentLesson: TimetableEntry.TimetableEntryLesson(no: 2, name: "Edb", classRoom: "37", start: "9:50", end: "10:35"),
+                                         futureLessons: [
+                                             TimetableEntry.TimetableEntryLesson(no: 3, name: "Religia", classRoom: "37", start: "10:45", end: "11:30"),
+                                             TimetableEntry.TimetableEntryLesson(no: 4, name: "Przyroda", classRoom: "37", start: "11:45", end: "12:30"),
+                                             TimetableEntry.TimetableEntryLesson(no: 5, name: "Wychowanie fizyczne", classRoom: "37", start: "12:40", end: "13:25"),
+                                         ],
+                                            timetableState: .normal
+                                        )
+
 struct TimetableTimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> TimetableEntry {
-        TimetableEntry(date: Date(), previousLesson: nil, currentLesson: nil, futureLessons: [])
+        timetableSampleEntry
     }
     
     func getSnapshot(in context: Context, completion: @escaping (TimetableEntry) -> ()) {
-        let entry = TimetableEntry(date: Date(), previousLesson: nil, currentLesson: nil, futureLessons: [])
+        let entry = timetableSampleEntry
         completion(entry)
     }
     
@@ -227,16 +238,7 @@ struct TimetableWidget: Widget {
 
 struct TimetableWidget_Previews: PreviewProvider {
     static var previews: some View {
-        TimetableWidgetEntryView(entry: TimetableEntry(date: Date(),
-                                                    previousLesson: TimetableEntry.TimetableEntryLesson(no: 1, name: "Przyroda", classRoom: "21", start: "8:00", end: "8:45"),
-                                                    currentLesson: TimetableEntry.TimetableEntryLesson(no: 2, name: "Edb", classRoom: "37", start: "9:50", end: "10:35"),
-                                                    futureLessons: [
-                                                        TimetableEntry.TimetableEntryLesson(no: 3, name: "Religia", classRoom: "37", start: "10:45", end: "11:30"),
-                                                        TimetableEntry.TimetableEntryLesson(no: 4, name: "Przyroda", classRoom: "37", start: "11:45", end: "12:30"),
-                                                        TimetableEntry.TimetableEntryLesson(no: 5, name: "Wychowanie fizyczne", classRoom: "37", start: "12:40", end: "13:25"),
-                                                    ],
-                                                    timetableState: .normal
-                                                   ))
+        TimetableWidgetEntryView(entry: timetableSampleEntry)
         .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
