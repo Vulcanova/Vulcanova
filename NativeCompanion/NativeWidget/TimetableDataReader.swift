@@ -19,10 +19,6 @@ struct TimetableLesson: Codable {
     let roomName: String?
 }
 
-struct OverridableValue<T : Codable>: Codable {
-    let originalValue, value: T
-}
-
 typealias TimetableData = [TimetableElement]
 
 func readTimetableData() -> TimetableData {
