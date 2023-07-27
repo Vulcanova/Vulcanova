@@ -9,25 +9,25 @@ import WidgetKit
 import SwiftUI
 
 struct AttendanceReport: Codable {
-    let percentage: Float
+    let totalPercentage: Float?
 }
 
 struct AttendanceTimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> AttendanceEntry {
-        AttendanceEntry(date: Date(), percentage: 78.88)
+        AttendanceEntry(date: Date(), totalPercentage: 78.88)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (AttendanceEntry) -> ()) {
-        let entry = AttendanceEntry(date: Date(), percentage: 78.88)
+        let entry = AttendanceEntry(date: Date(), totalPercentage: 78.88)
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<AttendanceEntry>) -> ()) {
         var entries: [AttendanceEntry] = []
         
-        let jsonData = readWidgetData(fileName: "attendance-stats.json", defaultValue: AttendanceReport(percentage: 0));
+        let jsonData = readWidgetData(fileName: "attendance-stats.json", defaultValue: AttendanceReport(totalPercentage: nil));
         
-        entries.append(AttendanceEntry(date: Date(), percentage: jsonData.percentage))
+        entries.append(AttendanceEntry(date: Date(), totalPercentage: jsonData.totalPercentage))
         
         let timeline = Timeline(entries: entries, policy: .after (Date().addingTimeInterval(15 * 60)))
         completion(timeline)
@@ -36,7 +36,7 @@ struct AttendanceTimelineProvider: TimelineProvider {
 
 struct AttendanceEntry: TimelineEntry {
     let date: Date
-    let percentage: Float
+    let totalPercentage: Float?
 }
 
 struct AttendanceWidgetEntryView : View {
@@ -49,7 +49,12 @@ struct AttendanceWidgetEntryView : View {
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text("Frekwencja")
-                    Text(String(format: "%.2f%%", entry.percentage)).font(.headline)
+                    
+                    if let totalPercentage = entry.totalPercentage {
+                        Text(String(format: "%.2f%%", totalPercentage)).font(.headline)
+                    } else {
+                        Text("Brak danych").font(.headline)
+                    }
                 }.padding(10)
             }
         }.padding(.leading)
@@ -71,7 +76,7 @@ struct AttendanceWidget: Widget {
 
 struct AttendanceWidget_Previews: PreviewProvider {
     static var previews: some View {
-        AttendanceWidgetEntryView(entry: AttendanceEntry(date: Date(), percentage: 78.88))
+        AttendanceWidgetEntryView(entry: AttendanceEntry(date: Date(), totalPercentage: 78.88))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
