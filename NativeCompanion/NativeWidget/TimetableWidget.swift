@@ -214,11 +214,11 @@ struct NativeWidget_Previews: PreviewProvider {
     static var previews: some View {
         NativeWidgetEntryView(entry: TimetableEntry(date: Date(),
                                                     previousLesson: TimetableEntry.TimetableEntryLesson(no: 1, name: "Przyroda", classRoom: "21", start: "8:00", end: "8:45"),
-                                                    currentLesson: TimetableEntry.TimetableEntryLesson(no: 2, name: "Edb", classRoom: "37", start: "8:00", end: "8:45"),
+                                                    currentLesson: TimetableEntry.TimetableEntryLesson(no: 2, name: "Edb", classRoom: "37", start: "9:50", end: "10:35"),
                                                     futureLessons: [
-                                                        TimetableEntry.TimetableEntryLesson(no: 3, name: "Religia", classRoom: "37", start: "8:00", end: "8:45"),
-                                                        TimetableEntry.TimetableEntryLesson(no: 4, name: "Przyroda", classRoom: "37", start: "8:00", end: "8:45"),
-                                                        TimetableEntry.TimetableEntryLesson(no: 5, name: "Wizyta papieża", classRoom: "37", start: "8:00", end: "8:45"),
+                                                        TimetableEntry.TimetableEntryLesson(no: 3, name: "Religia", classRoom: "37", start: "10:45", end: "11:30"),
+                                                        TimetableEntry.TimetableEntryLesson(no: 4, name: "Przyroda", classRoom: "37", start: "11:45", end: "12:30"),
+                                                        TimetableEntry.TimetableEntryLesson(no: 5, name: "Wychowanie fizyczne", classRoom: "37", start: "12:40", end: "13:25"),
                                                     ],
                                                     timetableState: .normal
                                                    ))
