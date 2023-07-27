@@ -158,7 +158,7 @@ struct TimetableWidgetEntryView : View {
                         if entry.timetableState == .lessonsOver {
                             Text("Koniec lekcji 🥳").font(.subheadline)
                         } else if entry.timetableState == .noLessonsThatDay {
-                            Text("Brak lekcji dzisiaj 🎊").font(.subheadline)
+                            Text("Brak lekcji dzisiaj 🤙").font(.subheadline)
                         } else {
                             let showTime = family == .systemMedium
                             let renderFutureLessonsCnt = TimetableWidgetEntryView.getRenderFutureLessonsCount(entry: entry)
