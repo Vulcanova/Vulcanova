@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
+struct TimetableTimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> TimetableEntry {
         TimetableEntry(date: Date(), previousLesson: nil, currentLesson: nil, futureLessons: [])
     }
@@ -126,10 +126,10 @@ struct TimetableEntryLessonView : View {
     }
 }
 
-struct NativeWidgetEntryView : View {
+struct TimetableWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
-    var entry: Provider.Entry
+    var entry: TimetableTimelineProvider.Entry
     
     var body: some View {
         
@@ -197,12 +197,12 @@ struct NativeWidgetEntryView : View {
     }
 }
 
-struct NativeWidget: Widget {
-    let kind: String = "NativeWidget"
+struct TimetableWidget: Widget {
+    let kind: String = "TimetableWidget"
     
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            NativeWidgetEntryView(entry: entry)
+        StaticConfiguration(kind: kind, provider: TimetableTimelineProvider()) { entry in
+            TimetableWidgetEntryView(entry: entry)
         }
         .supportedFamilies([.systemSmall, .systemMedium])
         .configurationDisplayName("Plan lekcji")
@@ -210,9 +210,9 @@ struct NativeWidget: Widget {
     }
 }
 
-struct NativeWidget_Previews: PreviewProvider {
+struct TimetableWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NativeWidgetEntryView(entry: TimetableEntry(date: Date(),
+        TimetableWidgetEntryView(entry: TimetableEntry(date: Date(),
                                                     previousLesson: TimetableEntry.TimetableEntryLesson(no: 1, name: "Przyroda", classRoom: "21", start: "8:00", end: "8:45"),
                                                     currentLesson: TimetableEntry.TimetableEntryLesson(no: 2, name: "Edb", classRoom: "37", start: "9:50", end: "10:35"),
                                                     futureLessons: [

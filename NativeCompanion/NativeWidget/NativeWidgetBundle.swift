@@ -11,6 +11,7 @@ import SwiftUI
 @main
 struct NativeWidgetBundle: WidgetBundle {
     var body: some Widget {
-        NativeWidget()
+        AttendanceWidget()
+        TimetableWidget()
     }
 }

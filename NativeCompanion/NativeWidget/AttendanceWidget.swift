@@ -53,12 +53,13 @@ struct AttendanceWidgetEntryView : View {
 }
 
 struct AttendanceWidget: Widget {
-    let kind: String = "NativeWidget"
+    let kind: String = "AttendanceWidget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            NativeWidgetEntryView(entry: entry)
+        StaticConfiguration(kind: kind, provider: AttendanceTimelineProvider()) { entry in
+            AttendanceWidgetEntryView(entry: entry)
         }
+        .supportedFamilies([.systemSmall])
         .configurationDisplayName("Frekwencja")
         .description("Sumaryczna frekwencja.")
     }
