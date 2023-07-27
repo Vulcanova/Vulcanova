@@ -12,18 +12,14 @@ public static class Config
         foreach (var type in Assembly.GetExecutingAssembly().GetTypes()
                      .Where(t => !t.IsAbstract))
         {
-            var widgetUpdaterInterface = type.GetInterfaces().SingleOrDefault(x =>
-                x.IsGenericType && x.GetGenericTypeDefinition() == typeof(IWidgetUpdater<>));
-
-            if (widgetUpdaterInterface == null)
+            foreach (var widgetUpdaterInterface in type.GetInterfaces().Where(x =>
+                         x.IsGenericType && x.GetGenericTypeDefinition() == typeof(IWidgetUpdater<>)))
             {
-                continue;
-            }
+                var eventType = widgetUpdaterInterface.GetGenericArguments()[0];
+                var registerAs = typeof(IWidgetUpdater<>).MakeGenericType(eventType);
 
-            var eventType = widgetUpdaterInterface.GetGenericArguments()[0];
-            var registerAs = typeof(IWidgetUpdater<>).MakeGenericType(eventType);
-            
-            container.RegisterScoped(registerAs, type);
+                container.RegisterScoped(registerAs, type);
+            }
         }
 
         container.RegisterSingleton<NativeWidgetUpdateDispatcher>();

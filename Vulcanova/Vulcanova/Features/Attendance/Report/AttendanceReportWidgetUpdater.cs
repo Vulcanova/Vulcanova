@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Vulcanova.Core.NativeWidgets;
 using Vulcanova.Core.Uonet;
 
@@ -12,9 +13,11 @@ public sealed class AttendanceReportWidgetUpdater : IWidgetUpdater<AttendanceRep
         _nativeWidgetProxy = nativeWidgetProxy;
     }
 
-    public void Handle(AttendanceReportUpdatedEvent message)
+    public Task Handle(AttendanceReportUpdatedEvent message)
     {
         _nativeWidgetProxy.UpdateWidgetState(INativeWidgetProxy.NativeWidget.AttendanceStats,
-            new { Percentage = message.OverallAttendancePercentage });
+            new { Percentage = float.IsNaN(message.OverallAttendancePercentage) ? 0 : message.OverallAttendancePercentage });
+
+        return Task.CompletedTask;
     }
 }

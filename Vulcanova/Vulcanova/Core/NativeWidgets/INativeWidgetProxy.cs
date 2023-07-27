@@ -6,6 +6,7 @@ public interface INativeWidgetProxy
 
     public enum NativeWidget
     {
-        AttendanceStats
+        AttendanceStats,
+        Timetable
     }
 }

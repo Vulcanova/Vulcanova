@@ -16,14 +16,15 @@ namespace Vulcanova.iOS
             var fileName = widget switch
             {
                 INativeWidgetProxy.NativeWidget.AttendanceStats => "attendance-stats.json",
+                INativeWidgetProxy.NativeWidget.Timetable => "timetable.json",
                 _ => throw new ArgumentOutOfRangeException(nameof(widget))
             };
 
             var url = NSFileManager.DefaultManager.GetContainerUrl("group.io.github.vulcanova");
             url = url.Append(fileName, false);
-            File.WriteAllText(url.Path,
-                JsonSerializer.Serialize(data,
-                    new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }));
+            var json = JsonSerializer.Serialize(data,
+                new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+            File.WriteAllText(url.Path, json);
 
             WidgetKitProxy.ReloadAllTimelines();
         }

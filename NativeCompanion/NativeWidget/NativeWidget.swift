@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
+struct AttendanceTimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> AttendanceEntry {
         AttendanceEntry(date: Date(), percentage: 78.88)
     }
@@ -35,8 +35,8 @@ struct AttendanceEntry: TimelineEntry {
     let percentage: Float
 }
 
-struct NativeWidgetEntryView : View {
-    var entry: Provider.Entry
+struct AttendanceWidgetEntryView : View {
+    var entry: AttendanceTimelineProvider.Entry
 
     var body: some View {
         VStack(alignment: .trailing) {
@@ -52,7 +52,7 @@ struct NativeWidgetEntryView : View {
     }
 }
 
-struct NativeWidget: Widget {
+struct AttendanceWidget: Widget {
     let kind: String = "NativeWidget"
 
     var body: some WidgetConfiguration {
@@ -64,9 +64,9 @@ struct NativeWidget: Widget {
     }
 }
 
-struct NativeWidget_Previews: PreviewProvider {
+struct AttendanceWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NativeWidgetEntryView(entry: AttendanceEntry(date: Date(), percentage: 78.88))
+        AttendanceWidgetEntryView(entry: AttendanceEntry(date: Date(), percentage: 78.88))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
