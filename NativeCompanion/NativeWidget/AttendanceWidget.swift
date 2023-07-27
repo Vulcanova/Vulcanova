@@ -8,6 +8,10 @@
 import WidgetKit
 import SwiftUI
 
+struct AttendanceReport: Codable {
+    let percentage: Float
+}
+
 struct AttendanceTimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> AttendanceEntry {
         AttendanceEntry(date: Date(), percentage: 78.88)
@@ -21,7 +25,7 @@ struct AttendanceTimelineProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<AttendanceEntry>) -> ()) {
         var entries: [AttendanceEntry] = []
         
-        let jsonData = readAttendanceData();
+        let jsonData = readWidgetData(fileName: "attendance-stats.json", defaultValue: AttendanceReport(percentage: 0));
         
         entries.append(AttendanceEntry(date: Date(), percentage: jsonData.percentage))
         

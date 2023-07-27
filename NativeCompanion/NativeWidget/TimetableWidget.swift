@@ -8,6 +8,20 @@
 import WidgetKit
 import SwiftUI
 
+struct TimetableDataElement: Codable {
+    let key: Date
+    let value: [TimetableDataLesson]
+}
+
+struct TimetableDataLesson: Codable {
+    let no: Int
+    let subjectName, teacherName: String
+    let date, start, end: Date
+    let roomName: String?
+}
+
+typealias TimetableData = [TimetableDataElement]
+
 struct TimetableTimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> TimetableEntry {
         TimetableEntry(date: Date(), previousLesson: nil, currentLesson: nil, futureLessons: [])
@@ -21,7 +35,7 @@ struct TimetableTimelineProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<TimetableEntry>) -> ()) {
         var entries: [TimetableEntry] = []
         
-        let jsonData = readTimetableData();
+        let jsonData: TimetableData = readWidgetData(fileName: "timetable.json", defaultValue: []);
         
         jsonData.forEach { dayGroup in
             let date = dayGroup.key;
@@ -82,7 +96,7 @@ struct TimetableEntry: TimelineEntry {
             return formatter
         }()
         
-        static func fromTimetableLesson(lesson: TimetableLesson) -> TimetableEntryLesson {
+        static func fromTimetableLesson(lesson: TimetableDataLesson) -> TimetableEntryLesson {
             return TimetableEntryLesson(no: lesson.no, name: lesson.subjectName, classRoom: lesson.roomName, start: timeFormatter.string(from: lesson.start), end: timeFormatter.string(from: lesson.end))
         }
     }
@@ -131,6 +145,8 @@ struct TimetableWidgetEntryView : View {
     
     var entry: TimetableTimelineProvider.Entry
     
+    
+    
     var body: some View {
         
         ZStack(){
@@ -145,6 +161,7 @@ struct TimetableWidgetEntryView : View {
                             Text("Brak lekcji dzisiaj 🎊").font(.subheadline)
                         } else {
                             let showTime = family == .systemMedium
+                            let renderFutureLessonsCnt = TimetableWidgetEntryView.getRenderFutureLessonsCount(entry: entry)
                             
                             if let previous = entry.previousLesson {
                                 TimetableEntryLessonView(lesson: previous, style: TimetableEntryLessonView.TimetableEntryStyle.past, showTime: showTime)
@@ -154,9 +171,7 @@ struct TimetableWidgetEntryView : View {
                                 TimetableEntryLessonView(lesson: current, style: TimetableEntryLessonView.TimetableEntryStyle.current, showTime: showTime)
                             }
                             
-                            let renderFutureLessonsCnt = getRenderFutureLessonsCount()
-                            
-                            ForEach(0..<renderFutureLessonsCnt) { i in
+                            ForEach(0..<renderFutureLessonsCnt, id: \.self) { i in
                                 if let futureLesson = entry.futureLessons[safelyIndex: i] {
                                     TimetableEntryLessonView(lesson: futureLesson, style: TimetableEntryLessonView.TimetableEntryStyle.future, showTime: showTime)
                                 }
@@ -182,7 +197,7 @@ struct TimetableWidgetEntryView : View {
         
     }
     
-    func getRenderFutureLessonsCount() -> Int {
+    static func getRenderFutureLessonsCount(entry: TimetableTimelineProvider.Entry) -> Int {
         var futureLessonsRenderCnt = 1;
         
         if entry.previousLesson == nil {
