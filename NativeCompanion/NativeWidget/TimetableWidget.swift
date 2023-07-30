@@ -58,6 +58,8 @@ struct TimetableTimelineProvider: TimelineProvider {
             
             if (lessonsInDay == 0) {
                 entries.append(TimetableEntry(date: date, previousLesson: nil, currentLesson: nil, futureLessons: [], timetableState: .noLessonsThatDay))
+
+                return
             }
             
             for i in 0...(lessonsInDay - 1) {

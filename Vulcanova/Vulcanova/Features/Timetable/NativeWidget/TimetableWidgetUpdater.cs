@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
@@ -42,11 +43,17 @@ public sealed class TimetableWidgetUpdater : IWidgetUpdater<TimetableUpdatedEven
 
         var timetable = TimetableBuilder.BuildTimetable(timetableEntries, changes);
 
-        var timetableForNext7Days = timetable
-            .Where(x => x.Key.Date >= now.Date && x.Key.Date <= now.Date.AddDays(7))
-            .ToDictionary(kvp => kvp.Key,
-                kvp => kvp.Value.Select(TimetableWidgetUpdateDataModel.FromTimetableListEntry))
-            .Select(kvp => kvp); // it's much easier to handle kvps than dictionary in swift
+        var timetableForNext7Days =
+            Enumerable.Range(0, 7).Select(d => now.AddDays(d))
+                .Select(d =>
+                {
+                    var key = d.Date;
+                    var lessons = timetable.ContainsKey(key)
+                        ? timetable[key].Select(TimetableWidgetUpdateDataModel.FromTimetableListEntry)
+                        : Array.Empty<TimetableWidgetUpdateDataModel>();
+
+                    return new KeyValuePair<DateTime, IEnumerable<TimetableWidgetUpdateDataModel>>(key, lessons);
+                });
 
         _widgetProxy.UpdateWidgetState(INativeWidgetProxy.NativeWidget.Timetable, timetableForNext7Days);
     }
