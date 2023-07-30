@@ -184,10 +184,10 @@ struct TimetableWidgetEntryView : View {
                                 TimetableEntryLessonView(lesson: current, style: TimetableEntryLessonView.TimetableEntryStyle.current, showTime: showTime)
                             }
                             
-                            ForEach(0..<renderFutureLessonsCnt, id: \.self) { i in
-                                if let futureLesson = entry.futureLessons[safelyIndex: i] {
-                                    TimetableEntryLessonView(lesson: futureLesson, style: TimetableEntryLessonView.TimetableEntryStyle.future, showTime: showTime)
-                                }
+                            let futureLessons = Array(entry.futureLessons.prefix(renderFutureLessonsCnt))
+                            
+                            ForEach(futureLessons, id: \.self) { futureLesson in
+                                TimetableEntryLessonView(lesson: futureLesson, style: TimetableEntryLessonView.TimetableEntryStyle.future, showTime: showTime)
                             }
                             
                             let remainingToRender = entry.futureLessons.count - renderFutureLessonsCnt;
