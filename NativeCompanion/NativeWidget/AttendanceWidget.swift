@@ -29,7 +29,7 @@ struct AttendanceTimelineProvider: TimelineProvider {
         
         entries.append(AttendanceEntry(date: Date(), totalPercentage: jsonData.totalPercentage))
         
-        let timeline = Timeline(entries: entries, policy: .after (Date().addingTimeInterval(15 * 60)))
+        let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
 }

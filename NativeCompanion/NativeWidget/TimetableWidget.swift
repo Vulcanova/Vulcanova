@@ -82,7 +82,7 @@ struct TimetableTimelineProvider: TimelineProvider {
             entries.append(TimetableEntry(date: startOfDay, previousLesson: nil, currentLesson: nil, futureLessons: sortedLessons.map(TimetableEntry.TimetableEntryLesson.fromTimetableLesson)))
         }
         
-        let timeline = Timeline(entries: entries, policy: .after (Date().addingTimeInterval(15 * 60)))
+        let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
 }
