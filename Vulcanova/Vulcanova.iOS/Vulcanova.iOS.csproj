@@ -206,8 +206,10 @@
     <ItemGroup>
         <AdditionalAppExtensions Include="$(MSBuildProjectDirectory)/../../NativeCompanion">
             <Name>NativeWidgetExtension</Name>
-            <BuildOutput Condition="'$(ComputedPlatform)' == 'iPhone'">DerivedData/NativeCompanion/Build/Products/Debug-iphoneos</BuildOutput>
-            <BuildOutput Condition="'$(ComputedPlatform)' == 'iPhoneSimulator'">DerivedData/NativeCompanion/Build/Products/Debug-iphonesimulator</BuildOutput>
+            <BuildOutput Condition="'$(Configuration)|$(ComputedPlatform)' == 'Debug|iPhone'">DerivedData/NativeCompanion/Build/Products/Debug-iphoneos</BuildOutput>
+            <BuildOutput Condition="'$(Configuration)|$(ComputedPlatform)' == 'Debug|iPhoneSimulator'">DerivedData/NativeCompanion/Build/Products/Debug-iphonesimulator</BuildOutput>
+            <BuildOutput Condition="'$(Configuration)|$(ComputedPlatform)' == 'Release|iPhone'">DerivedData/NativeCompanion/Build/Products/Release-iphoneos</BuildOutput>
+            <BuildOutput Condition="'$(Configuration)|$(ComputedPlatform)' == 'Release|iPhoneSimulator'">DerivedData/NativeCompanion/Build/Products/Release-iphonesimulator</BuildOutput>
         </AdditionalAppExtensions>
     </ItemGroup>
 </Project>
