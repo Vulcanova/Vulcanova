@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Prism.Navigation;
+using Vulcanova.Core.Layout;
 using Vulcanova.Features.Auth.Accounts;
+using Vulcanova.Features.Auth.Intro;
 using Vulcanova.Features.Shared;
 
 namespace Vulcanova.Features.Auth;
 
-public class AccountsManager
+public sealed class AccountsManager
 {
     private readonly IAccountRepository _accountRepository;
     private readonly AccountContext _accountContext;
@@ -42,5 +44,24 @@ public class AccountsManager
     public async Task AddAccountsAsync(IEnumerable<Account> accounts)
     {
         await _accountRepository.AddAccountsAsync(accounts);
+    }
+
+    public async Task DeleteAccountAsync(int accountId)
+    {
+        await _accountRepository.DeleteByIdAsync(accountId);
+
+        var accounts = await _accountRepository.GetAccountsAsync();
+        var activeAccount = accounts.FirstOrDefault();
+
+        if (activeAccount is null)
+        {
+            await _navigationService.NavigateAsync($"/{nameof(MainNavigationPage)}/{nameof(IntroView)}", useModalNavigation: false);
+            _accountContext.Account = null;
+            return;
+        }
+
+        activeAccount.IsActive = true;
+        _accountContext.Account = activeAccount;
+        await _accountRepository.UpdateAccountAsync(activeAccount);
     }
 }
