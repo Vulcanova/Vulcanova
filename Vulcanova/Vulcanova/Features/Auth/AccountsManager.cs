@@ -14,12 +14,14 @@ public sealed class AccountsManager
     private readonly IAccountRepository _accountRepository;
     private readonly AccountContext _accountContext;
     private readonly INavigationService _navigationService;
+    private readonly IEnumerable<IHasAccountRemovalCleanup> _accountRemovalCleanupHooks;
 
-    public AccountsManager(IAccountRepository accountRepository, INavigationService navigationService, AccountContext accountContext)
+    public AccountsManager(IAccountRepository accountRepository, INavigationService navigationService, AccountContext accountContext, IEnumerable<IHasAccountRemovalCleanup> accountRemovalCleanupHooks)
     {
         _accountRepository = accountRepository;
         _navigationService = navigationService;
         _accountContext = accountContext;
+        _accountRemovalCleanupHooks = accountRemovalCleanupHooks;
     }
 
     public async Task OpenAccountAndMarkAsCurrentAsync(int accountId, bool navigateToHomePage = true)
@@ -52,6 +54,16 @@ public sealed class AccountsManager
         var accountToDelete = accounts.Single(x => x.Id == accountId);
 
         await _accountRepository.DeleteByIdAsync(accountToDelete.Id);
+
+        try
+        {
+            var tasks = _accountRemovalCleanupHooks.Select(h => h.DoPostRemovalCleanUpAsync(accountToDelete.Id));
+            await Task.WhenAll(tasks);
+        }
+        catch
+        {
+            // ignored
+        }
 
         // account list contained only the account we just deleted
         if (accounts.Count == 1)
