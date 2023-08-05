@@ -43,10 +43,10 @@
                                                 WidthRequest="24"
                                                 Margin="30, 0"
                                                 Source="resource://Vulcanova.Resources.Icons.trash-outline.svg"
-                                                TintColor="{AppThemeBinding Dark={StaticResource LightPrimaryTextColor}, Light={StaticResource DarkPrimaryTextColor}}" />
+                                                TintColor="{StaticResource DarkPrimaryTextColor}" />
                                             <Label HorizontalTextAlignment="Center"
                                                    FontSize="Small"
-                                                   TextColor="{AppThemeBinding Dark={StaticResource LightPrimaryTextColor}, Light={StaticResource DarkPrimaryTextColor}}"
+                                                   TextColor="{StaticResource DarkPrimaryTextColor}"
                                                    Text="{x:Static resx:Strings.CommonDelete}" />
                                         </StackLayout>
                                     </SwipeItemView>
