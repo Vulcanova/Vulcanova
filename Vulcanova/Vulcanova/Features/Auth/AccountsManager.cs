@@ -48,20 +48,28 @@ public sealed class AccountsManager
 
     public async Task DeleteAccountAsync(int accountId)
     {
-        await _accountRepository.DeleteByIdAsync(accountId);
-
         var accounts = await _accountRepository.GetAccountsAsync();
-        var activeAccount = accounts.FirstOrDefault();
+        var accountToDelete = accounts.Single(x => x.Id == accountId);
 
-        if (activeAccount is null)
+        await _accountRepository.DeleteByIdAsync(accountToDelete.Id);
+
+        // account list contained only the account we just deleted
+        if (accounts.Count == 1)
         {
             await _navigationService.NavigateAsync($"/{nameof(MainNavigationPage)}/{nameof(IntroView)}", useModalNavigation: false);
             _accountContext.Account = null;
             return;
         }
 
-        activeAccount.IsActive = true;
-        _accountContext.Account = activeAccount;
-        await _accountRepository.UpdateAccountAsync(activeAccount);
+        if (!accountToDelete.IsActive)
+        {
+            return;
+        }
+
+        var newActiveAccount = accounts.First();
+
+        newActiveAccount.IsActive = true;
+        _accountContext.Account = newActiveAccount;
+        await _accountRepository.UpdateAccountAsync(newActiveAccount);
     }
 }
