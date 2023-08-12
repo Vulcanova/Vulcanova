@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
-using FFImageLoading.Svg.Forms;
+using FFImageLoading.Svg.Maui;
+using FFImageLoading.Svg.Maui;
 using ReactiveUI;
 using Microsoft.Maui.Controls.Xaml;
 using Microsoft.Maui.Graphics;
