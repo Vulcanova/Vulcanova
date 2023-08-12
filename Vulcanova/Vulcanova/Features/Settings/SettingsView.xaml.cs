@@ -16,12 +16,16 @@ public partial class SettingsView
 
         this.WhenActivated(disposable =>
         {
-            ValueOfPlusCell.Events().Tapped
+            Observable.FromEventPattern(
+                    handler => ValueOfPlusCell.Tapped += handler,
+                    handler => ValueOfPlusCell.Tapped -= handler)
                 .Select(_ => Unit.Default)
                 .InvokeCommand(ViewModel, vm => vm.OpenValueOfPlusPicker)
                 .DisposeWith(disposable);
                 
-            ValueOfMinusCell.Events().Tapped
+            Observable.FromEventPattern(
+                    handler => ValueOfMinusCell.Tapped += handler,
+                    handler => ValueOfMinusCell.Tapped -= handler)
                 .Select(_ => Unit.Default)
                 .InvokeCommand(ViewModel, vm => vm.OpenValueOfMinusPicker)
                 .DisposeWith(disposable);

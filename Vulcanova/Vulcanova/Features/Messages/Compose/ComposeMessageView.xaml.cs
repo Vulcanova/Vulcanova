@@ -19,16 +19,18 @@ public partial class ComposeMessageView
 
         this.WhenActivated(disposable =>
         {
-            ToEntry.Events()
-                .Focused
+            Observable.FromEventPattern<FocusEventArgs>(
+                    handler => ToEntry.Focused += handler,
+                    handler => ToEntry.Focused -= handler)
                 .Subscribe(_ => ViewModel.IsPickingRecipient = true)
                 .DisposeWith(disposable);
 
-            ToEntry.Events()
-                .Unfocused
+            Observable.FromEventPattern<FocusEventArgs>(
+                    handler => ToEntry.Unfocused += handler,
+                    handler => ToEntry.Unfocused -= handler)
                 .Subscribe(_ => ViewModel.IsPickingRecipient = false)
                 .DisposeWith(disposable);
-            
+
             this.WhenAnyValue(v => v.ViewModel.IsPickingRecipient)
                 .Subscribe(v =>
                 {
