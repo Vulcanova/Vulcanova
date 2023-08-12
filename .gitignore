@@ -8,3 +8,5 @@ Vulcanova.sln.DotSettings.user
 # Mobile.BuildTools
 appsettings.json
 appsettings.*.json
+
+**/GoogleService-Info.plist
