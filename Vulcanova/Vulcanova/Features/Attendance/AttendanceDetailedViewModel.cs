@@ -152,17 +152,18 @@ public class AttendanceDetailedViewModel : ViewModelBase, INavigatedAware
 
         JustifyLessonsAttendance = ReactiveCommand.CreateFromTask(async (Unit _) =>
         {
-            await navigationService.NavigateAsync(nameof(JustifyAbsenceView),
-                new NavigationParameters
-                {
+            await navigationService.CreateBuilder()
+                .AddSegment(nameof(JustifyAbsenceView), useModalNavigation: true)
+                .WithParameters(
+                    new NavigationParameters
                     {
-                        nameof(JustifyAbsenceViewModel.Lessons),
-                        CurrentDayEntries
-                            .Where(e => e.IsSelected)
-                            .Select(e => e.Lesson)
-                    }
-                },
-                useModalNavigation: true);
+                        {
+                            nameof(JustifyAbsenceViewModel.Lessons),
+                            CurrentDayEntries
+                                .Where(e => e.IsSelected)
+                                .Select(e => e.Lesson)
+                        }
+                    }).NavigateAsync();
         }, selectedAnyJustifiable);
         
         accountContext.WhenAnyValue(ctx => ctx.Account)

@@ -3,7 +3,7 @@
 <xamForms:ReactiveContentView x:TypeArguments="accountPicker:AccountAwarePageTitleViewModel"
                               xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                              xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+                              xmlns:xamForms="clr-namespace:ReactiveUI.Maui;assembly=ReactiveUI.Maui"
                               xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                               xmlns:accountPicker="clr-namespace:Vulcanova.Features.Auth.AccountPicker;assembly=Vulcanova"
                               x:Class="Vulcanova.Features.Auth.AccountPicker.AccountAwarePageTitleView">
@@ -15,9 +15,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label FontAttributes="Bold" VerticalOptions="Center" Grid.Column="1" x:Name="TitleLabel" />
-            <views:AvatarView IsVisible="False" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Center"
-                              Size="35" x:Name="AvatarView" 
-                              Color="{AppThemeBinding Dark={StaticResource DarkTranslucentPrimaryColor}, Light={StaticResource LightTranslucentPrimaryColor}}" 
+            <views:AvatarView IsVisible="False" HorizontalOptions="End" VerticalOptions="Center"
+                              HeightRequest="38"
+                              WidthRequest="38"
+                              Grid.Column="2"
+                              x:Name="AvatarView" 
+                              BackgroundColor="{AppThemeBinding Dark={StaticResource DarkTranslucentPrimaryColor}, Light={StaticResource LightTranslucentPrimaryColor}}" 
                               TextColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}">
                 <views:AvatarView.GestureRecognizers>
                     <TapGestureRecognizer x:Name="AvatarTapRecognizer" />

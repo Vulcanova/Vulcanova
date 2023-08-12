@@ -15,18 +15,20 @@ public static class Config
     {
         container.RegisterSingleton<AppSettings>();
 
-        container.RegisterForNavigationOnPlatform<ValueOfPlusPickeriOS, ValueOfPlusPickerViewModel>(
-            new Platform<ValueOfPlusPickeriOS>(RuntimePlatform.iOS),
-            new Platform<ValueOfPlusPickerAndroid>(RuntimePlatform.Android)
-        );
-            
+#if IOS
+        container.RegisterForNavigation<ValueOfPlusPickeriOS>();
+        container.RegisterForNavigation<ValueOfMinusPickeriOS>();
+#endif
+
+#if ANDROID
         container.RegisterForNavigationOnPlatform<ValueOfMinusPickeriOS, ValueOfMinusPickerViewModel>(
             new Platform<ValueOfMinusPickeriOS>(RuntimePlatform.iOS),
             new Platform<ValueOfMinusPickerAndroid>(RuntimePlatform.Android)
         );
-        
+#endif
+
         container.RegisterHttpTrafficLogger();
-        
+
         container.RegisterForNavigation<AboutPage>();
     }
 }

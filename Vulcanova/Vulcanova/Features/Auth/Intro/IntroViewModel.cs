@@ -12,7 +12,7 @@ public class IntroViewModel : ViewModelBase
 {
     public ReactiveCommand<Unit, INavigationResult> ScanQrCode { get; }
     public ReactiveCommand<Unit, INavigationResult> SignInManually { get; }
-    public ReactiveCommand<Unit, Unit> OpenGitHubLink { get; }
+    public ReactiveCommand<Unit, bool> OpenGitHubLink { get; }
 
     public IntroViewModel(INavigationService navigationService) : base(navigationService)
     {

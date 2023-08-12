@@ -60,7 +60,7 @@ public static class TimetableBuilder
                 {
                     No = new TimetableListEntry.OverridableValue<int>
                     {
-                        Override = change.TimeSlot?.Location,
+                        Override = change.TimeSlot?.Position,
                         OriginalValue = lessonToUpdate?.No ?? 0
                     },
                     Start = new TimetableListEntry.OverridableValue<DateTime>

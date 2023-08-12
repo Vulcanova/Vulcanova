@@ -5,9 +5,10 @@
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:tabs="http://sharpnado.com"
                           xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
-                          xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+                          xmlns:rxui="clr-namespace:ReactiveUI.Maui;assembly=ReactiveUI.Maui"
                           xmlns:controls="clr-namespace:Vulcanova.Core.Layout.Controls;assembly=Vulcanova"
                           xmlns:details="clr-namespace:Vulcanova.Features.Settings.HttpTrafficLogger.Details;assembly=Vulcanova"
+                          xmlns:compatibility="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls"
                           x:Class="Vulcanova.Features.Settings.HttpTrafficLogger.Details.HttpTrafficLoggerEntryDetailsView">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -23,8 +24,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <RelativeLayout>
-            <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+        <compatibility:RelativeLayout>
+            <Grid compatibility:RelativeLayout.HeightConstraint="{compatibility:ConstraintExpression Type=RelativeToParent, Property=Height}" compatibility:RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
@@ -52,8 +53,8 @@
                 Command="{Binding CopyDetailsToClipboard}"
                 IsVisible="True"
                 Source="resource://Vulcanova.Resources.Icons.clipboard.svg"
-                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-72}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-155}" />
-        </RelativeLayout>
+                compatibility:RelativeLayout.XConstraint="{compatibility:ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-72}"
+                compatibility:RelativeLayout.YConstraint="{compatibility:ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-155}" />
+        </compatibility:RelativeLayout>
     </ContentPage.Content>
 </rxui:ReactiveContentPage>

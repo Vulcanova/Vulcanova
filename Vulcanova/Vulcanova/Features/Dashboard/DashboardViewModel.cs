@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using Prism.Navigation;
-using Prism.Navigation.TabbedPages;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Vulcanova.Core.Mvvm;
@@ -103,7 +102,10 @@ namespace Vulcanova.Features.Dashboard
                 .BindTo(this, vm => vm.SelectedDay);
 
             OpenTab = ReactiveCommand.CreateFromTask((string name) =>
-                NavigationService.SelectTabAsync(name));
+                // https://github.com/PrismLibrary/Prism/discussions/2841
+                // NavigationService.SelectTabAsync(name)
+                Task.FromResult((INavigationResult) null)
+                );
         }
 
         private IObservable<LuckyNumber.LuckyNumber> GetLuckyNumberAsync(int accountId, DateTime date)

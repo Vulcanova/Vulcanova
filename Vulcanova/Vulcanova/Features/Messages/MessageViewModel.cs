@@ -57,12 +57,16 @@ public class MessageViewModel : ReactiveObject, IInitialize
             await dialogService.DisplayAlertAsync(Strings.WhoSeenMessageDialogTitle, message, "OK");
         });
 
-        Reply = ReactiveCommand.CreateFromTask(async (Unit _) => await navigationService.NavigateAsync(nameof(ComposeMessageView), useModalNavigation: true,
-            parameters: new NavigationParameters
+        Reply = ReactiveCommand.CreateFromTask(async (Unit _) => await navigationService
+            .CreateBuilder()
+            .AddSegment(nameof(ComposeMessageView), useModalNavigation: true)
+            .WithParameters(new NavigationParameters
             {
                 {nameof(ComposeMessageViewModel.MessageBoxId), Message.MessageBoxId},
                 {"InReplyTo", Message}
-            }), this.WhenAnyValue(vm => vm.Message)
+            })
+            .NavigateAsync(), 
+            this.WhenAnyValue(vm => vm.Message)
             .WhereNotNull()
             .Select(m => m.Folder == MessageBoxFolder.Received));
 

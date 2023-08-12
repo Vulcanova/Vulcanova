@@ -68,7 +68,9 @@ public sealed class AccountsManager
         // account list contained only the account we just deleted
         if (accounts.Count == 1)
         {
-            await _navigationService.NavigateAsync($"/{nameof(MainNavigationPage)}/{nameof(IntroView)}", useModalNavigation: false);
+            await _navigationService.CreateBuilder()
+                .AddSegment($"/{nameof(MainNavigationPage)}/{nameof(IntroView)}", useModalNavigation: false)
+                .NavigateAsync();
             _accountContext.Account = null;
             return;
         }

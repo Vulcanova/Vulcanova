@@ -3,7 +3,7 @@
 <xamForms:ReactiveContentPage x:TypeArguments="local:ValueOfMinusPickerViewModel"
                               xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                              xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+                              xmlns:xamForms="clr-namespace:ReactiveUI.Maui;assembly=ReactiveUI.Maui"
                               xmlns:local="clr-namespace:Vulcanova.Features.Settings.Grades;assembly=Vulcanova"
                               xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
                               Title="{x:Static resx:Strings.GradesSettingsValueOfMinus}"

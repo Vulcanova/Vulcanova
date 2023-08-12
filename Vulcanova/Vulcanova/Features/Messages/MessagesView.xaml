@@ -5,10 +5,11 @@
                           xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                           xmlns:tabs="http://sharpnado.com"
                           xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
-                          xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+                          xmlns:rxui="clr-namespace:ReactiveUI.Maui;assembly=ReactiveUI.Maui"
                           xmlns:messages="clr-namespace:Vulcanova.Features.Messages;assembly=Vulcanova"
                           xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
                           xmlns:controls="clr-namespace:Vulcanova.Core.Layout.Controls;assembly=Vulcanova"
+                          xmlns:compatibility="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls"
                           ios:Page.UseSafeArea="True"
                           Title="{x:Static resx:Strings.MessagesTabTitle}"
                           IconImageSource="{OnPlatform iOS=mail-outline@3x.png, Android=ic_mail_outline}"
@@ -27,7 +28,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <RelativeLayout>
+        <compatibility:RelativeLayout>
             <Grid RowSpacing="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
@@ -68,8 +69,8 @@
                 IsVisible="True"
                 x:Name="NewMessageButton"
                 Source="resource://Vulcanova.Resources.Icons.pencil-outline.svg"
-                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-72}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-72}" />
-        </RelativeLayout>
+                compatibility:RelativeLayout.XConstraint="{compatibility:ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-72}"
+                compatibility:RelativeLayout.YConstraint="{compatibility:ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-72}" />
+        </compatibility:RelativeLayout>
     </ContentPage.Content>
 </rxui:ReactiveContentPage>
