@@ -150,4 +150,6 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <Target Name="MBTHack" BeforeTargets="Secrets" DependsOnTargets="MobileBuildToolsInit">
+  </Target>
 </Project>
