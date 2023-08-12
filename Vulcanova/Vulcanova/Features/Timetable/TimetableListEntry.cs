@@ -1,4 +1,3 @@
-using System;
 using Vulcanova.Uonet.Api.Schedule;
 
 namespace Vulcanova.Features.Timetable;

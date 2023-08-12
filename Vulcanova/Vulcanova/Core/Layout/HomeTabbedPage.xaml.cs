@@ -1,13 +1,9 @@
-using System;
 using Vulcanova.Features.Exams;
 using Vulcanova.Features.Homework;
 using Vulcanova.Features.LuckyNumber;
 using Vulcanova.Features.Messages;
 using Vulcanova.Features.Notes;
 using Vulcanova.Features.Settings;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout;
 

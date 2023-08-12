@@ -1,12 +1,7 @@
-using System;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using ReactiveMarbles.ObservableEvents;
 using ReactiveUI;
 using Vulcanova.Core.Layout;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Messages.Compose;
 

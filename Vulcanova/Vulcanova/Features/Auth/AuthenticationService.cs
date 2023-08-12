@@ -1,12 +1,8 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Vulcanova.Core.Uonet;
 using Vulcanova.Features.Auth.Accounts;
 using Vulcanova.Uonet;
 using Vulcanova.Uonet.Api.Auth;
-using Microsoft.Maui.Devices;
 
 namespace Vulcanova.Features.Auth;
 

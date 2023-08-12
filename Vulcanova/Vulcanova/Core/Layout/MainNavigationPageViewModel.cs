@@ -1,12 +1,8 @@
-using System;
 using System.Reactive;
-using Prism.Navigation;
-using Prism.Services;
 using ReactiveUI;
 using Vulcanova.Features.Auth;
 using Vulcanova.Features.Shared;
 using Vulcanova.Resources;
-using Microsoft.Maui.ApplicationModel;
 
 namespace Vulcanova.Core.Layout;
 

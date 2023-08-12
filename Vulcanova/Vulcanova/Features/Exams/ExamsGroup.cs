@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Vulcanova.Features.Exams;
 
 public class ExamsGroup : List<Exam>

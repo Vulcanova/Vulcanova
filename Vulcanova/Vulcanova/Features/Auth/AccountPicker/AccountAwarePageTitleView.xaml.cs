@@ -1,11 +1,6 @@
-using System;
-using System.Linq;
 using System.Reactive.Disposables;
 using ReactiveUI;
 using Vulcanova.Core.Layout;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Auth.AccountPicker;
 

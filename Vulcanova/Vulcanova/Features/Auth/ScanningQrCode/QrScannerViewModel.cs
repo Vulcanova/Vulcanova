@@ -1,6 +1,4 @@
 using System.Reactive;
-using System.Threading.Tasks;
-using Prism.Navigation;
 using ReactiveUI;
 using Vulcanova.Core.Mvvm;
 using Vulcanova.Uonet.Api.Common;

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 namespace Vulcanova.Features.Timetable.Changes;
 
 public interface ITimetableChangesRepository

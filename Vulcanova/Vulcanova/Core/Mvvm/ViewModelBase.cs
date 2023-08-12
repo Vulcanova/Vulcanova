@@ -1,4 +1,3 @@
-using Prism.Navigation;
 using ReactiveUI;
 
 namespace Vulcanova.Core.Mvvm;

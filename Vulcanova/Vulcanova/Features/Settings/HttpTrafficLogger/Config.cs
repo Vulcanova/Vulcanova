@@ -1,4 +1,3 @@
-using Prism.Ioc;
 using Vulcanova.Features.Settings.HttpTrafficLogger.Details;
 
 namespace Vulcanova.Features.Settings.HttpTrafficLogger;

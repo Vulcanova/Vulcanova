@@ -1,5 +1,3 @@
-using System;
-
 namespace Vulcanova.Extensions;
 
 public static class DateExtensions

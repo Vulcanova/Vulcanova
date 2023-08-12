@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using Prism.Navigation;
 using ReactiveUI;
 using Vulcanova.Features.Settings.HttpTrafficLogger.Details;
 

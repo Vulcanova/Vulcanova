@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Vulcanova.Uonet.Api.Auth;
 using Period = Vulcanova.Features.Shared.Period;
 

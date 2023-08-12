@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Vulcanova.Uonet.Api.Notes;
 
 namespace Vulcanova.Features.Notes;

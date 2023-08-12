@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 namespace Vulcanova.Features.Grades;
 
 public interface IAverageGradesRepository

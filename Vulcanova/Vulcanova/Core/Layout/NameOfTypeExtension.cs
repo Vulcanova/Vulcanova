@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Maui.Controls.Xaml;
-
 namespace Vulcanova.Core.Layout;
 
 public class NameOfTypeExtension : IMarkupExtension<string>

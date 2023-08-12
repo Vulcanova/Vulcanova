@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Vulcanova.Core.Uonet;
 using Vulcanova.Features.Attendance.Report;
@@ -12,7 +8,6 @@ using Vulcanova.Features.Shared;
 using Vulcanova.Uonet.Api;
 using Vulcanova.Uonet.Api.Lessons;
 using Vulcanova.Uonet.Api.Presence;
-using Microsoft.Maui.Storage;
 
 namespace Vulcanova.Features.Attendance;
 

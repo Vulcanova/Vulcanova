@@ -1,4 +1,3 @@
-using Prism.Ioc;
 using Vulcanova.Features.Shared;
 using Vulcanova.Uonet.Api.Common;
 

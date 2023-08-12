@@ -1,5 +1,3 @@
-using System;
-
 namespace Vulcanova.Features.LuckyNumber;
 
 public class LuckyNumber

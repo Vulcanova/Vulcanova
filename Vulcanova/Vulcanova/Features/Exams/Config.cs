@@ -1,4 +1,3 @@
-using Prism.Ioc;
 using Vulcanova.Features.Exams.ExamDetails;
 
 namespace Vulcanova.Features.Exams;

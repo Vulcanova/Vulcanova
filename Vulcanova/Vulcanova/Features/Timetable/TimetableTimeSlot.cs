@@ -1,5 +1,3 @@
-using System;
-
 namespace Vulcanova.Features.Timetable;
 
 public class TimetableTimeSlot

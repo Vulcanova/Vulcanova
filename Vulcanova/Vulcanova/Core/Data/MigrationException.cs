@@ -1,5 +1,3 @@
-using System;
-
 namespace Vulcanova.Core.Data;
 
 public class MigrationException : Exception

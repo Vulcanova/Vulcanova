@@ -1,9 +1,4 @@
-﻿using Prism.Navigation;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
-
-namespace Vulcanova.Features.Notes.NoteDetails;
+﻿namespace Vulcanova.Features.Notes.NoteDetails;
 
 [XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class NoteDetailsView : INavigationAware

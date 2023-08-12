@@ -1,12 +1,6 @@
-using System;
 using System.Reactive.Disposables;
-using System.Threading.Tasks;
-using Prism.Navigation;
 using ReactiveUI;
 using Vulcanova.Resources;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Messages;
 

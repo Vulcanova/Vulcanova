@@ -1,5 +1,4 @@
-﻿using Prism.Ioc;
-using Vulcanova.Features.Homework.HomeworkDetails;
+﻿using Vulcanova.Features.Homework.HomeworkDetails;
 
 namespace Vulcanova.Features.Homework;
 

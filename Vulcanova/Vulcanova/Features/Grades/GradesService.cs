@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Vulcanova.Core.Uonet;
-using Vulcanova.Features.Auth;
 using Vulcanova.Features.Auth.Accounts;
 using Vulcanova.Uonet.Api;
 using Vulcanova.Uonet.Api.Grades;

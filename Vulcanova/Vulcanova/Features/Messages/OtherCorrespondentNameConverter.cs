@@ -1,9 +1,5 @@
-using System;
 using System.Globalization;
-using System.Linq;
 using Vulcanova.Uonet.Api.MessageBox;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Messages;
 

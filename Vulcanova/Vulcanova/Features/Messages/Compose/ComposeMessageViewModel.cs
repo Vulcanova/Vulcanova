@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Text.RegularExpressions;
 using DynamicData;
-using Prism.Navigation;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Vulcanova.Core.Mvvm;

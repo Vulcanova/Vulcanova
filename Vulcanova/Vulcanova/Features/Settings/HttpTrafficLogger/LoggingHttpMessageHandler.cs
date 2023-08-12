@@ -1,9 +1,5 @@
-using System;
 using System.Collections.ObjectModel;
-using System.Net.Http;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 

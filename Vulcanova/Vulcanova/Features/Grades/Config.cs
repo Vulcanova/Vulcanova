@@ -1,4 +1,3 @@
-using Prism.Ioc;
 using Vulcanova.Features.Grades.Final;
 using Vulcanova.Features.Grades.SubjectDetails;
 

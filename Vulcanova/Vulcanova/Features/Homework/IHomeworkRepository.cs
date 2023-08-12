@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Vulcanova.Features.Homework;
+﻿namespace Vulcanova.Features.Homework;
 
 public interface IHomeworkRepository
 {

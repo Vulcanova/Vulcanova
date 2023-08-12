@@ -1,6 +1,5 @@
 using System.Reflection;
 using AutoMapper;
-using Prism.Ioc;
 
 namespace Vulcanova.Core.Mapping;
 

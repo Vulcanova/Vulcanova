@@ -1,6 +1,3 @@
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
-
 namespace Vulcanova.Core.Layout.Controls;
 
 public class OptionCell : ViewCell

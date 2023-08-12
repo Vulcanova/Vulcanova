@@ -1,10 +1,8 @@
 using System.Reactive;
-using Prism.Navigation;
 using ReactiveUI;
 using Vulcanova.Core.Mvvm;
 using Vulcanova.Features.Auth.ManualSigningIn;
 using Vulcanova.Features.Auth.ScanningQrCode;
-using Microsoft.Maui.ApplicationModel;
 
 namespace Vulcanova.Features.Auth.Intro;
 

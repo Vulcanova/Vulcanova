@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Prism.Navigation;
 using Vulcanova.Core.Layout;
 using Vulcanova.Features.Auth.Accounts;
 using Vulcanova.Features.Auth.Intro;

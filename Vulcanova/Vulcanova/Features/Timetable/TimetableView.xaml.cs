@@ -1,7 +1,6 @@
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using ReactiveUI;
-using Microsoft.Maui.Controls.Xaml;
 using Vulcanova.Core.Rx;
 
 namespace Vulcanova.Features.Timetable;

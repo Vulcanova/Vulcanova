@@ -1,11 +1,8 @@
-using System;
 using System.Linq.Expressions;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using ReactiveMarbles.ObservableEvents;
 using ReactiveUI;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Core.Rx;
 

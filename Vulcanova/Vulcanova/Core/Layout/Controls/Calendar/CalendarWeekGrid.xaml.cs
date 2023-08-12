@@ -1,12 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using Vulcanova.Extensions;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Graphics;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout.Controls.Calendar;
 

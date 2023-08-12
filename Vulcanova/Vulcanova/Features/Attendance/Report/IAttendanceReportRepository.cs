@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 namespace Vulcanova.Features.Attendance.Report;
 
 public interface IAttendanceReportRepository

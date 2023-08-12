@@ -1,11 +1,7 @@
-using System;
 using System.Reactive.Linq;
 using System.Reactive.Disposables;
 using ReactiveUI;
 using Vulcanova.Core.Rx;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Attendance;
 

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using LiteDB.Async;
+﻿using LiteDB.Async;
 using Vulcanova.Features.Auth;
 
 namespace Vulcanova.Features.Notes;

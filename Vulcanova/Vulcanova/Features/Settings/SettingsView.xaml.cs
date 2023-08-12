@@ -1,9 +1,7 @@
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Disposables;
-using ReactiveMarbles.ObservableEvents;
 using ReactiveUI;
-using Microsoft.Maui.Controls.Xaml;
 
 namespace Vulcanova.Features.Settings;
 

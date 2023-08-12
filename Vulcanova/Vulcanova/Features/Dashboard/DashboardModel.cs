@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Vulcanova.Features.Exams;
 using Vulcanova.Features.Grades;
 using Vulcanova.Features.Timetable;

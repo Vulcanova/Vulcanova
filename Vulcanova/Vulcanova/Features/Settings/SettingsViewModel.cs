@@ -1,5 +1,4 @@
 using System.Reactive;
-using Prism.Navigation;
 using ReactiveUI;
 using Vulcanova.Core.Mvvm;
 using Vulcanova.Features.Settings.About;

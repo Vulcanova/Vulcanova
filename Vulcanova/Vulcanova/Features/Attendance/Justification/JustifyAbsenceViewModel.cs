@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using System.Reactive;
-using Prism.Navigation;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Vulcanova.Core.Mvvm;

@@ -1,9 +1,7 @@
-using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using ReactiveUI;
 using Vulcanova.Core.Rx;
-using Microsoft.Maui.Controls.Xaml;
 
 namespace Vulcanova.Features.Exams;
 

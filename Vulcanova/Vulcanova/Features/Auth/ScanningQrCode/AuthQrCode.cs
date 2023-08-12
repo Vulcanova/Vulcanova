@@ -1,5 +1,3 @@
-using System;
-
 namespace Vulcanova.Features.Auth.ScanningQrCode;
 
 public record AuthQrCode(string ApiAddress, string Token)

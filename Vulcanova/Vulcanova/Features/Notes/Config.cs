@@ -1,5 +1,4 @@
-﻿using Prism.Ioc;
-using Vulcanova.Features.Notes.NoteDetails;
+﻿using Vulcanova.Features.Notes.NoteDetails;
 
 namespace Vulcanova.Features.Notes;
 

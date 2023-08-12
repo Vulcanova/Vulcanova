@@ -1,8 +1,4 @@
 using System.Windows.Input;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Graphics;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout.Controls.Calendar;
 

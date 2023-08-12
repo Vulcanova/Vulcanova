@@ -1,12 +1,8 @@
-using System.Linq;
 using System.Reactive;
-using System.Threading.Tasks;
-using Prism.Navigation;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Vulcanova.Core.Mvvm;
 using Vulcanova.Uonet.Api.Common;
-using System;
 using ReactiveUI.Validation.Abstractions;
 using ReactiveUI.Validation.Contexts;
 using ReactiveUI.Validation.Extensions;

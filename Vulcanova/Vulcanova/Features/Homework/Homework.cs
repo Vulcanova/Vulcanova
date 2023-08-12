@@ -1,5 +1,4 @@
-﻿using System;
-using Vulcanova.Uonet.Api.Common.Models;
+﻿using Vulcanova.Uonet.Api.Common.Models;
 
 namespace Vulcanova.Features.Homework;
 

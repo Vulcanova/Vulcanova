@@ -1,8 +1,5 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using Vulcanova.Core.Layout;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Notes.Converters;
 

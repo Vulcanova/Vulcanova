@@ -1,5 +1,3 @@
-using System;
-
 namespace Vulcanova.Features.Messages.Compose;
 
 public class AddressBookEntry

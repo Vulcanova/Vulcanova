@@ -1,10 +1,5 @@
-using System;
-using System.Linq;
 using System.Reflection;
 using System.Xml;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout;
 

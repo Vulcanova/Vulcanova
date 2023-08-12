@@ -1,10 +1,6 @@
-using System;
 using System.Globalization;
-using System.Linq;
 using Vulcanova.Core.Layout;
 using Vulcanova.Uonet.Api.Schedule;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Timetable;
 

@@ -1,15 +1,10 @@
-using System;
-using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
-using Prism.Navigation;
-using Prism.Services;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Vulcanova.Features.Messages.Compose;
 using Vulcanova.Resources;
 using Vulcanova.Uonet.Api.MessageBox;
-using Microsoft.Maui.ApplicationModel;
 
 namespace Vulcanova.Features.Messages;
 

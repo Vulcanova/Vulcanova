@@ -1,4 +1,3 @@
-using System;
 using LiteDB;
 using Vulcanova.Features.Shared;
 using Vulcanova.Uonet.Api.Lessons;

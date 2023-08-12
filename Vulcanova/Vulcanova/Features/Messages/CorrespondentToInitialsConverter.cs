@@ -1,8 +1,4 @@
-using System;
 using System.Globalization;
-using System.Linq;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Messages;
 

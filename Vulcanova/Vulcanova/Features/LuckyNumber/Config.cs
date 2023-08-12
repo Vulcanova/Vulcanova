@@ -1,5 +1,3 @@
-using Prism.Ioc;
-
 namespace Vulcanova.Features.LuckyNumber;
 
 public static class Config

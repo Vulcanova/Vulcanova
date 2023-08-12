@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Vulcanova.Features.Shared;
 using Vulcanova.Uonet.Api.Homework;
 

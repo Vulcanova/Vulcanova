@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Vulcanova.Features.Attendance.Report;
 
 public static class AttendanceReportExtensions

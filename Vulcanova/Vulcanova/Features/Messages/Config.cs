@@ -1,4 +1,3 @@
-using Prism.Ioc;
 using Vulcanova.Features.Messages.Compose;
 
 namespace Vulcanova.Features.Messages;

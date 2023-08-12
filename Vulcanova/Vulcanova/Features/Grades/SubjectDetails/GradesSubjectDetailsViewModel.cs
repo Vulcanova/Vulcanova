@@ -1,13 +1,8 @@
-using System.IO;
 using System.Reactive;
-using System.Reactive.Linq;
-using Prism.Navigation;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Vulcanova.Features.Grades.Summary;
 using Vulcanova.Features.Settings;
-using Microsoft.Maui.ApplicationModel.DataTransfer;
-using Microsoft.Maui.Storage;
 
 namespace Vulcanova.Features.Grades.SubjectDetails;
 

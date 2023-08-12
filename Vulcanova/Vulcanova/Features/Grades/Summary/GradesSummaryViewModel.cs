@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Reactive.Linq;
-using Prism.Navigation;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Vulcanova.Core.Mvvm;
@@ -13,8 +9,6 @@ using Vulcanova.Features.Grades.SubjectDetails;
 using Vulcanova.Features.Settings;
 using Vulcanova.Uonet.Api.Auth;
 using Unit = System.Reactive.Unit;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Grades.Summary;
 

@@ -1,7 +1,4 @@
 using Vulcanova.Resources;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Attendance.LessonDetails;
 

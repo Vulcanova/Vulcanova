@@ -1,5 +1,3 @@
-using Prism.Ioc;
-
 namespace Vulcanova.Core.Layout;
 
 public static class Config

@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Vulcanova.Features.Auth;
 using Vulcanova.Uonet.Api;
 

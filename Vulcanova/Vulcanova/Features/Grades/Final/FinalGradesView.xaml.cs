@@ -1,14 +1,8 @@
 using System.Reactive.Disposables;
 using ReactiveUI;
 using Vulcanova.Features.Grades.Summary;
-using Microsoft.Maui.Controls.Xaml;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Vulcanova.Core.Rx;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Grades.Final;
 

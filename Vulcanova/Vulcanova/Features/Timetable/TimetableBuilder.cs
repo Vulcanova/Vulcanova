@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using Vulcanova.Features.Timetable.Changes;
 using Vulcanova.Uonet.Api.Schedule;
-using Microsoft.Maui.Devices.Sensors;
 
 namespace Vulcanova.Features.Timetable;
 

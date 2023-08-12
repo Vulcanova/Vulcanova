@@ -1,4 +1,3 @@
-using System;
 using Vulcanova.Features.Shared;
 
 namespace Vulcanova.Features.Timetable;

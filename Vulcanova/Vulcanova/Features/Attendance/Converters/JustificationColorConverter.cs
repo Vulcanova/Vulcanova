@@ -1,9 +1,6 @@
-using System;
 using System.Globalization;
 using Vulcanova.Core.Layout;
 using Vulcanova.Uonet.Api.Lessons;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Features.Attendance.Converters;
 

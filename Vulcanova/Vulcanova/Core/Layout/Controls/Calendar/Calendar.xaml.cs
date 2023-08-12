@@ -1,13 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Reactive.Linq;
 using FFImageLoading.Svg.Maui;
-using FFImageLoading.Svg.Maui;
 using ReactiveUI;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Graphics;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout.Controls.Calendar;
 

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Vulcanova.Features.Notes;
+﻿namespace Vulcanova.Features.Notes;
 
 public interface INotesRepository
 {

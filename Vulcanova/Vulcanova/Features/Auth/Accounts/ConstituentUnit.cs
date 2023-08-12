@@ -1,5 +1,3 @@
-using System;
-
 namespace Vulcanova.Features.Auth.Accounts;
 
 public class ConstituentUnit

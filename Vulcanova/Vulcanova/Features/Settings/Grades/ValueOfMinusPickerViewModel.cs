@@ -1,4 +1,3 @@
-using Prism.Navigation;
 using Vulcanova.Core.Mvvm;
 
 namespace Vulcanova.Features.Settings.Grades;

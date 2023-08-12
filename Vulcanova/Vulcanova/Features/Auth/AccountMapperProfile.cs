@@ -1,4 +1,3 @@
-using System;
 using AutoMapper;
 using Vulcanova.Features.Auth.Accounts;
 using Vulcanova.Uonet.Api.Auth;

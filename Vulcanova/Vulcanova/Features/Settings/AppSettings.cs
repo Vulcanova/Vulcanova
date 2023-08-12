@@ -1,9 +1,7 @@
-using System;
 using System.Globalization;
 using System.Reactive.Linq;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Microsoft.Maui.Storage;
 
 namespace Vulcanova.Features.Settings;
 

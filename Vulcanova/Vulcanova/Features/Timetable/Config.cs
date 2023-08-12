@@ -1,4 +1,3 @@
-using Prism.Ioc;
 using Vulcanova.Features.Timetable.Changes;
 
 namespace Vulcanova.Features.Timetable;
