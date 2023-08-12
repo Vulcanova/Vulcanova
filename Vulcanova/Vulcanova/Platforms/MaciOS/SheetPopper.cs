@@ -4,7 +4,7 @@ using Microsoft.Maui.Platform;
 using UIKit;
 using Vulcanova.Core.Layout;
 
-namespace Vulcanova.Platforms.MaciOS;
+namespace Vulcanova;
 
 public class SheetPopper : ISheetPopper
 {

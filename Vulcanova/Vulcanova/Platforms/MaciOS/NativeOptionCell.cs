@@ -4,7 +4,7 @@ using Microsoft.Maui.Controls.Compatibility.Platform.iOS;
 using UIKit;
 using Vulcanova.Core.Layout.Controls;
 
-namespace Vulcanova.Platforms.MaciOS
+namespace Vulcanova
 {
     public class NativeOptionCell : UITableViewCell, INativeElementView
     {

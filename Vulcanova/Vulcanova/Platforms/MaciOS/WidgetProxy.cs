@@ -2,7 +2,7 @@ using System.Text.Json;
 using Foundation;
 using Vulcanova.Core.NativeWidgets;
 
-namespace Vulcanova.Platforms.MaciOS
+namespace Vulcanova
 {
     public sealed class NativeWidgetProxy : INativeWidgetProxy
     {

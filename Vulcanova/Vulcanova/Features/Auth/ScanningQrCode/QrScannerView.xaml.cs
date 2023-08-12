@@ -16,10 +16,10 @@ public partial class QrScannerView
 
         this.WhenActivated(disposable =>
         {
-            this.CameraView.Events().OnDetected
-                .Select(args => args.BarcodeResults.First().RawValue)
-                .InvokeCommand(ViewModel, vm => vm.ProcessQrCodeCommand)
-                .DisposeWith(disposable);
+            // this.CameraView.Events().OnDetected
+            //     .Select(args => args.BarcodeResults.First().RawValue)
+            //     .InvokeCommand(ViewModel, vm => vm.ProcessQrCodeCommand)
+            //     .DisposeWith(disposable);
         });
     }
 }

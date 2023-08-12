@@ -5,7 +5,7 @@ using Platform = Xamarin.Forms.Platform.Android.Platform;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui;
 
-namespace Vulcanova.Android
+namespace Vulcanova
 {
     public class SheetPopper : ISheetPopper
     {

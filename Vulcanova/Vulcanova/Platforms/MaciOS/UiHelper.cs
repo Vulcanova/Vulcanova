@@ -1,6 +1,6 @@
 using UIKit;
 
-namespace Vulcanova.Platforms.MaciOS
+namespace Vulcanova
 {
     // https://github.com/xamarin/Essentials/issues/1007#issuecomment-1038965876
     public static class UiHelper

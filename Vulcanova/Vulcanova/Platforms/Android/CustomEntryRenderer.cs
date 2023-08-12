@@ -8,7 +8,7 @@ using Microsoft.Maui;
 
 // TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(Entry), typeof(CustomEntryRenderer))]
-namespace Vulcanova.Android 
+namespace Vulcanova 
 {
     public class CustomEntryRenderer : EntryRenderer
     {

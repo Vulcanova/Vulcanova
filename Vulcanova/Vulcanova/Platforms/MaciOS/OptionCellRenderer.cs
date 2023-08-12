@@ -1,12 +1,12 @@
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
 using UIKit;
+using Vulcanova;
 using Vulcanova.Core.Layout.Controls;
-using Vulcanova.Platforms.MaciOS;
 
 // TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(OptionCell), typeof(OptionCellRenderer))]
-namespace Vulcanova.Platforms.MaciOS
+namespace Vulcanova
 {
     public class OptionCellRenderer : ViewCellRenderer
     {

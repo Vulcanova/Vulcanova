@@ -9,7 +9,7 @@ using Microsoft.Maui;
 
 // TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly:ExportRenderer(typeof(SheetPage), typeof(SheetPageRenderer))]
-namespace Vulcanova.Android
+namespace Vulcanova
 {
     public class SheetPageRenderer : PageRenderer
     {

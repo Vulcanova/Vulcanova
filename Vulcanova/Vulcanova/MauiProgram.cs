@@ -14,7 +14,6 @@ using Vulcanova.Features.Messages;
 using Vulcanova.Features.Notes;
 using Vulcanova.Features.Settings;
 using Vulcanova.Features.Timetable;
-using Vulcanova.Platforms.MaciOS;
 
 namespace Vulcanova;
 

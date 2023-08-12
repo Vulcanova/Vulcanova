@@ -3,7 +3,7 @@ using Android.Content;
 using Android.Runtime;
 using Google.Android.Material.BottomSheet;
 
-namespace Vulcanova.Android
+namespace Vulcanova
 {
     public class DismissNotifyingBottomSheetDialog : BottomSheetDialog
     {

@@ -4,7 +4,7 @@ using Android.Runtime;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace Vulcanova.Android
+namespace Vulcanova
 {
     [Application]
     public class MainApplication : MauiApplication

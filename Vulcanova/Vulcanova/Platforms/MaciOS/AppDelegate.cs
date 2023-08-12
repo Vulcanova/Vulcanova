@@ -3,7 +3,7 @@ using UIKit;
 using Vulcanova.Core.Layout;
 using Vulcanova.Core.NativeWidgets;
 
-namespace Vulcanova.Platforms.MaciOS
+namespace Vulcanova
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 

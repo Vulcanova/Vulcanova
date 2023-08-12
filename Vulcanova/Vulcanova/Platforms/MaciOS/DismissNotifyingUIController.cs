@@ -1,6 +1,6 @@
 using UIKit;
 
-namespace Vulcanova.Platforms.MaciOS;
+namespace Vulcanova;
 
 public sealed class DismissNotifyingUIController : UIViewController
 {
