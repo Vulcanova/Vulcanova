@@ -6,7 +6,7 @@ using Rg.Plugins.Popup.Contracts;
 using Vulcanova.Core.Layout.Controls;
 using Vulcanova.Core.Rx;
 using Vulcanova.Resources;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Vulcanova.Core.Layout;
 

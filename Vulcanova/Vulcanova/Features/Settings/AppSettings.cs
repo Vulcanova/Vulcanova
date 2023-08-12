@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Reactive.Linq;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Xamarin.Essentials;
+using Microsoft.Maui.Storage;
 
 namespace Vulcanova.Features.Settings;
 

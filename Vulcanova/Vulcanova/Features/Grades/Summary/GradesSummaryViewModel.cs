@@ -12,8 +12,9 @@ using Vulcanova.Core.Rx;
 using Vulcanova.Features.Grades.SubjectDetails;
 using Vulcanova.Features.Settings;
 using Vulcanova.Uonet.Api.Auth;
-using Xamarin.Forms;
 using Unit = System.Reactive.Unit;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Grades.Summary;
 
@@ -65,6 +66,7 @@ public class GradesSummaryViewModel : ViewModelBase
         {
             CurrentSubject = Grades?.First(g => g.SubjectId == subjectId);
 
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS)
             {
                 navigationService.NavigateAsync(nameof(GradesSubjectDetailsView), 

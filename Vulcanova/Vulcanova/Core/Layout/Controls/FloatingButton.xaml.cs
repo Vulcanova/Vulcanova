@@ -1,8 +1,9 @@
 using System;
 using System.Windows.Input;
 using ReactiveUI;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout.Controls;
 

@@ -1,7 +1,8 @@
 using System;
 using System.Globalization;
 using Vulcanova.Uonet.Api.Lessons;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Attendance.Converters;
 

@@ -3,7 +3,7 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using ReactiveMarbles.ObservableEvents;
 using ReactiveUI;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Vulcanova.Features.Auth.ScanningQrCode;
 

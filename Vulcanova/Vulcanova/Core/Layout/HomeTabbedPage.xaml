@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout:SvgTabbedPage x:TypeArguments="layout:HomeTabbedPageViewModel"
-                      xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       xmlns:layout="clr-namespace:Vulcanova.Core.Layout;assembly=Vulcanova"
-                      xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-                      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                      xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+                      xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
                       xmlns:grades="clr-namespace:Vulcanova.Features.Grades;assembly=Vulcanova"
                       xmlns:timetable="clr-namespace:Vulcanova.Features.Timetable;assembly=Vulcanova"
                       xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"

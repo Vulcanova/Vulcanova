@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<rxui:ReactiveContentPage x:TypeArguments="messages:MessageViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<rxui:ReactiveContentPage x:TypeArguments="messages:MessageViewModel" xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
-                          xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+                          xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                           xmlns:messages="clr-namespace:Vulcanova.Features.Messages;assembly=Vulcanova"
                           xmlns:abstractions="clr-namespace:LabelHtml.Forms.Plugin.Abstractions;assembly=HtmlLabel.Forms.Plugin"
                           xmlns:layout="clr-namespace:Vulcanova.Core.Layout;assembly=Vulcanova"

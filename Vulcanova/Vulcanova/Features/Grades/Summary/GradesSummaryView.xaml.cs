@@ -1,9 +1,10 @@
 using System.Reactive.Disposables;
 using ReactiveUI;
-using Xamarin.Forms.Xaml;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Xaml;
 using System;
 using Vulcanova.Core.Rx;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Grades.Summary;
 

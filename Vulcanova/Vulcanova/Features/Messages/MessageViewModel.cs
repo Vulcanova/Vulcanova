@@ -9,7 +9,7 @@ using ReactiveUI.Fody.Helpers;
 using Vulcanova.Features.Messages.Compose;
 using Vulcanova.Resources;
 using Vulcanova.Uonet.Api.MessageBox;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Vulcanova.Features.Messages;
 

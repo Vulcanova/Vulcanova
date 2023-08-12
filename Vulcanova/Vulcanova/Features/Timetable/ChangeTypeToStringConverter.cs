@@ -2,7 +2,8 @@ using System;
 using System.Globalization;
 using Vulcanova.Resources;
 using Vulcanova.Uonet.Api.Schedule;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Timetable;
 

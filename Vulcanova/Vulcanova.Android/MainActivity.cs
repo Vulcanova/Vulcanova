@@ -16,7 +16,7 @@ namespace Vulcanova.Android
     [Activity(Label = "Vulcanova", Theme = "@style/MainTheme", MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
         Icon = "@mipmap/ic_launcher", RoundIcon = "@mipmap/ic_launcher_round")]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity,
+    public class MainActivity : Microsoft.Maui.MauiAppCompatActivity,
         IPlatformInitializer
     {
         protected override void OnCreate(Bundle savedInstanceState)

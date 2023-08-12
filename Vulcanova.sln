@@ -1,10 +1,10 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulcanova", "Vulcanova\Vulcanova\Vulcanova.csproj", "{EA93A4B0-B98D-431C-8B13-863E11368665}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulcanova", "Vulcanova\Vulcanova\Vulcanova.csproj", "{EA93A4B0-B98D-431C-8B13-863E11368665}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulcanova.Android", "Vulcanova\Vulcanova.Android\Vulcanova.Android.csproj", "{FE4AA688-45C5-45C7-B669-8597F100EE7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulcanova.Android", "Vulcanova\Vulcanova.Android\Vulcanova.Android.csproj", "{FE4AA688-45C5-45C7-B669-8597F100EE7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulcanova.iOS", "Vulcanova\Vulcanova.iOS\Vulcanova.iOS.csproj", "{6DB11F15-F177-4740-82E4-2751421E703A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulcanova.iOS", "Vulcanova\Vulcanova.iOS\Vulcanova.iOS.csproj", "{6DB11F15-F177-4740-82E4-2751421E703A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

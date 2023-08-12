@@ -4,7 +4,7 @@ using ReactiveUI;
 using Vulcanova.Core.Mvvm;
 using Vulcanova.Features.Auth.ManualSigningIn;
 using Vulcanova.Features.Auth.ScanningQrCode;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Vulcanova.Features.Auth.Intro;
 

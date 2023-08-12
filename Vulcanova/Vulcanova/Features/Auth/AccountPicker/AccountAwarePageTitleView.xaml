@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <xamForms:ReactiveContentView x:TypeArguments="accountPicker:AccountAwarePageTitleViewModel"
-                              xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
-                              xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+                              xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                               xmlns:accountPicker="clr-namespace:Vulcanova.Features.Auth.AccountPicker;assembly=Vulcanova"
                               x:Class="Vulcanova.Features.Auth.AccountPicker.AccountAwarePageTitleView">
     <ContentView.Content>

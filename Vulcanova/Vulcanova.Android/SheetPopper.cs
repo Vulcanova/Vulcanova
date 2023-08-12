@@ -1,8 +1,9 @@
 using System;
 using Android.Content;
 using Vulcanova.Core.Layout;
-using Xamarin.Forms;
 using Platform = Xamarin.Forms.Platform.Android.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Android
 {

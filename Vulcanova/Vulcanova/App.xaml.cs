@@ -27,9 +27,10 @@ using Vulcanova.Features.Settings;
 using Vulcanova.Features.Settings.HttpTrafficLogger;
 using Vulcanova.Features.Shared;
 using Vulcanova.Features.Timetable;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 using AppSettings = Vulcanova.Helpers.AppSettings;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 

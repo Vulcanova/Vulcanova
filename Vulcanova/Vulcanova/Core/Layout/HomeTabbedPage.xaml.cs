@@ -5,8 +5,9 @@ using Vulcanova.Features.LuckyNumber;
 using Vulcanova.Features.Messages;
 using Vulcanova.Features.Notes;
 using Vulcanova.Features.Settings;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout;
 
@@ -25,7 +26,8 @@ public partial class HomeTabbedPage
         {
             var toBeAdded = page;
                 
-            if (Device.RuntimePlatform != Device.iOS)
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
+                            if (Device.RuntimePlatform != Device.iOS)
             {
                 var navigationPage = new NavigationPage(toBeAdded)
                 {

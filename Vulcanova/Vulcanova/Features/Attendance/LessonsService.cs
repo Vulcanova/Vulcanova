@@ -12,7 +12,7 @@ using Vulcanova.Features.Shared;
 using Vulcanova.Uonet.Api;
 using Vulcanova.Uonet.Api.Lessons;
 using Vulcanova.Uonet.Api.Presence;
-using Xamarin.Essentials;
+using Microsoft.Maui.Storage;
 
 namespace Vulcanova.Features.Attendance;
 

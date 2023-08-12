@@ -2,7 +2,8 @@ using System;
 using System.Linq;
 using Vulcanova.Core.Layout;
 using Vulcanova.Core.Layout.Controls;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Settings.Controls;
 

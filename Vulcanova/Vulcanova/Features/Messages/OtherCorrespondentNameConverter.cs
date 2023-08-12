@@ -2,7 +2,8 @@ using System;
 using System.Globalization;
 using System.Linq;
 using Vulcanova.Uonet.Api.MessageBox;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Messages;
 

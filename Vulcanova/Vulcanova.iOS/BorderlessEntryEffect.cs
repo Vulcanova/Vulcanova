@@ -1,7 +1,9 @@
 using UIKit;
 using Vulcanova.iOS;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly:ResolutionGroupName ("Vulcanova")]
 [assembly:ExportEffect (typeof(BorderlessEntryEffect), nameof(BorderlessEntryEffect))]

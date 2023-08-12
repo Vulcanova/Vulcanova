@@ -6,7 +6,7 @@ using ReactiveUI;
 using Vulcanova.Features.Auth;
 using Vulcanova.Features.Shared;
 using Vulcanova.Resources;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Vulcanova.Core.Layout;
 

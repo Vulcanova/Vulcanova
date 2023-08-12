@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UIKit;
 using Vulcanova.Core.Layout;
 using Vulcanova.Core.Layout.PlatformSpecific.iOS;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
 using Page = Xamarin.Forms.Page;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.iOS
 {

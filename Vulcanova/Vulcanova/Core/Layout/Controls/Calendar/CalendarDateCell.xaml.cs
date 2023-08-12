@@ -1,6 +1,8 @@
 using System.Windows.Input;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout.Controls.Calendar;
 
@@ -36,7 +38,7 @@ public partial class CalendarDateCell
     }
 
     public static readonly BindableProperty SelectedColorProperty =
-        BindableProperty.Create(nameof(SelectedColor), typeof(Color), typeof(CalendarDateCell), Color.Red,
+        BindableProperty.Create(nameof(SelectedColor), typeof(Color), typeof(CalendarDateCell), Colors.Red,
             propertyChanged: SelectedColorPropertyChanged);
 
     public Color SelectedColor
@@ -46,7 +48,7 @@ public partial class CalendarDateCell
     }
         
     public static readonly BindableProperty TextColorProperty =
-        BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(CalendarDateCell), Color.Default,
+        BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(CalendarDateCell), null,
             propertyChanged: TextColorChanged);
 
     public Color TextColor
@@ -56,7 +58,7 @@ public partial class CalendarDateCell
     }
 
     public static readonly BindableProperty SelectedTextColorProperty =
-        BindableProperty.Create(nameof(SelectedTextColor), typeof(Color), typeof(CalendarDateCell), Color.White,
+        BindableProperty.Create(nameof(SelectedTextColor), typeof(Color), typeof(CalendarDateCell), Colors.White,
             propertyChanged: SelectedTextColorChanged);
 
     public Color SelectedTextColor
@@ -76,7 +78,7 @@ public partial class CalendarDateCell
     }
 
     public static readonly BindableProperty SecondaryTextColorProperty =
-        BindableProperty.Create(nameof(SecondaryTextColor), typeof(Color), typeof(CalendarDateCell), Color.DarkGray, propertyChanged: SecondaryTextColorChanged);
+        BindableProperty.Create(nameof(SecondaryTextColor), typeof(Color), typeof(CalendarDateCell), Colors.DarkGray, propertyChanged: SecondaryTextColorChanged);
 
     public Color SecondaryTextColor
     {
@@ -136,7 +138,7 @@ public partial class CalendarDateCell
 
     private static void UpdateCellAppearance(CalendarDateCell cell)
     {
-        cell.Container.BackgroundColor = cell.Selected ? cell.SelectedColor : Color.Transparent;
+        cell.Container.BackgroundColor = cell.Selected ? cell.SelectedColor : Colors.Transparent;
 
         if (cell.Selected)
         {

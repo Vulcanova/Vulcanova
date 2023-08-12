@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Vulcanova.Extensions;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout.Controls.Calendar;
 
@@ -40,7 +42,7 @@ public partial class CalendarMonthGrid : ContentView
     }
 
     public static readonly BindableProperty SelectedColorProperty =
-        BindableProperty.Create(nameof(SelectedColor), typeof(Color), typeof(CalendarMonthGrid), Color.Red);
+        BindableProperty.Create(nameof(SelectedColor), typeof(Color), typeof(CalendarMonthGrid), Colors.Red);
 
     public Color SelectedColor
     {
@@ -49,7 +51,7 @@ public partial class CalendarMonthGrid : ContentView
     }
 
     public static readonly BindableProperty TextColorProperty =
-        BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(CalendarMonthGrid), Color.Default);
+        BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(CalendarMonthGrid), null);
 
     public Color TextColor
     {
@@ -58,7 +60,7 @@ public partial class CalendarMonthGrid : ContentView
     }
 
     public static readonly BindableProperty SelectedTextColorProperty =
-        BindableProperty.Create(nameof(SelectedTextColor), typeof(Color), typeof(CalendarMonthGrid), Color.White);
+        BindableProperty.Create(nameof(SelectedTextColor), typeof(Color), typeof(CalendarMonthGrid), Colors.White);
 
     public Color SelectedTextColor
     {
@@ -67,7 +69,7 @@ public partial class CalendarMonthGrid : ContentView
     }
 
     public static readonly BindableProperty SecondaryTextColorProperty =
-        BindableProperty.Create(nameof(SecondaryTextColor), typeof(Color), typeof(CalendarMonthGrid), Color.White);
+        BindableProperty.Create(nameof(SecondaryTextColor), typeof(Color), typeof(CalendarMonthGrid), Colors.White);
 
     public Color SecondaryTextColor
     {
@@ -132,6 +134,7 @@ public partial class CalendarMonthGrid : ContentView
                 ThemeUtility.GetColor("LightSecondaryTextColor"), 
                 ThemeUtility.GetColor("DarkSecondaryTextColor"));
 
+            // TODO Xamarin.Forms.Device.GetNamedSize is not longer supported. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             label.FontSize = Device.GetNamedSize(NamedSize.Small, label);
 
             CalendarGrid.Children.Add(label, day, 0);

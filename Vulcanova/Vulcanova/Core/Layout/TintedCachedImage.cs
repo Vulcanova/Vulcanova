@@ -1,14 +1,16 @@
 using FFImageLoading.Svg.Forms;
 using FFImageLoading.Transformations;
 using FFImageLoading.Work;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout;
 
 // https://github.com/luberda-molinet/FFImageLoading/issues/491#issuecomment-279891483
 public class TintedCachedImage : SvgCachedImage
 {
-    public static BindableProperty TintColorProperty = BindableProperty.Create(nameof(TintColor), typeof(Color), typeof(TintedCachedImage), Color.Transparent, propertyChanged: UpdateColor);
+    public static BindableProperty TintColorProperty = BindableProperty.Create(nameof(TintColor), typeof(Color), typeof(TintedCachedImage), Colors.Transparent, propertyChanged: UpdateColor);
 
     public Color TintColor
     {
@@ -26,7 +28,7 @@ public class TintedCachedImage : SvgCachedImage
         var view = (TintedCachedImage)bindable;
         var transformations = new System.Collections.Generic.List<ITransformation>
         {
-            new TintTransformation((int)(newcolor.R * 255), (int)(newcolor.G * 255), (int)(newcolor.B * 255), (int)(newcolor.A * 255)) {
+            new TintTransformation((int)(newcolor.Red * 255), (int)(newcolor.Green * 255), (int)(newcolor.Blue * 255), (int)(newcolor.Alpha * 255)) {
                 EnableSolidColor = true
             }
         };

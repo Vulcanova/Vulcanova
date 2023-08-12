@@ -6,7 +6,8 @@ using Prism.Ioc;
 using Prism.Navigation;
 using Prism.Plugin.Popups;
 using Rg.Plugins.Popup.Contracts;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout;
 

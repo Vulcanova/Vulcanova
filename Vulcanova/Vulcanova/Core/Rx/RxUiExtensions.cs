@@ -4,7 +4,8 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using ReactiveMarbles.ObservableEvents;
 using ReactiveUI;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Rx;
 

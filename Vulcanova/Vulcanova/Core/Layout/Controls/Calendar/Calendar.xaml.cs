@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Reactive.Linq;
 using FFImageLoading.Svg.Forms;
 using ReactiveUI;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout.Controls.Calendar;
 
@@ -21,7 +23,7 @@ public partial class Calendar
     }
 
     public static readonly BindableProperty SelectedColorProperty =
-        BindableProperty.Create(nameof(SelectedColor), typeof(Color), typeof(CalendarDateCell), Color.Red);
+        BindableProperty.Create(nameof(SelectedColor), typeof(Color), typeof(CalendarDateCell), Colors.Red);
 
     public Color SelectedColor
     {
@@ -30,7 +32,7 @@ public partial class Calendar
     }
         
     public static readonly BindableProperty TextColorProperty =
-        BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(CalendarDateCell), Color.Default);
+        BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(CalendarDateCell), null);
 
     public Color TextColor
     {
@@ -39,7 +41,7 @@ public partial class Calendar
     }
 
     public static readonly BindableProperty SelectedTextColorProperty =
-        BindableProperty.Create(nameof(SelectedTextColor), typeof(Color), typeof(CalendarDateCell), Color.White);
+        BindableProperty.Create(nameof(SelectedTextColor), typeof(Color), typeof(CalendarDateCell), Colors.White);
 
     public Color SelectedTextColor
     {
@@ -48,7 +50,7 @@ public partial class Calendar
     }
 
     public static readonly BindableProperty SecondaryTextColorProperty =
-        BindableProperty.Create(nameof(SecondaryTextColor), typeof(Color), typeof(CalendarDateCell), Color.White);
+        BindableProperty.Create(nameof(SecondaryTextColor), typeof(Color), typeof(CalendarDateCell), Colors.White);
 
     public Color SecondaryTextColor
     {

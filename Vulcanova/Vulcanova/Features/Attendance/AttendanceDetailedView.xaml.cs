@@ -3,8 +3,9 @@ using System.Reactive.Linq;
 using System.Reactive.Disposables;
 using ReactiveUI;
 using Vulcanova.Core.Rx;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Attendance;
 
@@ -20,6 +21,7 @@ public partial class AttendanceDetailedView
             this.Bind(ViewModel, vm => vm.SelectedDay, v => v.Calendar.SelectedDate)
                 .DisposeWith(disposable);
 
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS)
             {
                 this.OneWayBind(ViewModel, vm => vm.CurrentDayEntries, v => v.EntriesList.ItemsSource,

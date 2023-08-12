@@ -2,7 +2,7 @@
 using System.Reactive.Linq;
 using ReactiveUI;
 using Vulcanova.Core.Rx;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Vulcanova.Features.Notes;
 

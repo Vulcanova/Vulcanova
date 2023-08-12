@@ -6,7 +6,8 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Vulcanova.Features.Grades.Summary;
 using Vulcanova.Features.Settings;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.Storage;
 
 namespace Vulcanova.Features.Grades.SubjectDetails;
 

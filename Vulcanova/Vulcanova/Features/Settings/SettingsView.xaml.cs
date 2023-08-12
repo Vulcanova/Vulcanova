@@ -3,7 +3,7 @@ using System.Reactive.Linq;
 using System.Reactive.Disposables;
 using ReactiveMarbles.ObservableEvents;
 using ReactiveUI;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Vulcanova.Features.Settings;
 

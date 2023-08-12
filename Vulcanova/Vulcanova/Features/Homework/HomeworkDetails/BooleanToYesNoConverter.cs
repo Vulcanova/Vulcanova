@@ -1,7 +1,8 @@
 using System;
 using System.Globalization;
 using Vulcanova.Resources;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Homework.HomeworkDetails;
 

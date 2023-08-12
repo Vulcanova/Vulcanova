@@ -1,5 +1,7 @@
 using System;
-using Xamarin.Forms;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout;
 
@@ -14,7 +16,7 @@ public static class ThemeUtility
 
     public static Color GetThemedColorByResourceKey(string key)
     {
-        var colorVariant = Application.Current.RequestedTheme == OSAppTheme.Dark
+        var colorVariant = Application.Current.RequestedTheme == AppTheme.Dark
             ? "Dark"
             : "Light";
 

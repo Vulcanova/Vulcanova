@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Vulcanova.Features.Timetable.Changes;
 using Vulcanova.Uonet.Api.Schedule;
+using Microsoft.Maui.Devices.Sensors;
 
 namespace Vulcanova.Features.Timetable;
 
@@ -59,7 +60,7 @@ public static class TimetableBuilder
                 {
                     No = new TimetableListEntry.OverridableValue<int>
                     {
-                        Override = change.TimeSlot?.Position,
+                        Override = change.TimeSlot?.Location,
                         OriginalValue = lessonToUpdate?.No ?? 0
                     },
                     Start = new TimetableListEntry.OverridableValue<DateTime>

@@ -5,8 +5,9 @@ using Vulcanova.Features.Attendance.Justification;
 using Vulcanova.Features.Shared;
 using Vulcanova.Uonet.Api.Auth;
 using Vulcanova.Uonet.Api.Lessons;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Vulcanova.Features.Attendance.LessonDetails;
 

@@ -2,7 +2,7 @@ using System.Reactive;
 using Prism.Navigation;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
 
 namespace Vulcanova.Features.Settings.HttpTrafficLogger.Details;
 
