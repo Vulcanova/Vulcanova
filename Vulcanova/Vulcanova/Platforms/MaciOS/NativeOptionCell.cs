@@ -1,12 +1,10 @@
 using System.ComponentModel;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.iOS;
 using UIKit;
 using Vulcanova.Core.Layout.Controls;
-using Microsoft.Maui.Controls.Handlers.Compatibility;
-using Microsoft.Maui.Controls.Platform;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
-namespace Vulcanova.iOS
+namespace Vulcanova.Platforms.MaciOS
 {
     public class NativeOptionCell : UITableViewCell, INativeElementView
     {

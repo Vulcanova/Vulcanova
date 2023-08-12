@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Vulcanova.iOS
+namespace Vulcanova.Platforms.MaciOS
 {
     public class Application
     {

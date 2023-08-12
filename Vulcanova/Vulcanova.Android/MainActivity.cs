@@ -10,6 +10,7 @@ using OliveTree.Transitions.Droid;
 using Prism;
 using Prism.Ioc;
 using Vulcanova.Core.Layout;
+using Vulcanova.Platforms.MaciOS;
 
 namespace Vulcanova.Android
 {

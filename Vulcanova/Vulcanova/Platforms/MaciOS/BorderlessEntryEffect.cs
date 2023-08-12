@@ -1,13 +1,10 @@
-using UIKit;
-using Vulcanova.iOS;
-using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Microsoft.Maui.Controls.Platform;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
+using UIKit;
+using Vulcanova.Platforms.MaciOS;
 
 [assembly:ResolutionGroupName ("Vulcanova")]
 [assembly:ExportEffect (typeof(BorderlessEntryEffect), nameof(BorderlessEntryEffect))]
-namespace Vulcanova.iOS
+namespace Vulcanova.Platforms.MaciOS
 {
     public class BorderlessEntryEffect : PlatformEffect
     {

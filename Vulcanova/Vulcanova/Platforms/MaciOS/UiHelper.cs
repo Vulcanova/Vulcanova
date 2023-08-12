@@ -1,7 +1,6 @@
-using System.Linq;
 using UIKit;
 
-namespace Vulcanova.iOS
+namespace Vulcanova.Platforms.MaciOS
 {
     // https://github.com/xamarin/Essentials/issues/1007#issuecomment-1038965876
     public static class UiHelper

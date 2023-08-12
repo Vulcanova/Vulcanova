@@ -1,19 +1,16 @@
-using System;
-using System.Threading.Tasks;
 using FFImageLoading;
 using FFImageLoading.Svg.Platform;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.iOS;
 using UIKit;
 using Vulcanova.Core.Layout;
-using Vulcanova.iOS;
-using Microsoft.Maui.Controls.Handlers.Compatibility;
-using Microsoft.Maui.Controls.Platform;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
+using Vulcanova.Platforms.MaciOS;
+using TabbedRenderer = Microsoft.Maui.Controls.Handlers.Compatibility.TabbedRenderer;
 
 // This doesn't work unless the underlying viewmodel is specif ied
 // TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(SvgTabbedPage<HomeTabbedPageViewModel>), typeof(SvgTabbedPageRenderer))]
-namespace Vulcanova.iOS
+namespace Vulcanova.Platforms.MaciOS
 {
     // https://github.com/xamarin/xamarin-forms-samples/blob/main/Navigation/TabbedPageSVGIcons/TabbedPageSVGIcons.iOS/MyTabbedPageRenderer.cs
     public class SvgTabbedPageRenderer : TabbedRenderer

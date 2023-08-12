@@ -1,15 +1,9 @@
-﻿using FFImageLoading.Forms.Platform;
-using Foundation;
-using LabelHtml.Forms.Plugin.iOS;
-using OliveTree.Transitions;
-using OliveTree.Transitions.iOS;
-using Prism;
-using Prism.Ioc;
+﻿using Foundation;
 using UIKit;
 using Vulcanova.Core.Layout;
 using Vulcanova.Core.NativeWidgets;
 
-namespace Vulcanova.iOS
+namespace Vulcanova.Platforms.MaciOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
