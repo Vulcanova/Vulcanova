@@ -142,7 +142,7 @@ public partial class CalendarDateCell
 
         if (cell.Selected)
         {
-            cell.Label.TextColor = cell.Secondary ? cell.SelectedTextColor.MultiplyAlpha(0.5) : cell.SelectedTextColor;
+            cell.Label.TextColor = cell.Secondary ? cell.SelectedTextColor.MultiplyAlpha(0.5f) : cell.SelectedTextColor;
         }
         else
         {

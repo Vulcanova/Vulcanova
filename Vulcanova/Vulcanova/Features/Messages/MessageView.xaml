@@ -5,7 +5,6 @@
                           xmlns:rxui="clr-namespace:ReactiveUI.Maui;assembly=ReactiveUI.Maui"
                           xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                           xmlns:messages="clr-namespace:Vulcanova.Features.Messages;assembly=Vulcanova"
-                          xmlns:abstractions="clr-namespace:LabelHtml.Forms.Plugin.Abstractions;assembly=HtmlLabel.Forms.Plugin"
                           xmlns:layout="clr-namespace:Vulcanova.Core.Layout;assembly=Vulcanova"
                           xmlns:messageBox="clr-namespace:Vulcanova.Uonet.Api.MessageBox;assembly=Vulcanova.Uonet"
                           xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
@@ -77,7 +76,7 @@
                     </StackLayout>
                 </Grid>
                 <Label Grid.Row="1" FontSize="Large" FontAttributes="Bold" Text="{Binding Message.Subject}" />
-                <abstractions:HtmlLabel Grid.Row="2" Text="{Binding Message.Content}" Margin="-4.5, 0" />
+                <Label Grid.Row="2" Text="{Binding Message.Content}" TextType="Html" />
                 <StackLayout Grid.Row="3"
                              BindableLayout.ItemsSource="{Binding Message.Attachments}">
                     <BindableLayout.ItemTemplate>

@@ -1,7 +1,7 @@
 using System.Reactive;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using FFImageLoading.Svg.Forms;
+using FFImageLoading.Svg.Maui;
 using Rg.Plugins.Popup.Contracts;
 using Vulcanova.Core.Layout.Controls;
 using Vulcanova.Core.Rx;

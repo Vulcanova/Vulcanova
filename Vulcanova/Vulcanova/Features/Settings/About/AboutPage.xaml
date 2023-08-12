@@ -2,11 +2,10 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:iOsSpecific="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:essentials="clr-namespace:Xamarin.Essentials;assembly=Xamarin.Essentials"
              xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
+             xmlns:maui="clr-namespace:FFImageLoading.Svg.Maui;assembly=FFImageLoading.Compat.Svg.Maui"
+             xmlns:applicationModel="clr-namespace:Microsoft.Maui.ApplicationModel;assembly=Microsoft.Maui.Essentials"
              iOsSpecific:Page.UseSafeArea="True"
              NavigationPage.HasNavigationBar="True"
              Title="{x:Static resx:Strings.SettingsAboutApp}"
@@ -16,13 +15,13 @@
             <StackLayout
                 VerticalOptions="CenterAndExpand" Padding="20">
                 <StackLayout Spacing="20">
-                    <pancakeView:PancakeView HorizontalOptions="Center" CornerRadius="32">
-                        <pancakeView:PancakeView.Shadow>
-                            <pancakeView:DropShadow Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}" Opacity="0.1" BlurRadius="16" Offset="0, 24" />
-                        </pancakeView:PancakeView.Shadow>
-                        <forms:SvgCachedImage Source="resource://Vulcanova.Resources.Icons.vulcanova.svg"
-                                              WidthRequest="128" />
-                    </pancakeView:PancakeView>
+                    <!-- <pancakeView HorizontalOptions="Center" CornerRadius="32"> -->
+                    <!--     <pancakeView:PancakeView.Shadow> -->
+                    <!--         <pancakeView:DropShadow Color="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}" Opacity="0.1" BlurRadius="16" Offset="0, 24" /> -->
+                    <!--     </pancakeView:PancakeView.Shadow> -->
+                    <!--     <maui:SvgCachedImage Source="resource://Vulcanova.Resources.Icons.vulcanova.svg" -->
+                    <!--                           WidthRequest="128" /> -->
+                    <!-- </pancakeView> -->
                     <StackLayout BackgroundColor="Transparent">
                     <Label FontAttributes="Bold" Text="Vulcanova" FontSize="Title" HorizontalOptions="Center" />
                     <Label HorizontalTextAlignment="Center" Text="{x:Static resx:Strings.VulcanovaSubheadingLabel}" />
@@ -32,7 +31,7 @@
             <StackLayout Spacing="2">
                 <Label FontSize="Small" HorizontalTextAlignment="Center"
                        TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"
-                       Text="{Binding Source={x:Static essentials:AppInfo.VersionString}, StringFormat='v{0}'}"/>
+                       Text="{Binding Source={x:Static applicationModel:AppInfo.VersionString}, StringFormat='v{0}'}"/>
                 <Label FontSize="Small" HorizontalTextAlignment="Center"
                        TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"
                        Text="{x:Static resx:Strings.AboutAuthors}" />

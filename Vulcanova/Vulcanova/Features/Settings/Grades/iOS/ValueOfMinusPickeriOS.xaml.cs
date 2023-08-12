@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 using System.Reactive.Disposables;
-using ImTools;
+using DryIoc.ImTools;
 using ReactiveUI;
 using Vulcanova.Features.Settings.Controls;
 using Vulcanova.Resources;

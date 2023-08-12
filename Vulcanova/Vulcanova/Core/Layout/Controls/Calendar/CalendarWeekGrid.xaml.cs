@@ -123,7 +123,7 @@ public partial class CalendarWeekGrid
             // TODO Xamarin.Forms.Device.GetNamedSize is not longer supported. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             label.FontSize = Device.GetNamedSize(NamedSize.Small, label);
 
-            CalendarGrid.Children.Add(label, day, 0);
+            CalendarGrid.Add(label, day, 0);
 
             date = date.AddDays(1);
         }
@@ -144,7 +144,7 @@ public partial class CalendarWeekGrid
 
             var cell = CreateCellForDate(date);
 
-            CalendarGrid.Children.Add(cell, dayOffset, 1);
+            CalendarGrid.Add(cell, dayOffset, 1);
 
             _dateCells[date] = cell;
         }

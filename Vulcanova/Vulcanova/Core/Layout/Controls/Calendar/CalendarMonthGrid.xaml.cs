@@ -137,7 +137,7 @@ public partial class CalendarMonthGrid : ContentView
             // TODO Xamarin.Forms.Device.GetNamedSize is not longer supported. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             label.FontSize = Device.GetNamedSize(NamedSize.Small, label);
 
-            CalendarGrid.Children.Add(label, day, 0);
+            CalendarGrid.Add(label, day, 0);
 
             date = date.AddDays(1);
         }
@@ -154,8 +154,8 @@ public partial class CalendarMonthGrid : ContentView
         _dateCells.Clear();
 
         var children = CalendarGrid.Children
-            .OrderBy(Grid.GetRow)
-            .ThenBy(Grid.GetColumn)
+            .OrderBy(x => CalendarGrid.GetRow(x))
+            .ThenBy(x => CalendarGrid.GetColumn(x))
             .Skip(7) // skip weekday names header
             .ToArray();
 
@@ -194,7 +194,7 @@ public partial class CalendarMonthGrid : ContentView
                 if (cell == null)
                 {
                     cell = CreateCellForDate(currentDay);
-                    CalendarGrid.Children.Add(cell, dayColumn, weekRow);
+                    CalendarGrid.Add(cell, dayColumn, weekRow);
                 }
                 else
                 {
