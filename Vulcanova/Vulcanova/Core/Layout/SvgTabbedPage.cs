@@ -1,4 +1,4 @@
-using ReactiveUI.XamForms;
+using ReactiveUI.Maui;
 
 namespace Vulcanova.Core.Layout;
 
