@@ -1,9 +1,6 @@
-using FFImageLoading.Svg.Forms;
+using FFImageLoading.Svg.Maui;
 using FFImageLoading.Transformations;
 using FFImageLoading.Work;
-using Microsoft.Maui.Graphics;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
 
 namespace Vulcanova.Core.Layout;
 

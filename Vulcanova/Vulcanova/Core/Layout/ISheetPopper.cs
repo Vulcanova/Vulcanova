@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
-
 namespace Vulcanova.Core.Layout;
 
 public interface ISheetPopper
@@ -12,7 +7,7 @@ public interface ISheetPopper
 
     Page DisplayedSheet { get; }
 
-    void PushSheet(Page page);
+    void PushSheet(Page page, IMauiContext mauiContext);
     void PopSheet();
 }
 
