@@ -1,7 +1,7 @@
 <layout:ReactiveSheetPage
     x:TypeArguments="accountPicker:AccountPickerViewModel" xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit.MauiCompat"
     xmlns:accounts="clr-namespace:Vulcanova.Features.Auth.Accounts;assembly=Vulcanova"
     xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
@@ -54,10 +54,10 @@
                             </SwipeView.LeftItems>
                             <Grid ColumnSpacing="12"
                                   Padding="16, 8"
-                                  xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}"
-                                  xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource DarkBorderColor}}"
-                                  xct:TouchEffect.Command="{Binding Source={x:Reference View}, Path=ViewModel.OpenAccount}"
-                                  xct:TouchEffect.CommandParameter="{Binding Id}">
+                                  effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}"
+                                  effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource DarkBorderColor}}"
+                                  effects:TouchEffect.Command="{Binding Source={x:Reference View}, Path=ViewModel.OpenAccount}"
+                                  effects:TouchEffect.CommandParameter="{Binding Id}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
@@ -66,8 +66,8 @@
                                 <views:AvatarView
                                     VerticalOptions="Center"
                                     Text="{Binding Pupil, Converter={StaticResource PupilToInitialsConverter}}"
-                                    Color="{AppThemeBinding Dark={StaticResource DarkTranslucentPrimaryColor}, Light={StaticResource LightTranslucentPrimaryColor}}"
-                                    TextColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}" />
+                                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkTranslucentPrimaryColor}, Light={StaticResource LightTranslucentPrimaryColor}}" 
+                                    TextColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}"/>
                                 <StackLayout Grid.Column="1" Spacing="0" Background="Transparent">
                                     <Label>
                                         <Label.Text>

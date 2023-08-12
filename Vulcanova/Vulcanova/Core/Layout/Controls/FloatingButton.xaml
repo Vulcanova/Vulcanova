@@ -3,7 +3,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:xe="clr-namespace:XamEffects;assembly=XamEffects"
+             xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit.MauiCompat"
              xmlns:layout="clr-namespace:Vulcanova.Core.Layout;assembly=Vulcanova"
              x:Class="Vulcanova.Core.Layout.Controls.FloatingButton"
              x:Name="View"
@@ -13,17 +13,17 @@
         <Frame Padding="0"
                CornerRadius="28"
                HasShadow="False"
-               xe:Commands.Tap="{Binding Command, Source={x:Reference View}}" 
-               xe:TouchEffect.Color="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource DarkBorderColor}}">
+               effects:TouchEffect.Command="{Binding Command, Source={x:Reference View}}" 
+               effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource DarkBorderColor}}">
             <!-- HasShadow="False" - we aren't interested in Frame's built-in shadow as we use the effect from XCT -->
             <Frame CornerRadius="28"
                    Padding="16"
                    HasShadow="False"
                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkPrimaryColor}, Light={StaticResource LightPrimaryColor}}"
-                   xct:ShadowEffect.Color="Black"
-                   xct:ShadowEffect.Opacity="0.5"
-                   xct:ShadowEffect.OffsetY="2"
-                   xct:ShadowEffect.Radius="4">
+                   effects:ShadowEffect.Color="Black"
+                   effects:ShadowEffect.Opacity="0.5"
+                   effects:ShadowEffect.OffsetY="2"
+                   effects:ShadowEffect.Radius="4">
                 <layout:TintedCachedImage
                     WidthRequest="24"
                     Source="{Binding Path=Source, Source={x:Reference View}}"

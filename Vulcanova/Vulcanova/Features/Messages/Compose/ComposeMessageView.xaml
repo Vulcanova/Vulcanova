@@ -11,7 +11,7 @@
                           xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
                           xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                           xmlns:messages="clr-namespace:Vulcanova.Features.Messages;assembly=Vulcanova"
-                          xmlns:xe="clr-namespace:XamEffects;assembly=XamEffects"
+                          xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit.MauiCompat"
                           ios:Page.ModalPresentationStyle="PageSheet">
     <ContentPage.Resources>
         <ColumnDefinitionCollection x:Key="FieldColumns">
@@ -67,8 +67,8 @@
                         <DataTemplate x:DataType="compose:AddressBookEntry">
                             <ViewCell>
                                 <Grid Padding="16, 8" ColumnSpacing="8"
-                                      xe:Commands.TapParameter="{Binding .}"
-                                      xe:Commands.Tap="{Binding Source={RelativeSource AncestorType={x:Type compose:ComposeMessageViewModel}}, Path=SelectRecipient}">
+                                      effects:TouchEffect.CommandParameter="{Binding .}"
+                                      effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type compose:ComposeMessageViewModel}}, Path=SelectRecipient}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40" />
                                         <ColumnDefinition Width="*" />

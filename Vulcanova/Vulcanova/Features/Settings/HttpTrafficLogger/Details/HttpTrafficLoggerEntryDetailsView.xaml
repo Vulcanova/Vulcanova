@@ -25,7 +25,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <compatibility:RelativeLayout>
-            <Grid compatibility:RelativeLayout.HeightConstraint="{compatibility:ConstraintExpression Type=RelativeToParent, Property=Height}" compatibility:RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+            <Grid compatibility:RelativeLayout.HeightConstraint="{compatibility:ConstraintExpression Type=RelativeToParent, Property=Height}" compatibility:RelativeLayout.WidthConstraint="{compatibility:ConstraintExpression Type=RelativeToParent, Property=Width}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                     <RowDefinition Height="*" />

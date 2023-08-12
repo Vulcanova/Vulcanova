@@ -6,10 +6,10 @@
                           xmlns:local="clr-namespace:Vulcanova.Features.Attendance;assembly=Vulcanova"
                           xmlns:calendar="clr-namespace:Vulcanova.Core.Layout.Controls.Calendar;assembly=Vulcanova"
                           xmlns:resx="clr-namespace:Vulcanova.Resources;assembly=Vulcanova"
-                          xmlns:xe="clr-namespace:XamEffects;assembly=XamEffects"
                           xmlns:controls="clr-namespace:Vulcanova.Core.Layout.Controls;assembly=Vulcanova"
                           xmlns:rxui="clr-namespace:ReactiveUI.Maui;assembly=ReactiveUI.Maui"
                           xmlns:compatibility="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls"
+                          xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit.MauiCompat"
                           x:Class="Vulcanova.Features.Attendance.AttendanceDetailedView">
     <ContentPage.Content>
         <compatibility:RelativeLayout>
@@ -38,9 +38,9 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="local:LessonViewModel">
                                 <StackLayout Padding="0, 1" Spacing="0"
-                                             xe:TouchEffect.Color="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource DarkBorderColor}}"
-                                             xe:Commands.TapParameter="{Binding Lesson.Id}"
-                                             xe:Commands.Tap="{Binding Source={RelativeSource AncestorType={x:Type local:AttendanceDetailedViewModel}}, Path=ShowLessonDetails}">
+                                             effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource DarkBorderColor}}"
+                                             effects:TouchEffect.CommandParameter="{Binding Lesson.Id}"
+                                             effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type local:AttendanceDetailedViewModel}}, Path=ShowLessonDetails}">
                                     <local:LessonView Lesson="{Binding Lesson}" IsSelected="{Binding IsSelected}"
                                                       JustificationMode="{Binding Source={RelativeSource AncestorType={x:Type local:AttendanceDetailedViewModel}}, Path=JustificationMode}" />
                                     <BoxView Style="{StaticResource SeparatorStyle}" />
