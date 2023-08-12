@@ -28,10 +28,6 @@
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BarcodeScanner.XF" Version="5.0.9" />
-    <PackageReference Include="SkiaSharp" Version="2.80.3" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Vulcanova\Vulcanova.csproj" />
   </ItemGroup>
 </Project>
