@@ -60,10 +60,13 @@ public partial class LessonDetailsView : INavigationAware
 
     private void JustifyButton_OnClicked(object sender, EventArgs e)
     {
-        _navigationService.NavigateAsync(nameof(JustifyAbsenceView), parameters: new NavigationParameters
-        {
-            {nameof(JustifyAbsenceViewModel.Lessons), new[] { Lesson }}
-        }, useModalNavigation: true);
+        _navigationService.CreateBuilder()
+            .AddSegment(nameof(JustifyAbsenceView), useModalNavigation: true)
+            .WithParameters(new NavigationParameters
+            {
+                { nameof(JustifyAbsenceViewModel.Lessons), new[] { Lesson } }
+            })
+            .NavigateAsync();
     }
     
     private static void LessonPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
