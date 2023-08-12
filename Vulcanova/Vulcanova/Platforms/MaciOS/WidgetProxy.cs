@@ -6,7 +6,7 @@ namespace Vulcanova.Platforms.MaciOS
 {
     public sealed class NativeWidgetProxy : INativeWidgetProxy
     {
-        private static readonly WidgetKitProxy.WidgetKitProxy WidgetKitProxy = new WidgetKitProxy.WidgetKitProxy();
+        private static readonly WidgetKitProxy.WidgetKitProxy WidgetKitProxy = new();
 
         public void UpdateWidgetState<T>(INativeWidgetProxy.NativeWidget widget, T data)
         {

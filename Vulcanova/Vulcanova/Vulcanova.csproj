@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <LangVersion>10</LangVersion>
-    <TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
+    <TargetFrameworks>net8.0-ios</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
     <UseMaui>True</UseMaui>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
@@ -149,6 +149,11 @@
       <DependentUpon>HttpTrafficLoggerEntryDetailsView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="WidgetKitProxy">
+      <HintPath>..\..\WidgetKitProxy\WidgetKitProxy\bin\Debug\net8.0-ios\WidgetKitProxy.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Target Name="MBTHack" BeforeTargets="Secrets" DependsOnTargets="MobileBuildToolsInit">
   </Target>
