@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Text.Json;
-using Binding;
 using Foundation;
 using Vulcanova.Core.NativeWidgets;
 
@@ -9,7 +8,7 @@ namespace Vulcanova.iOS
 {
     public sealed class NativeWidgetProxy : INativeWidgetProxy
     {
-        private static readonly WidgetKitProxy WidgetKitProxy = new WidgetKitProxy();
+        private static readonly WidgetKitProxy.WidgetKitProxy WidgetKitProxy = new WidgetKitProxy.WidgetKitProxy();
 
         public void UpdateWidgetState<T>(INativeWidgetProxy.NativeWidget widget, T data)
         {
