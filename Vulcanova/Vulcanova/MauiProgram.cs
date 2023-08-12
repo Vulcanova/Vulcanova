@@ -1,4 +1,5 @@
 using CommunityToolkit.Maui;
+using Mopups.Hosting;
 using Vulcanova.Core.Data;
 using Vulcanova.Core.Layout;
 using Vulcanova.Core.Mapping;
@@ -54,7 +55,8 @@ public static class MauiProgram
                     containerRegistry.RegisterSingleton<ISheetPopper, SheetPopper>();
                     containerRegistry.RegisterSingleton<INativeWidgetProxy, NativeWidgetProxy>();
                 });
-            });
+            })
+            .ConfigureMopups();
 
         return builder.Build();
     }

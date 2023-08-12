@@ -24,6 +24,7 @@
     <PackageReference Include="LiteDB.Async" Version="0.0.11" />
     <PackageReference Include="Mobile.BuildTools" Version="2.0.245" />
     <PackageReference Include="Mobile.BuildTools.Configuration" Version="2.0.245" />
+    <PackageReference Include="Mopups" Version="1.1.1" />
     <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.273-pre" />
     <PackageReference Include="Prism.Maui" Version="8.1.273-pre" />
     <PackageReference Include="ReactiveMarbles.ObservableEvents.SourceGenerator" Version="1.2.3">

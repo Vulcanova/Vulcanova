@@ -2,11 +2,11 @@ using System.Reactive;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using FFImageLoading.Svg.Maui;
-using Rg.Plugins.Popup.Contracts;
 using Vulcanova.Core.Layout.Controls;
 using Vulcanova.Core.Rx;
 using Vulcanova.Resources;
 using Microsoft.Maui.Controls.Xaml;
+using Mopups.Interfaces;
 
 namespace Vulcanova.Core.Layout;
 
