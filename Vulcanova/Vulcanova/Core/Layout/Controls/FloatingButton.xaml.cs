@@ -39,10 +39,13 @@ public partial class FloatingButton
     {
         InitializeComponent();
 
-        this.WhenAnyValue(v => v.IsVisible)
-            .Subscribe(v =>
-            {
-                this.ScaleTo(v ? 1 : 0);
-            });
+        Loaded += (s, e) =>
+        {
+            this.WhenAnyValue(v => v.IsVisible)
+                .Subscribe(v =>
+                {
+                    this.ScaleTo(v ? 1 : 0);
+                });
+        };
     }
 }
