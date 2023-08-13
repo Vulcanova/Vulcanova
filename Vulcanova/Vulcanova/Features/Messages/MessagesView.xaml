@@ -12,7 +12,7 @@
                           xmlns:compatibility="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls"
                           ios:Page.UseSafeArea="True"
                           Title="{x:Static resx:Strings.MessagesTabTitle}"
-                          IconImageSource="{OnPlatform iOS=mail-outline@3x.png, Android=ic_mail_outline}"
+                          IconImageSource="mail_outline.png"
                           x:Class="Vulcanova.Features.Messages.MessagesView">
     <ContentPage.Resources>
         <ResourceDictionary>

@@ -12,7 +12,7 @@
                           xmlns:accountPicker="clr-namespace:Vulcanova.Features.Auth.AccountPicker;assembly=Vulcanova"
                           ios:Page.UseSafeArea="True"
                           Title="{x:Static resx:Strings.HomeworkTabTitle}"
-                          IconImageSource="{OnPlatform iOS=reader-outline@3x.png, Android=ic_reader_outline}"
+                          IconImageSource="reader_outline.png"
                           x:Class="Vulcanova.Features.Homework.HomeworkView">
     <NavigationPage.TitleView>
         <accountPicker:AccountAwarePageTitleView x:Name="TitleView" />

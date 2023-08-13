@@ -1,5 +1,6 @@
 using CommunityToolkit.Maui;
 using FFImageLoading.Maui;
+using FFImageLoading.Maui.Platform;
 using Microsoft.Maui.Controls.Compatibility.Hosting;
 using Mopups.Hosting;
 using Mopups.Services;
