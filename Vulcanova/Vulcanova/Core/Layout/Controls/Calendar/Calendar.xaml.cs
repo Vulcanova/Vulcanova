@@ -1,4 +1,5 @@
 using System.Reactive.Linq;
+using System.Reflection;
 using FFImageLoading.Svg.Maui;
 using ReactiveUI;
 
@@ -85,47 +86,47 @@ public partial class Calendar
     {
         InitializeComponent();
 
-        this.WhenAnyValue(v => v.WeekDisplay)
-            .Select(async value =>
-            {
-                ToggleModeArrow.Source = SvgImageSource.FromResource(
-                    $"Vulcanova.Resources.Icons.chevron-{(value ? "down" : "up")}.svg");
-
-                if (value)
+        Loaded += (_, _) =>
+        {
+            this.WhenAnyValue(v => v.WeekDisplay)
+                .Select(async value =>
                 {
-                    var scaleDown = new Animation(d => CalendarGrid.HeightRequest = d,
-                        CalendarGrid.Height, CalendarWeekGrid.ExpectedHeight);
+                    ToggleModeArrow.Source = SvgImageSource.FromResource(
+                        $"Vulcanova.Resources.Icons.chevron-{(value ? "down" : "up")}.svg", Assembly.GetExecutingAssembly());
 
-                    scaleDown.Commit(this, "ScaleDown", finished: (_, _) =>
+                    if (value)
                     {
-                        CalendarGrid.IsVisible = false;
-                        WeekGrid.IsVisible = true;
-                        WeekGrid.Opacity = 0;
-                        WeekGrid.FadeTo(1);
-                    });
+                        var scaleDown = new Animation(d => CalendarGrid.HeightRequest = d,
+                            CalendarGrid.Height, CalendarWeekGrid.ExpectedHeight);
 
-                    await CalendarGrid.FadeTo(0);
-                }
-                else
-                {
-                    await WeekGrid.FadeTo(0);
+                        scaleDown.Commit(this, "ScaleDown", finished: (_, _) =>
+                        {
+                            CalendarGrid.IsVisible = false;
+                            WeekGrid.IsVisible = true;
+                            WeekGrid.Opacity = 0;
+                            WeekGrid.FadeTo(1);
+                        });
 
-                    var scaleUp = new Animation(d => CalendarGrid.HeightRequest = d,
-                        WeekGrid.Height, CalendarGrid.ExpectedHeight);
-
-                    WeekGrid.IsVisible = false;
-                    CalendarGrid.IsVisible = true;
-
-                    scaleUp.Commit(this, "ScaleUp", finished: (_, _) =>
+                        await CalendarGrid.FadeTo(0);
+                    }
+                    else
                     {
-                        CalendarGrid.ClearValue(HeightRequestProperty);
-                    });
+                        await WeekGrid.FadeTo(0);
 
-                    await CalendarGrid.FadeTo(1);
-                }
-            })
-            .Subscribe();
+                        var scaleUp = new Animation(d => CalendarGrid.HeightRequest = d,
+                            WeekGrid.Height, CalendarGrid.ExpectedHeight);
 
+                        WeekGrid.IsVisible = false;
+                        CalendarGrid.IsVisible = true;
+
+                        scaleUp.Commit(this, "ScaleUp",
+                            finished: (_, _) => { CalendarGrid.ClearValue(HeightRequestProperty); });
+
+                        await CalendarGrid.FadeTo(1);
+                    }
+                })
+                .Subscribe();
+        };
     }
 
     private void ToggleModeArrow_OnTapped(object sender, EventArgs e)

@@ -19,40 +19,41 @@
                 </Grid.ColumnDefinitions>
                 <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Start">
                     <Label Text="{Binding Source={x:Reference View}, Path=SelectedDate, StringFormat='{0:MMMM yyyy}'}"
-                           HorizontalTextAlignment="Center" FontAttributes="Bold" />
-                    <Frame Padding="4, 2" HasShadow="False">
-                        <Frame.GestureRecognizers>
+                           VerticalTextAlignment="Center" FontAttributes="Bold" />
+                    <Border Padding="4, 2">
+                        <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ToggleModeArrow_OnTapped" />
-                        </Frame.GestureRecognizers>
+                        </Border.GestureRecognizers>
                         <layout:TintedCachedImage
                             x:Name="ToggleModeArrow"
                             WidthRequest="17"
+                            HeightRequest="17"
                             TintColor="{AppThemeBinding Dark={StaticResource DarkPrimaryTextColor}, Light={StaticResource LightPrimaryTextColor}}" />
-                    </Frame>
+                    </Border>
                 </StackLayout>
                 <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
-                    <Frame Padding="4, 2" HasShadow="False">
-                        <Frame.GestureRecognizers>
+                    <Border Padding="4, 2">
+                        <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LeftArrow_OnTapped" />
-                        </Frame.GestureRecognizers>
+                        </Border.GestureRecognizers>
                         <layout:TintedCachedImage
                             VerticalOptions="Center"
                             WidthRequest="17"
-                            Source="resource://Vulcanova.Resources.Icons.chevron-left.svg"
-                            TintColor="{AppThemeBinding Light={StaticResource LightPrimaryColor}, Dark={StaticResource DarkPrimaryColor}}">
-                        </layout:TintedCachedImage>
-                    </Frame>
-                    <Frame Padding="4, 2" HasShadow="False">
-                        <Frame.GestureRecognizers>
+                            HeightRequest="17"
+                            TintColor="{AppThemeBinding Dark={StaticResource DarkPrimaryTextColor}, Light={StaticResource LightPrimaryTextColor}}"
+                            Source="resource://Vulcanova.Resources.Icons.chevron-left.svg" />
+                    </Border>
+                    <Border Padding="4, 2">
+                        <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="RightArrow_OnTapped" />
-                        </Frame.GestureRecognizers>
+                        </Border.GestureRecognizers>
                         <layout:TintedCachedImage
                             VerticalOptions="Center"
                             WidthRequest="17"
-                            Source="resource://Vulcanova.Resources.Icons.chevron-right.svg"
-                            TintColor="{AppThemeBinding Light={StaticResource LightPrimaryColor}, Dark={StaticResource DarkPrimaryColor}}">
-                        </layout:TintedCachedImage>
-                    </Frame>
+                            HeightRequest="17"
+                            TintColor="{AppThemeBinding Dark={StaticResource DarkPrimaryTextColor}, Light={StaticResource LightPrimaryTextColor}}"
+                            Source="resource://Vulcanova.Resources.Icons.chevron-right.svg" />
+                    </Border>
                 </StackLayout>
             </Grid>
             <calendar:CalendarMonthGrid Grid.Row="1" x:Name="CalendarGrid"
