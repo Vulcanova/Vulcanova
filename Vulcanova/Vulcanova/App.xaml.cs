@@ -14,6 +14,7 @@ public partial class App
 {
     public App() : base()
     {
+        InitializeComponent();
     }
 
     protected override void OnStart()

@@ -1,5 +1,6 @@
 using CommunityToolkit.Maui;
 using Mopups.Hosting;
+using Mopups.Services;
 using Vulcanova.Core.Data;
 using Vulcanova.Core.Layout;
 using Vulcanova.Core.Mapping;
@@ -55,26 +56,28 @@ public static class MauiProgram
 
                         containerRegistry.RegisterSingleton<ISheetPopper, SheetPopper>();
                         containerRegistry.RegisterSingleton<INativeWidgetProxy, NativeWidgetProxy>();
+                        containerRegistry.RegisterInstance(MopupService.Instance);
                     })
-                    .OnAppStart((container, navigationService) =>
-                    {
-                        var accRepo = container.Resolve<IAccountRepository>();
-
-                        var activeAccount = accRepo.GetActiveAccountAsync().Result;
-
-                        if (activeAccount != null)
+                    .OnAppStart(
+                        (Func<IContainerProvider, INavigationService, Task>)(async (container, navigationService) =>
                         {
-                            var ctx = container.Resolve<AccountContext>();
-                            ctx.Account = activeAccount;
+                            var accRepo = container.Resolve<IAccountRepository>();
 
-                            navigationService.NavigateAsync(
-                                "MainNavigationPage/HomeTabbedPage?selectedTab=GradesSummaryView");
-                        }
-                        else
-                        {
-                            navigationService.NavigateAsync("MainNavigationPage/IntroView");
-                        }
-                    });
+                            var activeAccount = accRepo.GetActiveAccountAsync().Result;
+
+                            if (activeAccount != null)
+                            {
+                                var ctx = container.Resolve<AccountContext>();
+                                ctx.Account = activeAccount;
+
+                                await navigationService.NavigateAsync(
+                                    "MainNavigationPage/HomeTabbedPage?selectedTab=GradesSummaryView");
+                            }
+                            else
+                            {
+                                await navigationService.NavigateAsync("MainNavigationPage/IntroView");
+                            }
+                        }));
             })
             .ConfigureMopups();
 
