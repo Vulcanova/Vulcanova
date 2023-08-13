@@ -1,3 +1,4 @@
+using FFImageLoading.Maui;
 using FFImageLoading.Svg.Maui;
 using FFImageLoading.Transformations;
 using FFImageLoading.Work;
@@ -30,5 +31,18 @@ public class TintedCachedImage : SvgCachedImage
             }
         };
         view.Transformations = transformations;
+    }
+
+    // https://github.com/Redth/FFImageLoading.Compat/pull/4
+    protected override void SetupOnBeforeImageLoading(out TaskParameter imageLoader, IImageSourceBinding source,
+        IImageSourceBinding loadingPlaceholderSource, IImageSourceBinding errorPlaceholderSource)
+    {
+        if (ImageService is null)
+        {
+            imageLoader = null;
+            return;
+        }
+
+        base.SetupOnBeforeImageLoading(out imageLoader, source, loadingPlaceholderSource, errorPlaceholderSource);
     }
 }
