@@ -1,4 +1,6 @@
 using CommunityToolkit.Maui;
+using FFImageLoading.Maui;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
 using Mopups.Hosting;
 using Mopups.Services;
 using Vulcanova.Core.Data;
@@ -71,7 +73,7 @@ public static class MauiProgram
                                 ctx.Account = activeAccount;
 
                                 await navigationService.NavigateAsync(
-                                    "MainNavigationPage/HomeTabbedPage?selectedTab=GradesSummaryView");
+                                    "MainNavigationPage/HomeTabbedPage");
                             }
                             else
                             {
@@ -79,6 +81,8 @@ public static class MauiProgram
                             }
                         }));
             })
+            .UseMauiCompatibility()
+            .UseFFImageLoading()
             .ConfigureMopups();
 
         return builder.Build();

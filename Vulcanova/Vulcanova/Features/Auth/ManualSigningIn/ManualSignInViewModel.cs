@@ -50,8 +50,10 @@ public class ManualSignInViewModel : ViewModelBase, IValidatableViewModel
             pin => !string.IsNullOrWhiteSpace(pin),
             "PIN cannot be empty");
 
-        AddDevice = ReactiveCommand.CreateFromTask(_ => AddDeviceAsync(Token, Symbol, Pin),
-            ValidationContext.Valid);
+        AddDevice = ReactiveCommand.CreateFromTask(_ => AddDeviceAsync(Token, Symbol, Pin)
+            // FIXME: [MAUI] This seems not to work anymore
+            // , ValidationContext.Valid
+            );
     }
 
     private async Task<Unit> AddDeviceAsync(string token, string symbol, string pin)
