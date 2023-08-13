@@ -14,6 +14,7 @@ using Vulcanova.Features.LuckyNumber;
 using Vulcanova.Features.Messages;
 using Vulcanova.Features.Notes;
 using Vulcanova.Features.Settings;
+using Vulcanova.Features.Shared;
 using Vulcanova.Features.Timetable;
 
 namespace Vulcanova;
@@ -29,32 +30,51 @@ public static class MauiProgram
             .UsePrism(prism =>
             {
                 prism.RegisterTypes(containerRegistry =>
-                {
-                    containerRegistry.RegisterLiteDb();
+                    {
+                        containerRegistry.RegisterLiteDb();
 
-                    containerRegistry.RegisterAutoMapper();
+                        containerRegistry.RegisterAutoMapper();
 
-                    containerRegistry.RegisterLayout();
+                        containerRegistry.RegisterLayout();
 
-                    containerRegistry.RegisterNativeWidgetsCommunication();
+                        containerRegistry.RegisterNativeWidgetsCommunication();
 
-                    containerRegistry.RegisterAuth();
-                    containerRegistry.RegisterLuckyNumber();
-                    containerRegistry.RegisterGrades();
-                    containerRegistry.RegisterTimetable();
-                    containerRegistry.RegisterAttendance();
-                    containerRegistry.RegisterExams();
-                    containerRegistry.RegisterHomework();
-                    containerRegistry.RegisterMessages();
-                    containerRegistry.RegisterNotes();
+                        containerRegistry.RegisterAuth();
+                        containerRegistry.RegisterLuckyNumber();
+                        containerRegistry.RegisterGrades();
+                        containerRegistry.RegisterTimetable();
+                        containerRegistry.RegisterAttendance();
+                        containerRegistry.RegisterExams();
+                        containerRegistry.RegisterHomework();
+                        containerRegistry.RegisterMessages();
+                        containerRegistry.RegisterNotes();
 
-                    containerRegistry.RegisterSettings();
+                        containerRegistry.RegisterSettings();
 
-                    containerRegistry.RegisterUonet();
+                        containerRegistry.RegisterUonet();
 
-                    containerRegistry.RegisterSingleton<ISheetPopper, SheetPopper>();
-                    containerRegistry.RegisterSingleton<INativeWidgetProxy, NativeWidgetProxy>();
-                });
+                        containerRegistry.RegisterSingleton<ISheetPopper, SheetPopper>();
+                        containerRegistry.RegisterSingleton<INativeWidgetProxy, NativeWidgetProxy>();
+                    })
+                    .OnAppStart((container, navigationService) =>
+                    {
+                        var accRepo = container.Resolve<IAccountRepository>();
+
+                        var activeAccount = accRepo.GetActiveAccountAsync().Result;
+
+                        if (activeAccount != null)
+                        {
+                            var ctx = container.Resolve<AccountContext>();
+                            ctx.Account = activeAccount;
+
+                            navigationService.NavigateAsync(
+                                "MainNavigationPage/HomeTabbedPage?selectedTab=GradesSummaryView");
+                        }
+                        else
+                        {
+                            navigationService.NavigateAsync("MainNavigationPage/IntroView");
+                        }
+                    });
             })
             .ConfigureMopups();
 
