@@ -35,7 +35,7 @@ public sealed class AccountsManager
 
         if (navigateToHomePage)
         {
-            await _navigationService.NavigateAsync("/MainNavigationPage/HomeTabbedPage?selectedTab=GradesSummaryView");
+            await _navigationService.NavigateAsync("/MainNavigationPage/HomeTabbedPage");
         }
     }
 
