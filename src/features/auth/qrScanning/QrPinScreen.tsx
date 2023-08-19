@@ -8,20 +8,33 @@ import {authenticate} from '../authUtility';
 import {useState} from 'react';
 import Button from 'common/components/Button';
 import TextInput from 'common/components/TextInput';
+import {useAccountsManagement} from '../useAccountsManagement';
+import {getCertThumbprint} from 'common/uonet/crypto/certHelper';
+import {storeIdentity} from '../clientIdentityStore';
 
 type QrPinScreenNavigationProp = NativeStackScreenProps<
   StackParamList,
   'QrPinScreen'
 >;
 
-const QrPinScreen = ({route}: QrPinScreenNavigationProp) => {
+const QrPinScreen = ({route, navigation}: QrPinScreenNavigationProp) => {
   const [pin, setPin] = useState('');
   const {t} = useTranslation(['qrPinScreen', 'common']);
+  const {addAccount} = useAccountsManagement();
 
   const handleAddAccountPress = async () => {
     const qr = route.params.qrData;
     const instanceUrl = extractInstanceUrlFromRequestUrl(qr.apiAddress);
-    await authenticate(qr.token, pin, instanceUrl);
+    const {account, students, identity} = await authenticate(
+      qr.token,
+      pin,
+      instanceUrl,
+    );
+
+    const identityThumbprint = getCertThumbprint(identity.certificate);
+    addAccount(account, students, identityThumbprint);
+    await storeIdentity(identity);
+    navigation.navigate('GradesScreen');
   };
 
   return (

@@ -5,6 +5,9 @@ import Button from 'common/components/Button';
 import {useNavigation, useTheme} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import {StackParamList} from '../../App';
+import {Student} from './Student.schema';
+import {useEffect} from 'react';
+import {useRealm} from 'common/data/AppRealmContext';
 
 type IntroScreenNavigationProp = StackNavigationProp<StackParamList, 'Intro'>;
 
@@ -12,6 +15,15 @@ const IntroScreen = () => {
   const theme = useTheme();
   const navigation = useNavigation<IntroScreenNavigationProp>();
   const {t} = useTranslation('introScreen');
+
+  const realm = useRealm();
+
+  useEffect(() => {
+    const activeStudent = realm.objects(Student).filtered('isActive = true')[0];
+    if (activeStudent) {
+      navigation.navigate('GradesScreen');
+    }
+  }, [realm, navigation]);
 
   const handleScanQrCodeClick = async () => {
     navigation.navigate('QrScanner');

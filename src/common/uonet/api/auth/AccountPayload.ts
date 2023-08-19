@@ -1,4 +1,4 @@
-export interface RegisterClientResponse {
+export interface AccountPayload {
   restURL: string;
   loginId: number;
   userLogin: string;

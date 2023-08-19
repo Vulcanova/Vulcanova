@@ -1,10 +1,12 @@
 import axios from 'axios';
-import {ApiQuery, ApiRequest} from 'common/uonet/api/types';
 import {
   ClientIdentity,
   RequestSigner,
 } from 'common/uonet/signing/requestSigner';
-import {stringifyPascalCase} from 'common/uonet/api/jsonPayloadUtility';
+import {
+  parsePascalCase,
+  stringifyPascalCase,
+} from 'common/uonet/api/jsonPayloadUtility';
 
 export interface ApiResponse<T> {
   envelopeType: string;
@@ -17,18 +19,18 @@ export interface ApiResponse<T> {
 }
 
 export interface ApiClient {
-  post<T>(url: string, request: ApiRequest<T>): Promise<ApiResponse<T>>;
-  get<T>(url: string, query: ApiQuery<T>): Promise<ApiResponse<T>>;
+  post<T, R extends {} = {}>(url: string, request: R): Promise<ApiResponse<T>>;
+  get<T, R extends {} = {}>(url: string, query?: R): Promise<ApiResponse<T>>;
 }
 
-const toQueryString = <T>(query: ApiQuery<T>) => {
-  const keys = Object.keys(query) as (keyof typeof query)[];
+const toQueryString = <T extends {}>(query: T) => {
+  const keys = Object.keys(query) as (keyof T)[];
 
   if (keys.length === 0) {
     return '';
   }
 
-  const pairs = keys.map(k => `${k}=${query[k]}`);
+  const pairs = keys.map(k => `${String(k)}=${query[k]}`);
 
   return '?' + pairs.join('&');
 };
@@ -39,9 +41,9 @@ export const makeApiClient = (
   apiInstanceUrl: string,
   accountContext?: string,
 ): ApiClient => {
-  const post = async <T>(
+  const post = async <T, R extends {} = {}>(
     url: string,
-    request: ApiRequest<T>,
+    request: R,
   ): Promise<ApiResponse<T>> => {
     const fullUrl = apiInstanceUrl + '/' + url;
     const signed = await requestSigner.signPayload(request, clientIdentity);
@@ -54,18 +56,22 @@ export const makeApiClient = (
       accountContext,
     );
 
-    const {data} = await axios.post(fullUrl, json, {
+    const {data} = await axios.post<ApiResponse<T>>(fullUrl, json, {
       headers,
+      transformResponse: parsePascalCase,
     });
 
-    return data as ApiResponse<T>;
+    return data;
   };
 
-  const get = async <T>(
+  const get = async <T, R extends {} = {}>(
     url: string,
-    request: ApiQuery<T>,
+    query?: R,
   ): Promise<ApiResponse<T>> => {
-    const fullUrl = apiInstanceUrl + '/' + url + toQueryString(request);
+    let fullUrl = apiInstanceUrl + '/' + url;
+    if (query !== undefined) {
+      fullUrl += toQueryString(query);
+    }
 
     const headers = requestSigner.createSignedHeaders(
       fullUrl,
@@ -74,11 +80,12 @@ export const makeApiClient = (
       accountContext,
     );
 
-    const {data} = await axios.get(fullUrl, {
+    const {data} = await axios.get<ApiResponse<T>>(fullUrl, {
       headers,
+      transformResponse: parsePascalCase,
     });
 
-    return data as ApiResponse<T>;
+    return data;
   };
 
   return {
