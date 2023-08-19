@@ -1,0 +1,26 @@
+{
+  "introScreen": {
+    "subheading": "Unofficial open–source Vulcan UONET+ mobile client",
+    "addAccount": "Add account",
+    "scanQrCode": "Scan QR code",
+    "signInManually": "Enter data manually",
+    "gitHubLink": "Vulcanova on GitHub",
+    "requiresCameraAccessAlert": {
+      "title": "Missing permission",
+      "message": "Vulcanova requires Camera access to scan the QR code. Please grant this permission in settings.",
+      "openSettings": "Open settings",
+      "cancel": "Cancel"
+    }
+  },
+  "qrPinScreen": {
+    "enterPinCode": "Enter PIN code",
+    "enterPinCodeSubheading": "To finish adding account, enter the PIN code"
+  },
+  "manualSignInScreen": {
+    "title": "Add account",
+    "subheading": "Enter below values from 'Dodaj konto' section from the web register client",
+  },
+  "common": {
+    "add": "Add"
+  }
+}

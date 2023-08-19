@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "common/*": ["./src/common/*"],
+      "locales/*": ["./src/locales/*"]
+    }
+  },
+}
