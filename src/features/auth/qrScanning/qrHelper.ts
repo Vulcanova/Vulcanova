@@ -6,7 +6,7 @@ export interface AuthQrData {
 export const parseQrContent = (content: string): AuthQrData => {
   const values = content.split('#');
 
-  if (values.length != 4) {
+  if (values.length !== 4) {
     throw new Error('Invalid QR code ' + content);
   }
 

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TextProps, useColorScheme} from 'react-native';
+import {Text, TextProps} from 'react-native';
 import {iOSUIKit} from 'react-native-typography';
 import {useTheme} from '@react-navigation/native';
 
@@ -15,7 +15,6 @@ const Typography = ({
   color,
   style,
   onPress,
-  ...rest
 }: TypographyProps) => {
   const theme = useTheme();
 

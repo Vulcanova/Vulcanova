@@ -1,17 +1,9 @@
 import {StyleSheet, View} from 'react-native';
 import Typography from 'common/components/Typography';
 import {useTranslation} from 'react-i18next';
-import {
-  extractInstanceUrlFromRequestUrl,
-  getInstanceUrl,
-} from 'common/uonet/api/instanceUrlProvider';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {extractInstanceUrlFromRequestUrl} from 'common/uonet/api/instanceUrlProvider';
 import {StackParamList} from '../../../App';
-import {
-  NativeStackNavigationProp,
-  NativeStackScreenProps,
-} from '@react-navigation/native-stack';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {authenticate} from '../authUtility';
 import {useState} from 'react';
 import Button from 'common/components/Button';

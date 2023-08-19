@@ -3,8 +3,6 @@ import i18n from 'i18next';
 import stringsEn from 'locales/en/strings.json';
 import {NativeModules, Platform} from 'react-native';
 
-const langs = ['en'];
-
 export const i18nInit = () => {
   const locale =
     Platform.OS === 'ios'

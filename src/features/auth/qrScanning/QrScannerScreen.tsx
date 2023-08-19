@@ -1,5 +1,5 @@
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import {BarCodeReadEvent, RNCamera} from 'react-native-camera';
+import {BarCodeReadEvent} from 'react-native-camera';
 import {parseQrContent} from './qrHelper';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {StackParamList} from '../../../App';

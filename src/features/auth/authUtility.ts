@@ -5,7 +5,6 @@ import {
   RegisterClientRequest,
 } from 'common/uonet/api/auth/RegisterClientRequest';
 import {clientConstants} from 'common/uonet/clientConstants';
-import {Buffer} from '@craftzdog/react-native-buffer';
 import {getCertThumbprint} from 'common/uonet/crypto/certHelper';
 import quickCrypto from 'react-native-quick-crypto';
 import {makeApiClient} from 'common/uonet/api/apiClient';
@@ -29,7 +28,7 @@ export const authenticate = async (
     deviceModel: device,
     certificate: certInfo,
     certificateType: 'X509',
-    certificateThumbprint: await getCertThumbprint(identity.certificate),
+    certificateThumbprint: getCertThumbprint(identity.certificate),
     PIN: pin,
     securityToken: token,
     selfIdentifier: quickCrypto.randomUUID(),

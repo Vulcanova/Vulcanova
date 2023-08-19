@@ -1,6 +1,6 @@
 import * as rs from 'jsrsasign';
 
-export const generateCertificate = async () => {
+export const generateCertificate = () => {
   const kp = rs.KEYUTIL.generateKeypair('EC', 'secp256r1');
   const prv = kp.prvKeyObj;
   const pub = kp.pubKeyObj;

@@ -1,16 +1,8 @@
-import {
-  Alert,
-  Linking,
-  NativeModules,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Linking, StyleSheet, View} from 'react-native';
 import Typography from 'common/components/Typography';
 import {useTranslation} from 'react-i18next';
 import Button from 'common/components/Button';
-import {Link, useNavigation, useTheme} from '@react-navigation/native';
-import QrScannerScreen from './qrScanning/QrScannerScreen';
+import {useNavigation, useTheme} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import {StackParamList} from '../../App';
 
