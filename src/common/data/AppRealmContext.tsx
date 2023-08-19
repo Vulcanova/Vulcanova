@@ -25,3 +25,4 @@ export const AppRealmContext = createRealmContext({
 });
 
 export const useRealm = AppRealmContext.useRealm;
+export const useQuery = AppRealmContext.useQuery;

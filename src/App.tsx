@@ -18,6 +18,7 @@ import {AuthQrData} from './features/auth/qrScanning/qrHelper';
 import ManualSignInScreen from './features/auth/manualSignIn/ManualSignInScreen';
 import {AppRealmContext} from 'common/data/AppRealmContext';
 import GradesScreen from './features/grades/GradesScreen';
+import {StudentProvider} from './features/auth/StudentContext';
 i18nInit();
 
 export type StackParamList = {
@@ -35,32 +36,34 @@ function App(): ReactElement {
 
   return (
     <AppRealmContext.RealmProvider>
-      <NavigationContainer
-        theme={isDarkMode ? defaultTheme.dark : defaultTheme.light}>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Intro"
-            component={IntroScreen}
-            options={{headerTitle: '', headerTransparent: true}}
-          />
-          <Stack.Screen
-            name="QrScanner"
-            component={QrScannerScreen}
-            options={{headerTitle: '', headerTransparent: true}}
-          />
-          <Stack.Screen
-            name="QrPinScreen"
-            component={QrPinScreen}
-            options={{headerTitle: '', headerTransparent: true}}
-          />
-          <Stack.Screen
-            name="ManualSignInScreen"
-            component={ManualSignInScreen}
-            options={{headerTitle: '', headerTransparent: true}}
-          />
-          <Stack.Screen name="GradesScreen" component={GradesScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <StudentProvider>
+        <NavigationContainer
+          theme={isDarkMode ? defaultTheme.dark : defaultTheme.light}>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Intro"
+              component={IntroScreen}
+              options={{headerTitle: '', headerTransparent: true}}
+            />
+            <Stack.Screen
+              name="QrScanner"
+              component={QrScannerScreen}
+              options={{headerTitle: '', headerTransparent: true}}
+            />
+            <Stack.Screen
+              name="QrPinScreen"
+              component={QrPinScreen}
+              options={{headerTitle: '', headerTransparent: true}}
+            />
+            <Stack.Screen
+              name="ManualSignInScreen"
+              component={ManualSignInScreen}
+              options={{headerTitle: '', headerTransparent: true}}
+            />
+            <Stack.Screen name="GradesScreen" component={GradesScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </StudentProvider>
     </AppRealmContext.RealmProvider>
   );
 }
