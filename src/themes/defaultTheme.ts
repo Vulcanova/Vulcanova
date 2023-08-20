@@ -1,6 +1,6 @@
-import {AppTheme} from './types';
+import {AppThemeSet} from './types';
 
-const defaultTheme: AppTheme = {
+const defaultTheme: AppThemeSet = {
   light: {
     dark: false,
     colors: {

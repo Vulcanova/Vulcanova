@@ -11,6 +11,7 @@ import TextInput from 'common/components/TextInput';
 import {useAccountsManagement} from '../useAccountsManagement';
 import {getCertThumbprint} from 'common/uonet/crypto/certHelper';
 import {storeIdentity} from '../clientIdentityStore';
+import {CommonActions} from '@react-navigation/native';
 
 type QrPinScreenNavigationProp = NativeStackScreenProps<
   StackParamList,
@@ -34,7 +35,12 @@ const QrPinScreen = ({route, navigation}: QrPinScreenNavigationProp) => {
     const identityThumbprint = getCertThumbprint(identity.certificate);
     addAccount(account, students, identityThumbprint);
     await storeIdentity(identity);
-    navigation.replace('GradesScreen');
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{name: 'Tabs', state: {routes: [{name: 'Grades'}]}}],
+      }),
+    );
   };
 
   return (

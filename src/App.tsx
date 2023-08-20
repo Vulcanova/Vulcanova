@@ -17,8 +17,8 @@ import QrPinScreen from './features/auth/qrScanning/QrPinScreen';
 import {AuthQrData} from './features/auth/qrScanning/qrHelper';
 import ManualSignInScreen from './features/auth/manualSignIn/ManualSignInScreen';
 import {AppRealmContext} from 'common/data/AppRealmContext';
-import GradesScreen from './features/grades/GradesScreen';
 import {StudentProvider} from './features/auth/StudentContext';
+import TabsScreen from './features/TabsScreen';
 i18nInit();
 
 export type StackParamList = {
@@ -26,7 +26,7 @@ export type StackParamList = {
   QrScanner: undefined;
   QrPinScreen: {qrData: AuthQrData};
   ManualSignInScreen: undefined;
-  GradesScreen: undefined;
+  Tabs: undefined;
 };
 
 const Stack = createNativeStackNavigator<StackParamList>();
@@ -60,7 +60,11 @@ function App(): ReactElement {
               component={ManualSignInScreen}
               options={{headerTitle: '', headerTransparent: true}}
             />
-            <Stack.Screen name="GradesScreen" component={GradesScreen} />
+            <Stack.Screen
+              name="Tabs"
+              component={TabsScreen}
+              options={{headerShown: false}}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </StudentProvider>

@@ -1,14 +1,13 @@
 import {Theme} from '@react-navigation/native';
 
+export interface AppThemeSet {
+  light: AppTheme;
+  dark: AppTheme;
+}
+
 export interface AppTheme {
-  light: {
-    dark: boolean;
-    colors: AppThemeColors;
-  };
-  dark: {
-    dark: boolean;
-    colors: AppThemeColors;
-  };
+  dark: boolean;
+  colors: AppThemeColors;
 }
 
 export type AppThemeColors = Theme['colors'] & {

@@ -2,7 +2,7 @@ import {Linking, StyleSheet, View} from 'react-native';
 import Typography from 'common/components/Typography';
 import {useTranslation} from 'react-i18next';
 import Button from 'common/components/Button';
-import {useNavigation, useTheme} from '@react-navigation/native';
+import {CommonActions, useNavigation, useTheme} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import {StackParamList} from '../../App';
 import {Student} from './Student.schema';
@@ -21,7 +21,12 @@ const IntroScreen = () => {
   useEffect(() => {
     const activeStudent = realm.objects(Student).filtered('isActive = true')[0];
     if (activeStudent) {
-      navigation.replace('GradesScreen');
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: 'Tabs', state: {routes: [{name: 'Grades'}]}}],
+        }),
+      );
     }
   }, [realm, navigation]);
 

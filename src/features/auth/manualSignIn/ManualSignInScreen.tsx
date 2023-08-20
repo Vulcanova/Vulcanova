@@ -7,23 +7,24 @@ import {getInstanceUrl} from 'common/uonet/api/instanceUrlProvider';
 import {authenticate} from '../authUtility';
 import TextInput from 'common/components/TextInput';
 import {getCertThumbprint} from 'common/uonet/crypto/certHelper';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {CommonActions, CompositeScreenProps} from '@react-navigation/native';
+import {StackScreenProps} from '@react-navigation/stack';
 import {StackParamList} from '../../../App';
 import {useAccountsManagement} from '../useAccountsManagement';
 import {storeIdentity} from '../clientIdentityStore';
+import {TabParamList} from '../../TabsScreen';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 
-type ManualSignInScreenNavigationProp = StackNavigationProp<
-  StackParamList,
-  'Intro'
+type ManualSignInScreenProp = CompositeScreenProps<
+  StackScreenProps<StackParamList, 'Intro'>,
+  BottomTabScreenProps<TabParamList>
 >;
 
-const ManualSignInScreen = () => {
+const ManualSignInScreen = ({navigation}: ManualSignInScreenProp) => {
   const [token, setToken] = useState('');
   const [symbol, setSymbol] = useState('');
   const [pin, setPin] = useState('');
 
-  const navigation = useNavigation<ManualSignInScreenNavigationProp>();
   const {t} = useTranslation(['manualSignInScreen', 'common']);
 
   const {addAccount} = useAccountsManagement();
@@ -39,7 +40,12 @@ const ManualSignInScreen = () => {
     const identityThumbprint = getCertThumbprint(identity.certificate);
     await storeIdentity(identity);
     addAccount(account, students, identityThumbprint);
-    navigation.replace('GradesScreen');
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{name: 'Tabs', state: {routes: [{name: 'Grades'}]}}],
+      }),
+    );
   };
 
   return (
