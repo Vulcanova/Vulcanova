@@ -6,11 +6,11 @@ export class Student extends Realm.Object<Student> {
   unit!: Unit;
   constituentUnit!: ConstituentUnit;
   isActive!: boolean;
+  messageBox!: MessageBox;
   periods!: Realm.List<Period>;
   identityThumbprint!: string;
   login!: Login;
   capabilities!: string[];
-  senderEntry!: SenderEntry;
   classDisplay!: string;
   context!: string;
   partition!: string;
@@ -23,6 +23,7 @@ export class Student extends Realm.Object<Student> {
       unit: 'Unit',
       constituentUnit: 'ConstituentUnit',
       isActive: 'bool',
+      messageBox: 'MessageBox',
       periods: {
         type: 'list',
         objectType: 'Period',
@@ -30,7 +31,6 @@ export class Student extends Realm.Object<Student> {
       identityThumbprint: 'string',
       login: 'Login',
       capabilities: {type: 'list', objectType: 'string'},
-      senderEntry: 'SenderEntry',
       classDisplay: 'string',
       context: 'string',
       partition: 'string',
@@ -132,22 +132,20 @@ export class Period extends Realm.Object<Period> {
   };
 }
 
-export class SenderEntry extends Realm.Object<SenderEntry> {
-  loginId!: number;
-  address!: string;
-  addressHash!: string;
-  initials!: string;
+export class MessageBox extends Realm.Object<MessageBox> {
+  id!: number;
+  globalKey!: string;
+  name!: string;
 
   static schema = {
-    name: 'SenderEntry',
+    name: 'MessageBox',
     embedded: true,
     properties: {
-      loginId: 'int',
-      address: 'string',
-      addressHash: 'string',
-      initials: 'string',
-    },
-  };
+      id: 'int',
+      globalKey: 'string',
+      name: 'string'
+    }
+  }
 }
 
 export class Login extends Realm.Object<Login> {
