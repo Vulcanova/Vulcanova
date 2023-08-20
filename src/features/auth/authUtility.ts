@@ -41,9 +41,8 @@ export const authenticate = async (
 
   const account = await client.post<AccountPayload>(API_ENDPOINT, request);
 
-  const registerHebeResponse = await client.get<StudentPayload[]>(
-    RegisterHebeClientQuery.API_ENDPOINT,
-    {},
+  const registerHebeResponse = await client.get<StudentPayload[], RegisterHebeClientQuery>(
+    RegisterHebeClientQuery.API_ENDPOINT, { mode: 2 }
   );
 
   return {

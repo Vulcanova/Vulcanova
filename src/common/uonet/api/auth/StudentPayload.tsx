@@ -4,19 +4,18 @@ export interface StudentPayload {
   classDisplay: string;
   infoDisplay: string;
   fullSync: boolean;
-  senderEntry: SenderEntry;
   login: Login;
   unit: Unit;
   constituentUnit: ConstituentUnit;
   capabilities: string[];
-  educators: Educator[];
+  educatorList: Educator[];
   pupil: Pupil;
   periods: Period[];
   journal: Journal;
   constraints: Constraints;
   state: number;
-  policies: Policies;
   context: string;
+  messageBox: MessageBox;
 }
 
 export interface ConstituentUnit {
@@ -34,12 +33,9 @@ export interface Constraints {
 }
 
 export interface Educator {
-  id: string;
-  loginId: number;
+  globalKey: string;
   name: string;
-  surname: string;
-  initials: string;
-  roles: Role[];
+  group: null;
 }
 
 export interface Role {
@@ -87,13 +83,6 @@ export interface Period {
   last: boolean;
 }
 
-export interface Policies {
-  privacy: any;
-  cookie: any;
-  infoEnclosure: any;
-  accessDeclaration: any;
-}
-
 export interface Pupil {
   id: number;
   loginId: number;
@@ -102,13 +91,6 @@ export interface Pupil {
   secondName: string;
   surname: string;
   sex: boolean;
-}
-
-export interface SenderEntry {
-  loginId: number;
-  address: string;
-  addressHash: string;
-  initials: string;
 }
 
 export interface Unit {
@@ -121,6 +103,12 @@ export interface Unit {
   patron: string;
   displayName: string;
   schoolTopic: string;
+}
+
+export interface MessageBox {
+  id: number;
+  globalKey: string;
+  name: string;
 }
 
 export interface Status {
