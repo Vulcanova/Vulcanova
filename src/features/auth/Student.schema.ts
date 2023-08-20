@@ -67,7 +67,7 @@ export class Unit extends Realm.Object<Pupil> {
   id!: number;
   symbol!: string;
   short!: string;
-  restUrl!: string;
+  restURL!: string;
   name!: string;
   address!: string;
   patron!: string;
@@ -79,10 +79,13 @@ export class Unit extends Realm.Object<Pupil> {
     embedded: true,
     properties: {
       id: 'int',
+      symbol: 'string',
+      restURL: 'string',
       short: 'string',
       name: 'string',
       address: 'string',
       patron: 'string',
+      displayName: 'string',
       schoolTopic: 'string',
     },
   };

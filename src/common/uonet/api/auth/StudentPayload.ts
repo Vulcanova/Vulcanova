@@ -115,7 +115,7 @@ export interface Unit {
   id: number;
   symbol: string;
   short: string;
-  RestURL: string;
+  restURL: string;
   name: string;
   address: string;
   patron: string;

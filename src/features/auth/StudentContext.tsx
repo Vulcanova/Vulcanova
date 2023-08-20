@@ -4,7 +4,7 @@ import React, {createContext, useCallback, useContext} from 'react';
 import {useQuery, useRealm} from 'common/data/AppRealmContext';
 
 export interface StudentContextType {
-  activeStudent?: Student;
+  activeStudent: Student | null;
   changeActiveStudent(studentId: Realm.BSON.UUID): void;
 }
 
@@ -17,7 +17,7 @@ interface Props {
 export const StudentProvider = ({children}: Props) => {
   const realm = useRealm();
   const students = useQuery(Student);
-  const activeStudent = students.filtered('isActive = true')[0];
+  const activeStudent = students.filtered('isActive = true')[0] ?? null;
 
   const changeActiveStudent = useCallback(
     (studentId: Realm.BSON.UUID) => {

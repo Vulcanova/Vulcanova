@@ -7,6 +7,7 @@ import {
   parsePascalCase,
   stringifyPascalCase,
 } from 'common/uonet/api/jsonPayloadUtility';
+import format from 'date-fns/format';
 
 export interface ApiResponse<T> {
   envelopeType: string;
@@ -30,7 +31,18 @@ const toQueryString = <T extends {}>(query: T) => {
     return '';
   }
 
-  const pairs = keys.map(k => `${String(k)}=${query[k]}`);
+  const pairs = keys.map(k => {
+    let queryValue: string = '';
+    const value = query[k];
+
+    if (value instanceof Date) {
+      queryValue = format(value, 'yyyy-MM-dd');
+    } else {
+      queryValue = String(value);
+    }
+
+    return `${String(k)}=${queryValue}`;
+  });
 
   return '?' + pairs.join('&');
 };

@@ -1,9 +1,12 @@
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import GradesList from './GradesList/GradesList';
+import {useGrades} from './useGrades';
 
 const GradesScreen = () => {
+  const grades = useGrades();
   return (
     <View>
-      <Text>Grades</Text>
+      <GradesList grades={grades} />
     </View>
   );
 };

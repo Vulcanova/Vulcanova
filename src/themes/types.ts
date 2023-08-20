@@ -13,6 +13,7 @@ export interface AppTheme {
 export type AppThemeColors = Theme['colors'] & {
   translucentPrimary: string;
   secondaryText: string;
+  tertiaryText: string;
   dashboardControl: string;
   dashboardBackground: string;
   panel: string;
