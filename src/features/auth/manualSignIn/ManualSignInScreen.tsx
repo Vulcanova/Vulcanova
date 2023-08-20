@@ -39,7 +39,7 @@ const ManualSignInScreen = () => {
     const identityThumbprint = getCertThumbprint(identity.certificate);
     await storeIdentity(identity);
     addAccount(account, students, identityThumbprint);
-    navigation.navigate('GradesScreen');
+    navigation.replace('GradesScreen');
   };
 
   return (

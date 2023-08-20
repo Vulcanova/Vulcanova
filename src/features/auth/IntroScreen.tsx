@@ -21,7 +21,7 @@ const IntroScreen = () => {
   useEffect(() => {
     const activeStudent = realm.objects(Student).filtered('isActive = true')[0];
     if (activeStudent) {
-      navigation.navigate('GradesScreen');
+      navigation.replace('GradesScreen');
     }
   }, [realm, navigation]);
 

@@ -34,7 +34,7 @@ const QrPinScreen = ({route, navigation}: QrPinScreenNavigationProp) => {
     const identityThumbprint = getCertThumbprint(identity.certificate);
     addAccount(account, students, identityThumbprint);
     await storeIdentity(identity);
-    navigation.navigate('GradesScreen');
+    navigation.replace('GradesScreen');
   };
 
   return (
