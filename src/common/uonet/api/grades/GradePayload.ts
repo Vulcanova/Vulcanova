@@ -1,5 +1,6 @@
 import {Teacher} from 'common/uonet/api/common/Teacher';
 import {Subject} from 'common/uonet/api/common/Subject';
+import {DateTimeInfo} from 'common/uonet/api/common/DateTimeInfo';
 
 export interface GradePayload {
   id: number;
@@ -11,10 +12,10 @@ export interface GradePayload {
   value: number | null;
   numerator: any;
   denominator: any;
-  dateCreated: string;
-  dateModify: string;
+  dateCreated: DateTimeInfo;
+  dateModify?: DateTimeInfo;
   creator: Teacher;
-  modifier: Teacher;
+  modifier?: Teacher;
   column: Column;
 }
 

@@ -13,7 +13,7 @@ export class Account extends Realm.Object<Account> {
   static schema: Realm.ObjectSchema = {
     name: 'Account',
     properties: {
-      id: {type: 'uuid', default: () => new Realm.BSON.UUID()},
+      id: {type: 'objectId', default: () => new Realm.BSON.ObjectId()},
       identityThumbprint: 'string',
       restURL: 'string',
       loginId: 'int',

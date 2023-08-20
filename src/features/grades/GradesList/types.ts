@@ -1,7 +1,7 @@
-import {GradePayload} from 'common/uonet/api/grades/GradePayload';
+import {Grade} from '../Grade.schema';
 
 export interface SubjectGrades {
   subjectName: string;
   subjectId: number;
-  grades: GradePayload[];
+  grades: Grade[];
 }

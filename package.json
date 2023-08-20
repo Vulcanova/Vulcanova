@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@craftzdog/react-native-buffer": "^6.0.5",
+    "@react-native-async-storage/async-storage": "^1.19.2",
     "@react-navigation/bottom-tabs": "^6.5.8",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
@@ -45,6 +46,7 @@
     "react-native-typography": "^1.4.1",
     "react-native-url-polyfill": "^2.0.0",
     "react-native-vector-icons": "^10.0.0",
+    "react-query": "^3.39.3",
     "realm": "^12.0.0",
     "stream": "^0.0.2",
     "stream-browserify": "^3.0.0"

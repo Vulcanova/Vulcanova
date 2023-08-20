@@ -26,7 +26,7 @@ const GradesListSubject = ({subject}: GradesListSubjectProps) => {
             ))}
           </View>
         </View>
-        <View style={styles.chevronWrapper}>
+        <View>
           <Icon
             name="chevron-forward-outline"
             size={22}
@@ -55,10 +55,6 @@ const makeStyles = (theme: AppTheme) =>
       flexWrap: 'wrap',
       flexDirection: 'row',
       columnGap: 6,
-      rowGap: 2,
-    },
-    chevronWrapper: {
-      width: 30,
     },
     divider: {
       backgroundColor: theme.colors.border,

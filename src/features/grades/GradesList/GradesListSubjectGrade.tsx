@@ -1,9 +1,9 @@
-import {GradePayload} from 'common/uonet/api/grades/GradePayload';
 import Typography from 'common/components/Typography';
 import {useAppTheme} from 'common/ui/useAppTheme';
+import {Grade} from '../Grade.schema';
 
 export interface GradesListSubjectGradeProps {
-  grade: GradePayload;
+  grade: Grade;
 }
 
 const GradesListSubjectGrade = ({grade}: GradesListSubjectGradeProps) => {

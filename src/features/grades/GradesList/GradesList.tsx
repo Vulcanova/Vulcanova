@@ -1,11 +1,12 @@
-import {GradePayload} from 'common/uonet/api/grades/GradePayload';
 import {FlatList} from 'react-native';
 import {useMemo} from 'react';
 import {SubjectGrades} from './types';
 import GradesListSubject from './GradesListSubject';
+import {Grade} from '../Grade.schema';
+import {Realm} from '@realm/react';
 
 export interface GradesListProps {
-  grades: GradePayload[];
+  grades: Realm.Results<Grade>;
 }
 
 const GradesList = ({grades}: GradesListProps) => {

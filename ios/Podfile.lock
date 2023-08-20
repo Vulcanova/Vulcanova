@@ -508,6 +508,8 @@ PODS:
     - React-perflogger (= 0.72.4)
   - RealmJS (12.0.0):
     - React
+  - RNCAsyncStorage (1.19.2):
+    - React-Core
   - RNDeviceInfo (10.8.0):
     - React-Core
   - RNPermissions (3.8.0):
@@ -590,6 +592,7 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RealmJS (from `../node_modules/realm`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -704,6 +707,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RealmJS:
     :path: "../node_modules/realm"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNPermissions:
@@ -771,6 +776,7 @@ SPEC CHECKSUMS:
   React-utils: b79f2411931f9d3ea5781404dcbb2fa8a837e13a
   ReactCommon: 4b2bdcb50a3543e1c2b2849ad44533686610826d
   RealmJS: fd89f477b8469188d45243c85bad4e0936d74457
+  RNCAsyncStorage: f57e929cd7757f2cb3dd8186d123c09e8281a1ad
   RNDeviceInfo: 5795b418ed3451ebcaf39384e6cf51f60cb931c9
   RNPermissions: 06845210af313594dc3fe5e8ae6afc820d791409
   RNScreens: b21dc57dfa2b710c30ec600786a3fc223b1b92e7

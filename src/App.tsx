@@ -17,8 +17,8 @@ import QrPinScreen from './features/auth/qrScanning/QrPinScreen';
 import {AuthQrData} from './features/auth/qrScanning/qrHelper';
 import ManualSignInScreen from './features/auth/manualSignIn/ManualSignInScreen';
 import {AppRealmContext} from 'common/data/AppRealmContext';
-import {StudentProvider} from './features/auth/StudentContext';
 import TabsScreen from './features/TabsScreen';
+import {QueryClient, QueryClientProvider} from 'react-query';
 i18nInit();
 
 export type StackParamList = {
@@ -31,12 +31,14 @@ export type StackParamList = {
 
 const Stack = createNativeStackNavigator<StackParamList>();
 
+const queryClient = new QueryClient();
+
 function App(): ReactElement {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <AppRealmContext.RealmProvider>
-      <StudentProvider>
+    <QueryClientProvider client={queryClient}>
+      <AppRealmContext.RealmProvider>
         <NavigationContainer
           theme={isDarkMode ? defaultTheme.dark : defaultTheme.light}>
           <Stack.Navigator>
@@ -67,8 +69,8 @@ function App(): ReactElement {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </StudentProvider>
-    </AppRealmContext.RealmProvider>
+      </AppRealmContext.RealmProvider>
+    </QueryClientProvider>
   );
 }
 

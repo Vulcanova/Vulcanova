@@ -1,7 +1,7 @@
 import {Realm} from '@realm/react';
 
 export class Student extends Realm.Object<Student> {
-  id!: Realm.BSON.UUID;
+  id!: Realm.BSON.ObjectId;
   pupil!: Pupil;
   unit!: Unit;
   constituentUnit!: ConstituentUnit;
@@ -18,7 +18,7 @@ export class Student extends Realm.Object<Student> {
   static schema: Realm.ObjectSchema = {
     name: 'Student',
     properties: {
-      id: {type: 'uuid', default: () => new Realm.BSON.UUID()},
+      id: {type: 'objectId', default: () => new Realm.BSON.ObjectId()},
       pupil: 'Pupil',
       unit: 'Unit',
       constituentUnit: 'ConstituentUnit',
