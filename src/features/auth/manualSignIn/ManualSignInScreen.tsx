@@ -16,7 +16,7 @@ import {TabParamList} from '../../TabsScreen';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 
 type ManualSignInScreenProp = CompositeScreenProps<
-  StackScreenProps<StackParamList, 'Intro'>,
+  StackScreenProps<StackParamList, 'ManualSignInScreen'>,
   BottomTabScreenProps<TabParamList>
 >;
 

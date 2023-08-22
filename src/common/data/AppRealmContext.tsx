@@ -11,6 +11,7 @@ import {
 import {Account} from '../../features/auth/Account.schema';
 import {Column, Grade} from '../../features/grades/Grade.schema';
 import {Subject} from '../../features/shared/Subject.schema';
+import {FinalGradesEntry} from '../../features/grades/finalGrades/FinalGradesEntry.schema';
 
 export const AppRealmContext = createRealmContext({
   schema: [
@@ -25,6 +26,7 @@ export const AppRealmContext = createRealmContext({
     Grade,
     Column,
     Subject,
+    FinalGradesEntry,
   ],
   deleteRealmIfMigrationNeeded: true,
 });

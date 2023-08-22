@@ -22,5 +22,18 @@
   },
   "common": {
     "add": "Add"
+  },
+  "tabs": {
+    "grades": "Grades"
+  },
+  "gradesScreen": {
+    "tabs": {
+      "summary": "Partial grades",
+      "final": "Final grades"
+    },
+    "summaryScreen": {
+      "predictedGrade": "Predicted grade",
+      "finalGrade": "Final grade"
+    }
   }
 }

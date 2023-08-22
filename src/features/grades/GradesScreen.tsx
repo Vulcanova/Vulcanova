@@ -1,13 +1,30 @@
-import {View} from 'react-native';
-import GradesList from './GradesList/GradesList';
-import {useGrades} from './useGrades';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import GradesSummaryScreen from './GradesSummary/GradesSummaryScreen';
+import {useTranslation} from 'react-i18next';
+import FinalGradesScreen from './finalGrades/FinalGradesScreen';
+
+export type GradesTabParamList = {
+  GradesSummaryScreen: undefined;
+  FinalGradesScreen: undefined;
+};
+
+const GradesTab = createMaterialTopTabNavigator();
 
 const GradesScreen = () => {
-  const grades = useGrades();
+  const {t} = useTranslation('gradesScreen');
   return (
-    <View>
-      <GradesList grades={grades} />
-    </View>
+    <GradesTab.Navigator>
+      <GradesTab.Screen
+        name="GradesSummaryScreen"
+        component={GradesSummaryScreen}
+        options={{title: t('tabs.summary')}}
+      />
+      <GradesTab.Screen
+        name="FinalGradesScreen"
+        component={FinalGradesScreen}
+        options={{title: t('tabs.final')}}
+      />
+    </GradesTab.Navigator>
   );
 };
 

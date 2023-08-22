@@ -32,6 +32,7 @@ const GradesList = ({grades}: GradesListProps) => {
   return (
     <FlatList
       data={subjectsWithGrades}
+      keyExtractor={item => item.subjectId.toString()}
       renderItem={({item}) => <GradesListSubject subject={item} />}
     />
   );
