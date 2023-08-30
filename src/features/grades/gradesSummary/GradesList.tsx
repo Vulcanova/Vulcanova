@@ -11,7 +11,7 @@ export interface GradesListProps {
 
 const GradesList = ({grades}: GradesListProps) => {
   const subjectsWithGrades = useMemo(() => {
-    return grades.reduce((prev, curr) => {
+    const groups = grades.reduce((prev, curr) => {
       const existingGroup = prev.find(
         s => s.subjectId === curr.column.subject.id,
       );
@@ -27,6 +27,16 @@ const GradesList = ({grades}: GradesListProps) => {
         return [...prev, group];
       }
     }, [] as SubjectGrades[]);
+
+    return groups.sort((a, z) => {
+      if (a.subjectName < z.subjectName) {
+        return -1;
+      }
+      if (a.subjectName > z.subjectName) {
+        return 1;
+      }
+      return 0;
+    });
   }, [grades]);
 
   return (
