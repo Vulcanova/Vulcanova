@@ -1,8 +1,10 @@
 import {useFinalGrades} from './useFinalGrades';
 import FinalGradesList from './FinalGradesList';
+import {usePeriod} from '../PeriodContext';
 
 const FinalGradesScreen = () => {
-  const finalGrades = useFinalGrades();
+  const {activePeriodId} = usePeriod();
+  const finalGrades = useFinalGrades(activePeriodId);
 
   return <FinalGradesList finalGrades={finalGrades} />;
 };

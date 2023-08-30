@@ -12,7 +12,7 @@ import {GradesSummaryEntryPayload} from 'common/uonet/api/grades/GradesSummaryEn
 import {FinalGradesEntry} from './FinalGradesEntry.schema';
 import {useStudent} from '../../auth/StudentContext';
 
-const fetchFinalGrades = async (student: Student) => {
+const fetchFinalGrades = async (student: Student, periodId: number) => {
   const identities = await getIdentities();
   const studentClientIdentity = identities.find(
     i => getCertThumbprint(i.certificate) === student.identityThumbprint,
@@ -30,7 +30,7 @@ const fetchFinalGrades = async (student: Student) => {
     pupilId: student.pupil.id,
     pageSize: 500,
     lastId: (Math.pow(2, 32) / 2) * -1,
-    periodId: student.periods[0].id,
+    periodId: periodId,
   };
 
   const response = await apiClient.get<GradesSummaryEntryPayload[]>(
@@ -73,22 +73,21 @@ const persistFinalGrades = async (
   });
 };
 
-export const useFinalGrades = () => {
+export const useFinalGrades = (periodId: number) => {
   const {activeStudent} = useStudent();
   const realm = useRealm();
 
-  console.log('use!');
-
   const {data} = useSyncedResource(
     FinalGradesEntry,
-    ['finalGrades', activeStudent.id, activeStudent.pupil.id],
+    ['finalGrades', activeStudent.id, activeStudent.pupil.id, periodId],
     60,
-    async () => await fetchFinalGrades(activeStudent),
+    async () => await fetchFinalGrades(activeStudent, periodId),
     async grades => await persistFinalGrades(realm, activeStudent, grades),
   );
 
   return data.filtered(
-    'studentId = $0',
+    'studentId = $0 && periodId = $1',
     activeStudent?.id,
+    periodId,
   ) as unknown as Realm.Results<FinalGradesEntry>;
 };
