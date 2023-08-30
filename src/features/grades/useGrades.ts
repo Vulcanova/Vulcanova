@@ -12,7 +12,7 @@ import {getIdentities} from '../auth/clientIdentityStore';
 import {getCertThumbprint} from 'common/uonet/crypto/certHelper';
 import {requestSigner} from 'common/uonet/signing/requestSigner';
 
-const fetchGrades = async (student: Student) => {
+const fetchGrades = async (student: Student, periodId: number) => {
   const identities = await getIdentities();
   const studentClientIdentity = identities.find(
     i => getCertThumbprint(i.certificate) === student.identityThumbprint,
@@ -31,7 +31,7 @@ const fetchGrades = async (student: Student) => {
     pageSize: 500,
     lastId: (Math.pow(2, 32) / 2) * -1,
     lastSyncDate: new Date(0),
-    periodId: student.periods[0].id,
+    periodId,
   };
 
   const response = await apiClient.get<GradePayload[]>(
@@ -88,20 +88,21 @@ const persistGrades = async (
   });
 };
 
-export const useGrades = () => {
+export const useGrades = (periodId: number) => {
   const {activeStudent} = useStudent();
   const realm = useRealm();
 
   const {data} = useSyncedResource(
     Grade,
-    [activeStudent.id, activeStudent.pupil.id],
+    [activeStudent.id, activeStudent.pupil.id, periodId],
     15,
-    async () => await fetchGrades(activeStudent),
+    async () => await fetchGrades(activeStudent, periodId),
     async grades => await persistGrades(realm, activeStudent, grades),
   );
 
   return data.filtered(
-    'studentId = $0',
+    'studentId = $0 && column.periodId = $1',
     activeStudent?.id,
+    periodId,
   ) as unknown as Realm.Results<Grade>;
 };

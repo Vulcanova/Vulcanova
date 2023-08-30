@@ -4,7 +4,7 @@ import StudentAvatarButton from './auth/StudentAvatarButton';
 import {StudentProvider} from './auth/StudentContext';
 
 export type TabParamList = {
-  Grades: undefined;
+  Grades: {periodId?: number};
 };
 
 const Tab = createBottomTabNavigator<TabParamList>();
