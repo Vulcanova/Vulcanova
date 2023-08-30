@@ -64,7 +64,6 @@ const makeStyles = ({colors}: AppTheme) =>
   StyleSheet.create({
     root: {
       backgroundColor: colors.card,
-      borderRadius: 16,
       flexDirection: 'row',
       justifyContent: 'center',
     },
