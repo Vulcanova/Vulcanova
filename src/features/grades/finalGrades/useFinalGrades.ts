@@ -77,7 +77,7 @@ export const useFinalGrades = (periodId: number) => {
   const {activeStudent} = useStudent();
   const realm = useRealm();
 
-  const {data} = useSyncedResource(
+  const {data, isLoading, refetch} = useSyncedResource(
     FinalGradesEntry,
     ['finalGrades', activeStudent.id, activeStudent.pupil.id, periodId],
     60,
@@ -85,9 +85,13 @@ export const useFinalGrades = (periodId: number) => {
     async grades => await persistFinalGrades(realm, activeStudent, grades),
   );
 
-  return data.filtered(
-    'studentId = $0 && periodId = $1',
-    activeStudent?.id,
-    periodId,
-  ) as unknown as Realm.Results<FinalGradesEntry>;
+  return {
+    data: data.filtered(
+      'studentId = $0 && periodId = $1',
+      activeStudent?.id,
+      periodId,
+    ) as unknown as Realm.Results<FinalGradesEntry>,
+    isLoading,
+    refetch,
+  };
 };

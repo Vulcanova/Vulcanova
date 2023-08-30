@@ -4,9 +4,15 @@ import {usePeriod} from '../PeriodContext';
 
 const FinalGradesScreen = () => {
   const {activePeriodId} = usePeriod();
-  const finalGrades = useFinalGrades(activePeriodId);
+  const {data, isLoading, refetch} = useFinalGrades(activePeriodId);
 
-  return <FinalGradesList finalGrades={finalGrades} />;
+  return (
+    <FinalGradesList
+      finalGrades={data}
+      onRefresh={refetch}
+      isRefreshing={isLoading}
+    />
+  );
 };
 
 export default FinalGradesScreen;
