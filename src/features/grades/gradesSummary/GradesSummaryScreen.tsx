@@ -5,11 +5,11 @@ import {usePeriod} from '../PeriodContext';
 
 const GradesSummaryScreen = () => {
   const {activePeriodId} = usePeriod();
-  const grades = useGrades(activePeriodId);
+  const {data, refetch, isLoading} = useGrades(activePeriodId);
 
   return (
     <View>
-      <GradesList grades={grades} />
+      <GradesList grades={data} isRefreshing={isLoading} onRefresh={refetch} />
     </View>
   );
 };

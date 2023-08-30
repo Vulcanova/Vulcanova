@@ -1,4 +1,4 @@
-import {FlatList} from 'react-native';
+import {FlatList, RefreshControl} from 'react-native';
 import {useMemo} from 'react';
 import {SubjectGrades} from './types';
 import GradesListSubject from './GradesListSubject';
@@ -7,9 +7,11 @@ import {Realm} from '@realm/react';
 
 export interface GradesListProps {
   grades: Realm.Results<Grade>;
+  onRefresh(): void;
+  isRefreshing: boolean;
 }
 
-const GradesList = ({grades}: GradesListProps) => {
+const GradesList = ({grades, onRefresh, isRefreshing}: GradesListProps) => {
   const subjectsWithGrades = useMemo(() => {
     const groups = grades.reduce((prev, curr) => {
       const existingGroup = prev.find(
@@ -41,6 +43,9 @@ const GradesList = ({grades}: GradesListProps) => {
 
   return (
     <FlatList
+      refreshControl={
+        <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
+      }
       data={subjectsWithGrades}
       keyExtractor={item => item.subjectId.toString()}
       renderItem={({item}) => <GradesListSubject subject={item} />}

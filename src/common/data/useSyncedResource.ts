@@ -17,7 +17,7 @@ export const useSyncedResource = <
 ) => {
   const localData = useQuery(type) as unknown as Realm.Results<TSchema>;
 
-  const {isLoading} = useRemoteQuery(queryKey, fetchData, {
+  const {isLoading, refetch} = useRemoteQuery(queryKey, fetchData, {
     staleTime: offlineCacheLifespanMinutes * (60 * 1000),
     cacheTime: (offlineCacheLifespanMinutes + 1) * (60 * 1000),
     retry: false,
@@ -27,5 +27,5 @@ export const useSyncedResource = <
     },
   });
 
-  return {data: localData, isSyncing: isLoading};
+  return {data: localData, isLoading, refetch};
 };
