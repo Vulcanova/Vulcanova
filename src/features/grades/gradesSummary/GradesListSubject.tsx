@@ -5,7 +5,7 @@ import Typography from 'common/components/Typography';
 import GradesListSubjectGrade from './GradesListSubjectGrade';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppTheme} from 'common/ui/useAppTheme';
-import {AppTheme} from '../../../themes/types';
+import ListDivider from 'common/components/ListDivider';
 
 export interface GradesListSubjectProps {
   subject: SubjectGrades;
@@ -13,7 +13,6 @@ export interface GradesListSubjectProps {
 
 const GradesListSubject = ({subject}: GradesListSubjectProps) => {
   const theme = useAppTheme();
-  const styles = makeStyles(theme);
 
   return (
     <View>
@@ -34,33 +33,27 @@ const GradesListSubject = ({subject}: GradesListSubjectProps) => {
           />
         </View>
       </View>
-      <View style={styles.divider} />
+      <ListDivider />
     </View>
   );
 };
 
-const makeStyles = (theme: AppTheme) =>
-  StyleSheet.create({
-    contentWrapper: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      paddingVertical: 8,
-      paddingHorizontal: 16,
-    },
-    subjectWrapper: {
-      flexShrink: 1,
-    },
-    gradesWrapper: {
-      flexWrap: 'wrap',
-      flexDirection: 'row',
-      columnGap: 6,
-    },
-    divider: {
-      backgroundColor: theme.colors.border,
-      height: 1,
-      width: '100%',
-    },
-  });
+const styles = StyleSheet.create({
+  contentWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+  subjectWrapper: {
+    flexShrink: 1,
+  },
+  gradesWrapper: {
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    columnGap: 6,
+  },
+});
 
 export default GradesListSubject;

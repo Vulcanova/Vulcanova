@@ -3,6 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {useAppTheme} from 'common/ui/useAppTheme';
 import Typography from 'common/components/Typography';
 import {useTranslation} from 'react-i18next';
+import ListDivider from 'common/components/ListDivider';
 
 export interface FinalGradesListSubjectProps {
   finalGradesEntry: FinalGradesEntry;
@@ -35,6 +36,7 @@ const FinalGradesListSubject = ({
           </Typography>
         </View>
       </View>
+      <ListDivider />
     </View>
   );
 };
