@@ -10,7 +10,7 @@ export interface FinalGradesListProps {
 const FinalGradesList = ({finalGrades}: FinalGradesListProps) => {
   return (
     <FlatList
-      data={finalGrades}
+      data={finalGrades.sorted('subject.name')}
       keyExtractor={item => item.id}
       renderItem={({item}) => (
         <FinalGradesListSubject finalGradesEntry={item} />
