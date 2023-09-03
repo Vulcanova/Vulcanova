@@ -15,6 +15,7 @@ const Typography = ({
   color,
   style,
   onPress,
+  numberOfLines,
 }: TypographyProps) => {
   const theme = useTheme();
 
@@ -31,7 +32,8 @@ const Typography = ({
         },
         style,
       ]}
-      onPress={onPress}>
+      onPress={onPress}
+      numberOfLines={numberOfLines}>
       {children}
     </Text>
   );

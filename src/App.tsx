@@ -6,7 +6,7 @@
  */
 
 import React, {ReactElement} from 'react';
-import {useColorScheme} from 'react-native';
+import {StyleSheet, useColorScheme} from 'react-native';
 import {
   NavigationContainer,
   NavigatorScreenParams,
@@ -22,6 +22,8 @@ import ManualSignInScreen from './features/auth/manualSignIn/ManualSignInScreen'
 import {AppRealmContext} from 'common/data/AppRealmContext';
 import TabsScreen, {TabParamList} from './features/TabsScreen';
 import {QueryClient, QueryClientProvider} from 'react-query';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 i18nInit();
 
 export type StackParamList = {
@@ -40,41 +42,51 @@ function App(): ReactElement {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <AppRealmContext.RealmProvider>
-        <NavigationContainer
-          theme={isDarkMode ? defaultTheme.dark : defaultTheme.light}>
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Intro"
-              component={IntroScreen}
-              options={{headerTitle: '', headerTransparent: true}}
-            />
-            <Stack.Screen
-              name="QrScanner"
-              component={QrScannerScreen}
-              options={{headerTitle: '', headerTransparent: true}}
-            />
-            <Stack.Screen
-              name="QrPinScreen"
-              component={QrPinScreen}
-              options={{headerTitle: '', headerTransparent: true}}
-            />
-            <Stack.Screen
-              name="ManualSignInScreen"
-              component={ManualSignInScreen}
-              options={{headerTitle: '', headerTransparent: true}}
-            />
-            <Stack.Screen
-              name="Tabs"
-              component={TabsScreen}
-              options={{headerShown: false}}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </AppRealmContext.RealmProvider>
-    </QueryClientProvider>
+    <GestureHandlerRootView style={styles.gestureHandler}>
+      <QueryClientProvider client={queryClient}>
+        <AppRealmContext.RealmProvider>
+          <NavigationContainer
+            theme={isDarkMode ? defaultTheme.dark : defaultTheme.light}>
+            <BottomSheetModalProvider>
+              <Stack.Navigator>
+                <Stack.Screen
+                  name="Intro"
+                  component={IntroScreen}
+                  options={{headerTitle: '', headerTransparent: true}}
+                />
+                <Stack.Screen
+                  name="QrScanner"
+                  component={QrScannerScreen}
+                  options={{headerTitle: '', headerTransparent: true}}
+                />
+                <Stack.Screen
+                  name="QrPinScreen"
+                  component={QrPinScreen}
+                  options={{headerTitle: '', headerTransparent: true}}
+                />
+                <Stack.Screen
+                  name="ManualSignInScreen"
+                  component={ManualSignInScreen}
+                  options={{headerTitle: '', headerTransparent: true}}
+                />
+                <Stack.Screen
+                  name="Tabs"
+                  component={TabsScreen}
+                  options={{headerShown: false}}
+                />
+              </Stack.Navigator>
+            </BottomSheetModalProvider>
+          </NavigationContainer>
+        </AppRealmContext.RealmProvider>
+      </QueryClientProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  gestureHandler: {
+    flex: 1,
+  },
+});
 
 export default App;

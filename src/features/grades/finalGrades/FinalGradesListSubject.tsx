@@ -21,7 +21,7 @@ const FinalGradesListSubject = ({
         <Typography>{finalGradesEntry.subject.name}</Typography>
         <View style={styles.gradeRow}>
           <Typography variant="subhead">
-            {t('summaryScreen.predictedGrade')}
+            {t('finalGradesScreen.predictedGrade')}
           </Typography>
           <Typography variant="subhead">
             {finalGradesEntry.predictedGrade}
@@ -29,7 +29,7 @@ const FinalGradesListSubject = ({
         </View>
         <View style={styles.gradeRow}>
           <Typography variant="subhead" color={theme.colors.primary}>
-            {t('summaryScreen.finalGrade')}
+            {t('finalGradesScreen.finalGrade')}
           </Typography>
           <Typography variant="subhead" color={theme.colors.primary}>
             {finalGradesEntry.finalGrade}

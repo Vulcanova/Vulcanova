@@ -9,9 +9,15 @@ export interface GradesListProps {
   grades: Realm.Results<Grade>;
   onRefresh(): void;
   isRefreshing: boolean;
+  onSubjectGradesPress(subjectGrades: SubjectGrades): void;
 }
 
-const GradesList = ({grades, onRefresh, isRefreshing}: GradesListProps) => {
+const GradesList = ({
+  grades,
+  onRefresh,
+  isRefreshing,
+  onSubjectGradesPress,
+}: GradesListProps) => {
   const subjectsWithGrades = useMemo(() => {
     const groups = grades.reduce((prev, curr) => {
       const existingGroup = prev.find(
@@ -48,7 +54,12 @@ const GradesList = ({grades, onRefresh, isRefreshing}: GradesListProps) => {
       }
       data={subjectsWithGrades}
       keyExtractor={item => item.subjectId.toString()}
-      renderItem={({item}) => <GradesListSubject subject={item} />}
+      renderItem={({item}) => (
+        <GradesListSubject
+          subject={item}
+          onPress={() => onSubjectGradesPress(item)}
+        />
+      )}
     />
   );
 };

@@ -31,7 +31,12 @@
       "summary": "Partial grades",
       "final": "Final grades"
     },
-    "summaryScreen": {
+    "gradesSummaryScreen": {},
+    "subjectGradesDetails": {
+      "dateCreated": "created: {{- date}}",
+      "dateModified": "(modified: {{- date}})"
+    },
+    "finalGradesScreen": {
       "predictedGrade": "Predicted grade",
       "finalGrade": "Final grade"
     }
