@@ -24,6 +24,9 @@
     <data name="NoExamsLabel" xml:space="preserve">
         <value>Brak sprawdzianów w wybranym tygodniu</value>
     </data>
+    <data name="DashboardNoExamsLabel" xml:space="preserve">
+        <value>Brak sprawdzianów w tym tygodniu</value>
+    </data>
     <data name="SignInManuallyButton" xml:space="preserve">
         <value>Wpisz dane ręcznie</value>
     </data>
@@ -35,6 +38,9 @@
     </data>
     <data name="AddAccountSubheadingLabel" xml:space="preserve">
         <value>Zaloguj się do dziennika przez przeglądarkę, przejdź do zakładki "Dostęp mobilny", a następnie naciśnij przycisk "Wygeneruj kod dostępu"</value>
+    </data>
+    <data name="DashboardNoLessonsLabel" xml:space="preserve">
+        <value>Brak lekcji dzisiaj</value>
     </data>
     <data name="NoLessonsLabel" xml:space="preserve">
         <value>Brak lekcji w wybranym dniu</value>
@@ -67,7 +73,7 @@
         <value>(zmodyfikowano: {0:d})</value>
     </data>
     <data name="GradeEmptyNameLabel" xml:space="preserve">
-        <value>bez nazwy</value>
+        <value>Bez nazwy</value>
     </data>
     <data name="PartialGradesTabTitle" xml:space="preserve">
         <value>Oceny częściowe</value>
@@ -91,7 +97,10 @@
         <value>Żadne oceny końcowe nie zostały wpisane lub dziennik nie umożliwia przeglądania tych danych</value>
     </data>
     <data name="NoHomeworkLabel" xml:space="preserve">
-      <value>Brak prac domowych w wybranym tygodniu</value>
+        <value>Brak prac domowych w wybranym tygodniu</value>
+    </data>
+    <data name="DashboardNoHomeworkLabel" xml:space="preserve">
+        <value>Brak prac domowych w tym tygodniu</value>
     </data>
     <data name="TimetableTabTitle" xml:space="preserve">
         <value>Plan lekcji</value>
@@ -151,7 +160,7 @@
         <value>Wartość minusa</value>
     </data>
     <data name="HomeworkTabTitle" xml:space="preserve">
-      <value>Prace domowe</value>
+        <value>Prace domowe</value>
     </data>
     <data name="SettingsCustomValueLabel" xml:space="preserve">
         <value>Własna wartość</value>
