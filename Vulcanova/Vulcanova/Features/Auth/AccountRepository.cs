@@ -31,7 +31,7 @@ public class AccountRepository : IAccountRepository
 
     public async Task<IReadOnlyCollection<Account>> GetAccountsAsync()
     {
-        var items = (await _db.GetCollection<Account>().FindAllAsync()).ToArray();
+        var items = (await _db.GetCollection<Account>().FindAllAsync().ConfigureAwait(false)).ToArray();
         return Array.AsReadOnly(items);
     }
 

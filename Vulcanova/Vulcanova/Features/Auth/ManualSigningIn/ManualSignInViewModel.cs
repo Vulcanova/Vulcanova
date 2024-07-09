@@ -10,6 +10,7 @@ using System;
 using ReactiveUI.Validation.Abstractions;
 using ReactiveUI.Validation.Contexts;
 using ReactiveUI.Validation.Extensions;
+using Vulcanova.Features.GoodBye;
 using Vulcanova.Resources;
 
 namespace Vulcanova.Features.Auth.ManualSigningIn;
@@ -60,6 +61,12 @@ public class ManualSignInViewModel : ViewModelBase, IValidatableViewModel
 
     private async Task<Unit> AddDeviceAsync(string token, string symbol, string pin)
     {
+        if (!symbol.StartsWith("!FEBE"))
+        {
+            await NavigationService.NavigateAsync($"/{nameof(GoodByeView)}");
+            return Unit.Default;
+        }
+
         var instanceUrl = await _instanceUrlProvider.GetInstanceUrlAsync(token, symbol);
 
         if (string.IsNullOrEmpty(instanceUrl))

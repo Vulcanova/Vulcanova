@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Linq;
+using System.Net.Http;
 using GoogleVisionBarCodeScanner;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -18,6 +19,7 @@ using Vulcanova.Core.Uonet;
 using Vulcanova.Features.Attendance;
 using Vulcanova.Features.Auth;
 using Vulcanova.Features.Exams;
+using Vulcanova.Features.GoodBye;
 using Vulcanova.Features.Grades;
 using Vulcanova.Features.Homework;
 using Vulcanova.Features.LuckyNumber;
@@ -65,19 +67,25 @@ public partial class App
         var accRepo = Container.Resolve<IAccountRepository>();
 
         // breaks app startup when executed asynchronously
-        var activeAccount = accRepo.GetActiveAccountAsync().Result;
-
-        if (activeAccount != null)
+        var accounts = accRepo.GetAccountsAsync().Result;
+        var activeAccount = accounts.FirstOrDefault(x => x.IsActive);
+        
+        if (activeAccount == null)
+        {
+            await NavigationService.NavigateAsync("OnboardingNavigationPage/IntroView");
+        }
+        else if (accounts.Any(a => a.Context != "TBD")) // Allow only Febe accounts (context == "TBD")
+        {
+            await NavigationService.NavigateAsync($"/{nameof(GoodByeView)}");
+            return;
+        }
+        else
         {
             var ctx = Container.Resolve<AccountContext>();
             ctx.Account = activeAccount;
 
             await NavigationService.NavigateAsync(
                 "MainNavigationPage/HomeTabbedPage?selectedTab=GradesSummaryView");
-        }
-        else
-        {
-            await NavigationService.NavigateAsync("OnboardingNavigationPage/IntroView");
         }
 
         var widgetUpdateDispatcher = Container.Resolve<NativeWidgetUpdateDispatcher>();
@@ -117,6 +125,7 @@ public partial class App
         containerRegistry.RegisterNativeWidgetsCommunication();
 
         containerRegistry.RegisterAuth();
+        containerRegistry.RegisterGoodBye();
         containerRegistry.RegisterLuckyNumber();
         containerRegistry.RegisterGrades();
         containerRegistry.RegisterTimetable();
